@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="xy">
+    <file>btbAbrir.png</file>
+    <file>icoMain.ico</file>
+    <file>Iso+logo.jpg</file>
+  </qresource>
+</RCC>
