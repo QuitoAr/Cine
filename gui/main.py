@@ -13,6 +13,7 @@ from model.peliculas import EstaPelicula
 class MainWindow():
     def __init__(self):
         self.main = uic.loadUi('gui/main.ui')
+        self.seleccion_registro = False
         self.llenarComboDirectores()
         self.botones()
         self.main.show()
@@ -23,15 +24,19 @@ class MainWindow():
 
     def botones(self):
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
-        self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
+        self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
+        self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
+        self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.actionSalir.triggered.connect(self.on_actionSalir_triggered)
-        self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
 
     def on_btnCarpeta_clicked(self):
         ubicacion = self.main.txtCarpeta_Contenedora.text()
+        servidor = "\\\\Titular\\"
+        ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
+        print(ubicacion)
         if ubicacion:  # Si el campo input_ubicacion no está vacío
             if os.path.isdir(ubicacion):  # Si la ubicación es un directorio válido
                 os.startfile(ubicacion)  # Abre el directorio
@@ -40,6 +45,7 @@ class MainWindow():
                 QMessageBox.critical(None, "Error", message)
         else:  # Si el campo input_ubicacion está vacío
             directory = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
+            print(directory)
             self.main.txtCarpeta_Contenedora.setText(directory)
         
     def on_row_clicked(self, index):  # Fixed: Defined 'on_row_clicked' method
@@ -53,19 +59,30 @@ class MainWindow():
         self.main.txtFilmaffinity.setText(filmaffinity)
 
     def on_btnNuevo_clicked(self):
-        self.vaciarCampos()
-        self.on_btnNuevo_clicked()
+            self.vaciarCampos()
+            self.insertando()
+
         
     def on_btnEditar_clicked(self):
-        self.main.btnGuardar.setEnabled(True)
-        self.main.btnCancelar.setEnabled(True)
-        self.main.btnNuevo.setEnabled(False)
-        self.main.tblPeliculas.setEnabled(False)
-        self.main.btnEditar.setEnabled(False)
-        self.main.btnEliminar.setEnabled(False)
-        self.main.txtNombre.setEnabled(True)
-        self.main.txtFilmaffinity.setEnabled(True)
-        self.main.txtNombre.setFocus()
+        if not self.seleccion_registro:
+            QMessageBox.information(self.main, "Información", "No hay registros para editar")
+        else:
+            self.main.btnGuardar.setEnabled(True)
+            self.main.btnCancelar.setEnabled(True)
+            self.main.btnNuevo.setEnabled(False)
+            self.main.tblPeliculas.setEnabled(False)
+            self.main.btnEditar.setEnabled(False)
+            self.main.btnEliminar.setEnabled(False)
+            self.main.txtNombre.setEnabled(True)
+            self.main.txtCarpeta_Contenedora.setEnabled(True)
+            self.main.txtFilmaffinity.setEnabled(True)
+            self.main.txtNombre.setFocus()
+            
+    def on_btnCancelar_clicked(self):
+        self.vaciarCampos()
+        if self.seleccion_registro:
+            self.seleccion_registro = False
+            self.mirando()
 
     def on_btnEliminar_clicked(self):
         print("Botón Eliminar clickeado!")
@@ -133,7 +150,6 @@ class MainWindow():
         self.main.tblPeliculas.selectionModel().currentChanged.connect(self.on_row_clicked)
         self.main.tblPeliculas.setColumnWidth(0, 60)
         self.main.tblPeliculas.horizontalHeader().setSectionResizeMode(2, QHeaderView.Stretch)
-    
         # Ocultar todas las columnas excepto las de id_pelicula y nombre_film
         for i in range(model.columnCount()):
             if i not in [0, 2]:  # Asume que id_pelicula y nombre_film son las dos primeras columnas
@@ -145,6 +161,7 @@ class MainWindow():
         nombre_film = self.main.tblPeliculas.model().index(index.row(), 2).data()
         carpeta_contenedora = self.main.tblPeliculas.model().index(index.row(), 3).data()
         filmaffinity = self.main.tblPeliculas.model().index(index.row(), 4).data()
+        self.seleccion_registro = True
 
         # Establecer los datos en los campos de texto
         self.main.txtNombre.setText(nombre_film)
@@ -160,3 +177,26 @@ class MainWindow():
         self.main.txtNombre.setText("")
         self.main.txtCarpeta_Contenedora.setText("")
         self.main.txtFilmaffinity.setText("")
+        
+    def insertando(self):
+            self.main.btnGuardar.setEnabled(True)
+            self.main.btnCancelar.setEnabled(True)
+            self.main.btnNuevo.setEnabled(False)
+            self.main.tblPeliculas.setEnabled(False)
+            self.main.btnEditar.setEnabled(False)
+            self.main.btnEliminar.setEnabled(False)
+            self.main.txtNombre.setEnabled(True)
+            self.main.txtCarpeta_Contenedora.setEnabled(True)
+            self.main.txtFilmaffinity.setEnabled(True)
+            self.main.txtNombre.setFocus()
+            
+    def mirando(self):
+            self.main.btnGuardar.setEnabled(False)
+            self.main.btnCancelar.setEnabled(False)
+            self.main.btnNuevo.setEnabled(True)
+            self.main.tblPeliculas.setEnabled(True)
+            self.main.btnEditar.setEnabled(True)
+            self.main.btnEliminar.setEnabled(True)
+            self.main.txtNombre.setEnabled(False)
+            self.main.txtCarpeta_Contenedora.setEnabled(False)
+            self.main.txtFilmaffinity.setEnabled(False)
