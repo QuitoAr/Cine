@@ -49,6 +49,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>218</red>
+        <green>247</green>
+        <blue>166</blue>
+       </color>
+      </brush>
+     </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
@@ -100,8 +109,17 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>255</red>
-        <green>87</green>
-        <blue>51</blue>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -156,8 +174,17 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>255</red>
-        <green>87</green>
-        <blue>51</blue>
+        <green>255</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -783,7 +810,7 @@ border-radius: 6px;
    </widget>
    <widget class="QPushButton" name="btnEditar">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -811,12 +838,7 @@ border-radius: 6px;
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(218, 247, 166);
-gridline-color: rgb(0, 0, 0);
-background-color: rgb(255, 87, 51);
-border: 2px;
-border-radius: 6px;
-border-color: rgb(218, 247, 166);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Editar</string>
@@ -852,11 +874,7 @@ border-color: rgb(218, 247, 166);</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(218, 247, 166);
-background-color: rgb(255, 87, 51);
-border: 2px;
-border-radius: 6px;
-border-color: rgb(218, 247, 166);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Nuevo</string>
@@ -892,11 +910,7 @@ border-color: rgb(218, 247, 166);</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(218, 247, 166);
-background-color: rgb(255, 87, 51);
-border: 2px;
-border-radius: 6px;
-border-color: rgb(218, 247, 166);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Grabar</string>
@@ -932,11 +946,7 @@ border-color: rgb(218, 247, 166);</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(218, 247, 166);
-background-color: rgb(255, 87, 51);
-border: 2px;
-border-radius: 6px;
-border-color: rgb(218, 247, 166);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Cancelar</string>
@@ -972,11 +982,7 @@ border-color: rgb(218, 247, 166);</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(218, 247, 166);
-background-color: rgb(255, 87, 51);
-border: 2px;
-border-radius: 6px;
-border-color: rgb(218, 247, 166);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Eliminar</string>
