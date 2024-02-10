@@ -60,29 +60,22 @@ class MainWindow():
 
     def on_btnNuevo_clicked(self):
             self.vaciarCampos()
-            self.insertando()
-
+            self.habilitar_txts()
+            self.insertando_editando()
         
     def on_btnEditar_clicked(self):
         if not self.seleccion_registro:
-            QMessageBox.information(self.main, "Información", "No hay registros para editar")
+            QMessageBox.information(self.main, "Información", "No hay un film para editar!")
         else:
-            self.main.btnGuardar.setEnabled(True)
-            self.main.btnCancelar.setEnabled(True)
-            self.main.btnNuevo.setEnabled(False)
-            self.main.tblPeliculas.setEnabled(False)
-            self.main.btnEditar.setEnabled(False)
-            self.main.btnEliminar.setEnabled(False)
-            self.main.txtNombre.setEnabled(True)
-            self.main.txtCarpeta_Contenedora.setEnabled(True)
-            self.main.txtFilmaffinity.setEnabled(True)
-            self.main.txtNombre.setFocus()
+            self.insertando_editando()
+            self.habilitar_txts()
             
     def on_btnCancelar_clicked(self):
         self.vaciarCampos()
+        self.deshabilitar_txts()
+        self.mirando()
         if self.seleccion_registro:
-            self.seleccion_registro = False
-            self.mirando()
+            self.on_row_clicked(self.main.tblPeliculas.currentIndex())
 
     def on_btnEliminar_clicked(self):
         print("Botón Eliminar clickeado!")
@@ -177,26 +170,34 @@ class MainWindow():
         self.main.txtNombre.setText("")
         self.main.txtCarpeta_Contenedora.setText("")
         self.main.txtFilmaffinity.setText("")
-        
-    def insertando(self):
-            self.main.btnGuardar.setEnabled(True)
-            self.main.btnCancelar.setEnabled(True)
-            self.main.btnNuevo.setEnabled(False)
-            self.main.tblPeliculas.setEnabled(False)
-            self.main.btnEditar.setEnabled(False)
-            self.main.btnEliminar.setEnabled(False)
-            self.main.txtNombre.setEnabled(True)
-            self.main.txtCarpeta_Contenedora.setEnabled(True)
-            self.main.txtFilmaffinity.setEnabled(True)
-            self.main.txtNombre.setFocus()
             
+    def habilitar_txts(self):
+        self.main.txtNombre.setEnabled(True)
+        self.main.txtCarpeta_Contenedora.setEnabled(True)
+        self.main.txtFilmaffinity.setEnabled(True)
+            
+    def deshabilitar_txts(self):
+        self.main.txtNombre.setEnabled(False)
+        self.main.txtCarpeta_Contenedora.setEnabled(False)
+        self.main.txtFilmaffinity.setEnabled(False)
+
     def mirando(self):
-            self.main.btnGuardar.setEnabled(False)
-            self.main.btnCancelar.setEnabled(False)
-            self.main.btnNuevo.setEnabled(True)
-            self.main.tblPeliculas.setEnabled(True)
-            self.main.btnEditar.setEnabled(True)
-            self.main.btnEliminar.setEnabled(True)
-            self.main.txtNombre.setEnabled(False)
-            self.main.txtCarpeta_Contenedora.setEnabled(False)
-            self.main.txtFilmaffinity.setEnabled(False)
+        self.main.btnGuardar.setEnabled(False)
+        self.main.btnCancelar.setEnabled(False)
+        self.main.btnNuevo.setEnabled(True)
+        self.main.tblPeliculas.setEnabled(True)
+        self.main.btnEditar.setEnabled(True)
+        self.main.btnEliminar.setEnabled(True)
+        self.main.btnCarpeta.setEnabled(True)
+        self.main.btnInternet.setEnabled(True)
+            
+    def insertando_editando(self):
+        self.main.btnGuardar.setEnabled(True)
+        self.main.btnCancelar.setEnabled(True)
+        self.main.btnNuevo.setEnabled(False)
+        self.main.btnEditar.setEnabled(False)
+        self.main.btnEliminar.setEnabled(False)
+        self.main.tblPeliculas.setEnabled(False)
+        self.main.btnInternet.setEnabled(False)
+        self.main.btnCarpeta.setEnabled(False)
+        self.main.txtNombre.setFocus()
