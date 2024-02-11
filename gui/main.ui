@@ -52,9 +52,9 @@
      <colorrole role="Light">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>218</red>
-        <green>247</green>
-        <blue>166</blue>
+        <red>85</red>
+        <green>255</green>
+        <blue>127</blue>
        </color>
       </brush>
      </colorrole>
@@ -234,14 +234,16 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Catálogo de películas</string>
+   <string notr="true"/>
   </property>
   <property name="windowIcon">
    <iconset>
     <normaloff>../icoMain.ico</normaloff>../icoMain.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">border: 5px;
+border-radius: 20 px;
+border-color: yellow;</string>
   </property>
   <property name="iconSize">
    <size>
@@ -251,6 +253,9 @@
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="palette">
@@ -321,7 +326,7 @@
     <property name="geometry">
      <rect>
       <x>168</x>
-      <y>27</y>
+      <y>65</y>
       <width>341</width>
       <height>30</height>
      </rect>
@@ -334,6 +339,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Calibri</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -345,7 +351,7 @@
     <property name="geometry">
      <rect>
       <x>168</x>
-      <y>65</y>
+      <y>103</y>
       <width>551</width>
       <height>30</height>
      </rect>
@@ -358,6 +364,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Calibri</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -380,13 +387,14 @@ border-color: rgb(218, 247, 166);
     <property name="geometry">
      <rect>
       <x>207</x>
-      <y>102</y>
+      <y>140</y>
       <width>513</width>
       <height>30</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Calibri</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -406,7 +414,7 @@ border-color: rgb(218, 247, 166);
     <property name="geometry">
      <rect>
       <x>206</x>
-      <y>139</y>
+      <y>177</y>
       <width>514</width>
       <height>30</height>
      </rect>
@@ -419,11 +427,16 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="font">
      <font>
+      <family>Arial</family>
       <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
+font: 12pt &quot;Arial&quot;;
 border-color: rgb(218, 247, 166);
 </string>
     </property>
@@ -432,7 +445,7 @@ border-color: rgb(218, 247, 166);
     <property name="geometry">
      <rect>
       <x>164</x>
-      <y>100</y>
+      <y>138</y>
       <width>43</width>
       <height>36</height>
      </rect>
@@ -654,7 +667,7 @@ border-radius: 6px;
     <property name="geometry">
      <rect>
       <x>164</x>
-      <y>140</y>
+      <y>178</y>
       <width>38</width>
       <height>32</height>
      </rect>
@@ -701,7 +714,7 @@ border-radius: 6px;
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>29</y>
+      <y>67</y>
       <width>154</width>
       <height>142</height>
      </rect>
@@ -774,8 +787,8 @@ border-radius: 6px;
    <widget class="QTableView" name="tblPeliculas">
     <property name="geometry">
      <rect>
-      <x>62</x>
-      <y>227</y>
+      <x>66</x>
+      <y>255</y>
       <width>594</width>
       <height>305</height>
      </rect>
@@ -808,205 +821,408 @@ border-radius: 6px;
      <bool>false</bool>
     </attribute>
    </widget>
-   <widget class="QPushButton" name="btnEditar">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>72</x>
-      <y>185</y>
-      <width>106</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Editar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnNuevo">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>185</y>
-      <width>106</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Nuevo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnGuardar">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>308</x>
-      <y>185</y>
-      <width>106</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Grabar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCancelar">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>425</x>
-      <y>185</y>
-      <width>106</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Cancelar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnEliminar">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>185</y>
-      <width>106</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Eliminar</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
+   <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>212</y>
+      <y>0</y>
       <width>727</width>
-      <height>16</height>
+      <height>56</height>
      </rect>
     </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
+    <property name="minimumSize">
+     <size>
+      <width>727</width>
+      <height>0</height>
+     </size>
     </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+    <property name="maximumSize">
+     <size>
+      <width>727</width>
+      <height>16777215</height>
+     </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(199, 0, 57);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,1">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Heavy</family>
+         <pointsize>21</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(218, 247, 166);</string>
+       </property>
+       <property name="text">
+        <string>Catálogo de Películas</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="margin">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>368</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnMinimizar">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>___</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="P">
+       <property name="minimumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0px;
+border-radius: 15px;
+color-border: rgb(218, 247, 166);
+background-color:transparent;
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../cerrarventana.png</normaloff>../cerrarventana.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>218</y>
+      <width>728</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>16</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>31</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnEditar">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 87, 51);
+color: white;
+border: 2px;
+border-radius: 14px;
+border-color: rgb(0, 0, 0);
+
+
+QPushBottom hoover(color: black)
+
+</string>
+       </property>
+       <property name="text">
+        <string>Editar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnNuevo">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 87, 51);
+color: white;
+border: 2px;
+border-radius: 14px;
+border-color: rgb(0, 0, 0);
+color-hoover: black;
+</string>
+       </property>
+       <property name="text">
+        <string>Nuevo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnGuardar">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 87, 51);
+color: white;
+border: 2px;
+border-radius: 14px;
+border-color: rgb(0, 0, 0);
+color-hoover: black;
+</string>
+       </property>
+       <property name="text">
+        <string>Grabar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancelar">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 87, 51);
+color: white;
+border: 2px;
+border-radius: 14px;
+border-color: rgb(0, 0, 0);
+</string>
+       </property>
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnEliminar">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 87, 51);
+color: white;
+border: 2px;
+border-radius: 14px;
+border-color: rgb(0, 0, 0);
+</string>
+       </property>
+       <property name="text">
+        <string>Eliminar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>cbcDirectores</zorder>
    <zorder>txtNombre</zorder>
    <zorder>txtCarpeta_Contenedora</zorder>
@@ -1014,39 +1230,8 @@ border-radius: 6px;
    <zorder>btnInternet</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>tblPeliculas</zorder>
-   <zorder>btnEditar</zorder>
-   <zorder>btnNuevo</zorder>
-   <zorder>btnGuardar</zorder>
-   <zorder>btnCancelar</zorder>
-   <zorder>btnEliminar</zorder>
    <zorder>btnCarpeta</zorder>
-   <zorder>line</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>727</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFilms">
-    <property name="title">
-     <string>Films</string>
-    </property>
-    <addaction name="separator"/>
-    <addaction name="actionSalir"/>
-   </widget>
-   <widget class="QMenu" name="menuDirectores">
-    <property name="title">
-     <string>Directores</string>
-    </property>
-    <addaction name="actionAlta"/>
-    <addaction name="actionModificaci_n"/>
-   </widget>
-   <addaction name="menuFilms"/>
-   <addaction name="menuDirectores"/>
+   <zorder>frame</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">
@@ -1085,5 +1270,38 @@ border-radius: 6px;
  <resources>
   <include location="../imagenes.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>P</sender>
+   <signal>clicked()</signal>
+   <receiver>main</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>701</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnMinimizar</sender>
+   <signal>clicked()</signal>
+   <receiver>main</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>665</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

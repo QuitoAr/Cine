@@ -1,18 +1,22 @@
 from PyQt5 import uic
 from PyQt5 import QtCore
 from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtWidgets import QMessageBox, QHeaderView, QFileDialog
+from PyQt5.QtGui import *
+# from PyQt5.QtWidgets import QMessageBox, QHeaderView, QFileDialog
+from PyQt5.QtWidgets import *
 import os
 from data.directores import Directores
 from data.peliculas import Peliculas
 from model.peliculas import EstaPelicula
+from PyQt5.QtCore import Qt
+import sys
 
 ############# Clase MainWindow #############
 
 class MainWindow():
     def __init__(self):
         self.main = uic.loadUi('gui/main.ui')
+        self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.seleccion_registro = False
         self.llenarComboDirectores()
         self.botones()
