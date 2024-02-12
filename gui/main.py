@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import os
 from data.directores import Directores
-from data.peliculas import Peliculas
+from data.peliculas import Peliculas,EstaPeliculaData
 from model.peliculas import EstaPelicula
 from PyQt5.QtCore import Qt
 import sys
@@ -17,7 +17,7 @@ class MainWindow():
     def __init__(self):
         self.main = uic.loadUi('gui/main.ui')
         self.main.setWindowFlag(Qt.FramelessWindowHint)
-        self.seleccion_registro = False
+        self.id_pelicula_seleccionada = 0
         self.llenarComboDirectores()
         self.botones()
         self.main.show()
@@ -31,6 +31,7 @@ class MainWindow():
         self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
+        self.main.btnGuardar.clicked.connect(self.on_btnGuardar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
@@ -68,17 +69,38 @@ class MainWindow():
             self.insertando_editando()
         
     def on_btnEditar_clicked(self):
-        if not self.seleccion_registro:
-            QMessageBox.information(self.main, "Información", "No hay un film para editar!")
+        if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
+            QMessageBox.information(self.main, "Información", "No hay un film para editar.")
         else:
             self.insertando_editando()
             self.habilitar_txts()
+            
+    def on_btnGuardar_clicked(self):
+        # Obtener los datos de los campos de texto
+        id_film = self.id_pelicula_seleccionada
+        id_director = self.id_director_seleccionado
+        nombre_film = self.main.txtNombre.text()
+        carpeta_contenedora = self.main.txtCarpeta_Contenedora.text()
+        filmaffinity = self.main.txtFilmaffinity.text()
+        # Crear una nueva instancia de EstaPelicula pasando los datos al constructor
+        esta_pelicula = EstaPelicula(id_film, id_director, nombre_film, carpeta_contenedora, filmaffinity)
+        # Crear una nueva instancia de EstaPeliculaData
+        esta_peliculaData = EstaPeliculaData(esta_pelicula)
+        # Llamar al método insert_data de peliculaData pasando pelicula
+        # esta_peliculaData.insert_data(esta_pelicula)
+        # Actualizar la tabla de películas
+        self.llenarTablaPeliculas()
+        self.vaciarCampos()
+        self.deshabilitar_txts()
+        self.mirando()
+        # if self.id_pelicula_seleccionada == 0:
+            # self.on_row_clicked(self.main.tblPeliculas.currentIndex())
             
     def on_btnCancelar_clicked(self):
         self.vaciarCampos()
         self.deshabilitar_txts()
         self.mirando()
-        if self.seleccion_registro:
+        if self.id_pelicula_seleccionada == 0:
             self.on_row_clicked(self.main.tblPeliculas.currentIndex())
 
     def on_btnEliminar_clicked(self):
@@ -155,10 +177,10 @@ class MainWindow():
                 
     def on_row_clicked(self, index):
         # Obtener los datos de la fila seleccionada
+        self.id_pelicula_seleccionada = self.main.tblPeliculas.model().index(index.row(), 0).data()
         nombre_film = self.main.tblPeliculas.model().index(index.row(), 2).data()
         carpeta_contenedora = self.main.tblPeliculas.model().index(index.row(), 3).data()
         filmaffinity = self.main.tblPeliculas.model().index(index.row(), 4).data()
-        self.seleccion_registro = True
 
         # Establecer los datos en los campos de texto
         self.main.txtNombre.setText(nombre_film)
