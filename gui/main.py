@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import os
 from data.directores import Directores
-from data.peliculas import Peliculas,EstaPeliculaData
+from data.peliculas import Peliculas,EstaPeliculaData,EliminarPeliculaData
 from model.peliculas import EstaPelicula
 from PyQt5.QtCore import Qt
 import sys
@@ -39,10 +39,10 @@ class MainWindow():
 
     def on_btnCarpeta_clicked(self):
         ubicacion = self.main.txtCarpeta_Contenedora.text()
-        servidor = "\\\\Titular\\"
-        ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
-        print(ubicacion)
         if ubicacion:  # Si el campo input_ubicacion no está vacío
+            # servidor = "\\\\Titular\\"
+            # ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
+            print(ubicacion)
             if os.path.isdir(ubicacion):  # Si la ubicación es un directorio válido
                 os.startfile(ubicacion)  # Abre el directorio
             else:
@@ -64,13 +64,14 @@ class MainWindow():
         self.main.txtFilmaffinity.setText(filmaffinity)
 
     def on_btnNuevo_clicked(self):
-            self.vaciarCampos()
-            self.habilitar_txts()
-            self.insertando_editando()
+        self.id_pelicula_seleccionada = 0
+        self.vaciarCampos()
+        self.habilitar_txts()
+        self.insertando_editando()
         
     def on_btnEditar_clicked(self):
         if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
-            QMessageBox.information(self.main, "Información", "No hay un film para editar.")
+            QMessageBox.information(self.main, "Información", "Seleccione un film para editar.")
         else:
             self.insertando_editando()
             self.habilitar_txts()
@@ -104,7 +105,18 @@ class MainWindow():
             self.on_row_clicked(self.main.tblPeliculas.currentIndex())
 
     def on_btnEliminar_clicked(self):
-        print("Botón Eliminar clickeado!")
+        eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
+        if eliminar == QMessageBox.Yes:
+            # Crear una nueva instancia de EliminarPeliculaData pasando el id del film seleccionado
+            eliminar_peliculaData = EliminarPeliculaData(self.id_pelicula_seleccionada)
+            # Llamar al método delete_data de eliminar_peliculaData pasando el id del film seleccionado
+            # eliminar_peliculaData.delete_data(self.id_pelicula_seleccionada)
+            # Actualizar la tabla de películas
+        self.llenarTablaPeliculas()
+        self.vaciarCampos()
+        self.deshabilitar_txts()
+        self.mirando()
+        self.on_row_clicked(self.main.tblPeliculas.currentIndex())
     
     def on_btnInternet_clicked(self):
         # QMessageBox.information(self.main, "Información", "Botón Internet clickeado!")
@@ -137,7 +149,6 @@ class MainWindow():
         print(miregistro)
         self.vaciarCampos()
         self.llenarTablaPeliculas()
-        
         
     def llenarComboDirectores(self):
         directores = Directores()

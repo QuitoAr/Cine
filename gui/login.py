@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QMessageBox
 from data.usuario import UsuarioData
 from gui.main import MainWindow
 from model.usuario import Usuario
+import pyodbc
 
 class Login():
     def __init__(self):

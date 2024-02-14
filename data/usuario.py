@@ -1,10 +1,12 @@
 import conexion as con
 from model.usuario import Usuario
+import pyodbc
 
 class UsuarioData():
     
     def login(self, usuario:Usuario):
-       self.db = con.Conexion().conectar() 
+       self.db = con.Conexion().conectar()
+       print("Conexion exitosaen usuaruioDATA") 
        self.cursor = self.db.cursor()
        res = self.cursor.execute("SELECT * FROM usuarios WHERE usuario='{}' AND clave='{}'".format(usuario._usuario, usuario._clave))
        fila = res.fetchone()
