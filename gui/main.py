@@ -152,11 +152,14 @@ class MainWindow():
         
     def llenarComboDirectores(self):
         directores = Directores()
-        self.model = directores.getModel()
-        self.main.cbcDirectores.setModel(self.model)
-        self.main.cbcDirectores.setModelColumn(1)  # Mostrar solo la segunda columna
+        filas = directores.getFilas()
         self.main.cbcDirectores.insertItem(0, "-> Seleccionar una opción:")
-        self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed) 
+        for fila in filas:
+        # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
+            id_director, nombre_director = fila
+            self.main.cbcDirectores.addItem(nombre_director, id_director)
+        self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
+        
         
     ######### TablaPeliculas ########
     # 
