@@ -2,11 +2,10 @@ from PyQt5 import uic
 from PyQt5 import QtCore
 from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import *
-# from PyQt5.QtWidgets import QMessageBox, QHeaderView, QFileDialog
 from PyQt5.QtWidgets import *
 import os
 from data.directores import Directores
-from data.peliculas import Peliculas,EstaPeliculaData,EliminarPeliculaData
+from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData
 from model.peliculas import EstaPelicula
 from PyQt5.QtCore import Qt
 import sys
@@ -18,6 +17,7 @@ class MainWindow():
         self.main = uic.loadUi('gui/main.ui')
         self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.id_pelicula_seleccionada = 0
+        self.id_director_seleccionado = 0
         self.llenarComboDirectores()
         self.botones()
         self.main.show()
@@ -139,16 +139,9 @@ class MainWindow():
   #####################################
           
     def on_combobox_changed(self):
-        # Obtener el registro completo
-        selected_index = self.main.cbcDirectores.currentIndex()
-        # print(selected_index)
-        record = self.model.record(selected_index)
-        self.id_director_seleccionado = record.value(0)
-        self.second_column_value = record.value(1)
-        miregistro = [self.id_director_seleccionado, self.second_column_value]
-        print(miregistro)
-        self.vaciarCampos()
+        self.id_director_seleccionado = self.main.cbcDirectores.currentData()
         self.llenarTablaPeliculas()
+       
         
     def llenarComboDirectores(self):
         directores = Directores()
@@ -166,35 +159,20 @@ class MainWindow():
     #################################
         
     def llenarTablaPeliculas(self):
-        mi_id = self.id_director_seleccionado
-        print(f"Esto es mi mi_id {mi_id}")
         # Crear una nueva instancia de Peliculas pasando self.id_director_seleccionado al constructor
-        peliculas = Peliculas(mi_id)
+        peliculas = Peliculas(self.id_director_seleccionado)
+               # Obtener las filas
+        self.filas_peliculas = peliculas.getFilas()
         
-        # Obtener el modelo
-        model = peliculas.getModel()
         
-        # Establecer los nombres de las columnas que deseas mostrar
-        model.setHeaderData(0, QtCore.Qt.Horizontal, "Código")
-        model.setHeaderData(2, QtCore.Qt.Horizontal, "Nombre del film")
-        
-        # Llenar la tabla "tblPeliculas" con los datos del modelo
-        self.main.tblPeliculas.setModel(model)
-        self.main.tblPeliculas.selectionModel().currentChanged.connect(self.on_row_clicked)
-        self.main.tblPeliculas.setColumnWidth(0, 60)
-        self.main.tblPeliculas.horizontalHeader().setSectionResizeMode(2, QHeaderView.Stretch)
-        # Ocultar todas las columnas excepto las de id_pelicula y nombre_film
-        for i in range(model.columnCount()):
-            if i not in [0, 2]:  # Asume que id_pelicula y nombre_film son las dos primeras columnas
-                self.main.tblPeliculas.hideColumn(i)
                 
                 
-    def on_row_clicked(self, index):
+    def on_row_clicked(self, data):
         # Obtener los datos de la fila seleccionada
-        self.id_pelicula_seleccionada = self.main.tblPeliculas.model().index(index.row(), 0).data()
-        nombre_film = self.main.tblPeliculas.model().index(index.row(), 2).data()
-        carpeta_contenedora = self.main.tblPeliculas.model().index(index.row(), 3).data()
-        filmaffinity = self.main.tblPeliculas.model().index(index.row(), 4).data()
+        self.id_pelicula_seleccionada = self.main.tblPeliculas.model().index(data.row(), 0).data()
+        nombre_film = self.main.tblPeliculas.model().index(data.row(), 2).data()
+        carpeta_contenedora = self.main.tblPeliculas.model().index(data.row(), 3).data()
+        filmaffinity = self.main.tblPeliculas.model().index(data.row(), 4).data()
 
         # Establecer los datos en los campos de texto
         self.main.txtNombre.setText(nombre_film)

@@ -1,25 +1,21 @@
 from PyQt5.QtSql import QSqlQueryModel
 from PyQt5.QtSql import QSqlDatabase
 
+import conexion as con
 
 class Peliculas:
-    def __init__(self,id_director_seleccionado):
-        self.db = QSqlDatabase.addDatabase("QSQLITE")
-        self.db.setDatabaseName("cine.db")
-        self.db.open()
-        self.model = QSqlQueryModel()
-        self.load_data(id_director_seleccionado)
-        self.db.close()
-
-    def load_data(self,id_director_seleccionado):
-        query = f"SELECT * FROM peliculas WHERE id_director = {id_director_seleccionado}"
-        self.model.setQuery(query, self.db)
-        if self.model.lastError().isValid():
-            print(self.model.lastError().text())
+    def __init__(self, id_director_seleccionado):
+        self.db = con.Conexion().conectar()
+        self.cursor = self.db.cursor()
+        self.cursor.execute("SELECT * FROM peliculas WHERE id_film = {id_director_seleccionado}")
         
-
-    def getModel(self):
-        return self.model
+    def getFilas(self):
+        try:
+            filas = self.cursor.fetchall()
+        finally:
+            self.cursor.close()
+            self.db.close()
+        return filas
 
 class EstaPeliculaData:
     def __init__(self, esta_pelicula):
