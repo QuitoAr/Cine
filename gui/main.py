@@ -5,7 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import os
 from data.directores import Directores
-from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData
+from data.peliculas import Peliculas ,EstaPeliculaData, EliminarPeliculaData
 from model.peliculas import EstaPelicula
 from PyQt5.QtCore import Qt
 import sys
@@ -16,6 +16,7 @@ class MainWindow():
     def __init__(self):
         self.main = uic.loadUi('gui/main.ui')
         self.main.setWindowFlag(Qt.FramelessWindowHint)
+        self.ocultarColumnas()
         self.id_pelicula_seleccionada = 0
         self.id_director_seleccionado = 0
         self.llenarComboDirectores()
@@ -36,6 +37,7 @@ class MainWindow():
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.actionSalir.triggered.connect(self.on_actionSalir_triggered)
+        self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
     def on_btnCarpeta_clicked(self):
         ubicacion = self.main.txtCarpeta_Contenedora.text()
@@ -140,6 +142,7 @@ class MainWindow():
           
     def on_combobox_changed(self):
         self.id_director_seleccionado = self.main.cbcDirectores.currentData()
+        print(self.id_director_seleccionado)
         self.llenarTablaPeliculas()
        
         
@@ -154,30 +157,61 @@ class MainWindow():
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         
         
-    ######### TablaPeliculas ########
-    # 
-    #################################
-        
+    #####################################################
+    ################### TABLAS DE PELICULAS
+    #####################################################
+    
     def llenarTablaPeliculas(self):
         # Crear una nueva instancia de Peliculas pasando self.id_director_seleccionado al constructor
-        peliculas = Peliculas(self.id_director_seleccionado)
+        peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
                # Obtener las filas
-        self.filas_peliculas = peliculas.getFilas()
+        datos_peliculas = peliculas.getFilas_Peliculas()
+        if len(datos_peliculas) > 0:
+            self.main.tblPeliculas.setRowCount(len(datos_peliculas))
+            self.main.tblPeliculas.setColumnCount(len(datos_peliculas[0]))
+            # Llena el QTableWidget con los datos
+            for i, fila in enumerate(datos_peliculas):
+                for j, dato in enumerate(fila):
+                    item = QTableWidgetItem(str(dato))
+                    self.main.tblPeliculas.setItem(i, j, item)
+            
+        else:
+            self.main.tblPeliculas.setRowCount(0)
+            self.vaciarCampos()
         
-        
+    def ocultarColumnas(self):
+        self.main.tblPeliculas.hideColumn(1)  # Oculta la columna 1
+        self.main.tblPeliculas.hideColumn(4)  # Oculta la columna 2
+        self.main.tblPeliculas.hideColumn(5)  # Oculta la columna 2
                 
-                
-    def on_row_clicked(self, data):
-        # Obtener los datos de la fila seleccionada
-        self.id_pelicula_seleccionada = self.main.tblPeliculas.model().index(data.row(), 0).data()
-        nombre_film = self.main.tblPeliculas.model().index(data.row(), 2).data()
-        carpeta_contenedora = self.main.tblPeliculas.model().index(data.row(), 3).data()
-        filmaffinity = self.main.tblPeliculas.model().index(data.row(), 4).data()
+    def on_row_clicked(self):
+        fila = self.main.tblPeliculas.currentRow()
+        nombre = self.main.tblPeliculas.item(fila, 0).text()
+        carpeta_contenedora = self.main.tblPeliculas.item(fila, 1).text()
 
-        # Establecer los datos en los campos de texto
-        self.main.txtNombre.setText(nombre_film)
+        self.main.txtNombre.setText(nombre)
         self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
-        self.main.txtFilmaffinity.setText(filmaffinity)
+    # # etc.
+    #     # Obtener los datos de la fila seleccionada
+    #     items = self.main.tblPeliculas.selectedItems()
+    #     print(items)
+    #     if items:
+    #         items = self.main.tblPeliculas.selectedItems()
+    #     if items:
+    #         fila = [item.text() for item in items if item.row() == items[0].row()]
+    #         print(fila)
+    #         self.main.txtNombre.setText(fila[3])
+    #         self.main.txtCarpeta_Contenedora.setText(fila[4])
+    #     # etc.    
+    
+        # nombre_film = self.main.tblPeliculas.model().index(data.row(), 2).data()
+        # carpeta_contenedora = self.main.tblPeliculas.model().index(data.row(), 3).data()
+        # filmaffinity = self.main.tblPeliculas.model().index(data.row(), 4).data()
+
+        # # Establecer los datos en los campos de texto
+        # self.main.txtNombre.setText(nombre_film)
+        # self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
+        # self.main.txtFilmaffinity.setText(filmaffinity)
     
 
 ######### Campos y botones de main #########
