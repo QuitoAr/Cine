@@ -37,7 +37,6 @@ class MainWindow():
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.actionSalir.triggered.connect(self.on_actionSalir_triggered)
-        self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
     def on_btnCarpeta_clicked(self):
         ubicacion = self.main.txtCarpeta_Contenedora.text()
@@ -55,15 +54,6 @@ class MainWindow():
             print(directory)
             self.main.txtCarpeta_Contenedora.setText(directory)
         
-    def on_row_clicked(self, index):  # Fixed: Defined 'on_row_clicked' method
-        # Obtener los datos de la fila seleccionada
-        nombre_film = self.main.tblPeliculas.model().index(index.row(), 0).data()
-        carpeta_contenedora = self.main.tblPeliculas.model().index(index.row(), 1).data()
-        filmaffinity = self.main.tblPeliculas.model().index(index.row(), 2).data()
-        # Establecer los datos en los campos de texto
-        self.main.txtNombre.setText(nombre_film)
-        self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
-        self.main.txtFilmaffinity.setText(filmaffinity)
 
     def on_btnNuevo_clicked(self):
         self.id_pelicula_seleccionada = 0
@@ -166,7 +156,7 @@ class MainWindow():
         peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
                # Obtener las filas
         datos_peliculas = peliculas.getFilas_Peliculas()
-        if len(datos_peliculas) > 0:
+        if datos_peliculas:
             self.main.tblPeliculas.setRowCount(len(datos_peliculas))
             self.main.tblPeliculas.setColumnCount(len(datos_peliculas[0]))
             # Llena el QTableWidget con los datos
@@ -185,9 +175,16 @@ class MainWindow():
         self.main.tblPeliculas.hideColumn(5)  # Oculta la columna 2
                 
     def on_row_clicked(self):
-        fila = self.main.tblPeliculas.currentRow()
-        nombre = self.main.tblPeliculas.item(fila, 0).text()
-        carpeta_contenedora = self.main.tblPeliculas.item(fila, 1).text()
+        try:
+            fila = self.main.tblPeliculas.currentRow()
+        except:
+            fila = -1
+        if fila == -1:
+            fila = 0
+            self.vaciarCampos()
+        else:
+            nombre = self.main.tblPeliculas.item(fila, 0).text()
+            carpeta_contenedora = self.main.tblPeliculas.item(fila, 1).text()
 
         self.main.txtNombre.setText(nombre)
         self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
