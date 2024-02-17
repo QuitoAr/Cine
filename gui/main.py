@@ -20,6 +20,7 @@ class MainWindow():
         self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.ocultarColumnas()
         self.id_pelicula_seleccionada = 0
+        self.id_pelicula_old = 0
         self.id_director_seleccionado = 0
         self.llenarComboDirectores()
         self.botones()
@@ -31,8 +32,9 @@ class MainWindow():
 
     def botones(self):
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
-        # self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
-        self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
+        self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
+
+        # self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGuardar.clicked.connect(self.on_btnGuardar_clicked)
@@ -75,6 +77,7 @@ class MainWindow():
         else:
             self.insertando_editando()
             self.habilitar_txts()
+            # self.id_pelicula_old = self.id_pelicula_seleccionada
             
     def on_btnGuardar_clicked(self):
         id_film = self.id_pelicula_seleccionada
@@ -94,8 +97,8 @@ class MainWindow():
         self.vaciarCampos()
         self.deshabilitar_txts()
         self.mirando()
-        if self.id_pelicula_seleccionada == 0:
-            self.on_row_clicked()
+        # if self.id_pelicula_seleccionada == 0:
+        self.on_row_clicked()
 
     def on_btnEliminar_clicked(self):
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
@@ -133,7 +136,6 @@ class MainWindow():
           
     def on_combobox_changed(self):
         self.id_director_seleccionado = self.main.cbcDirectores.currentData()
-        print(self.id_director_seleccionado)
         self.llenarTablaPeliculas()
        
         
@@ -163,9 +165,8 @@ class MainWindow():
                 for j, dato in enumerate(fila):
                     item = QTableWidgetItem(str(dato))
                     self.main.tblPeliculas.setItem(i, j, item)
+            self.main.tblPeliculas.setEnabled(True)
             self.main.tblPeliculas.selectRow(0)
-            self.on_row_clicked()
-            self.main.tblPeliculas.setEnabled(True) 
         else:
             self.main.tblPeliculas.setRowCount(0)
             self.vaciarCampos()

@@ -3,3 +3,5 @@ gui/__pycache__/
 data/__pycache__/
 data/__pycache__/*.*
 gui/__pycache__/main.cpython-312.pyc
+data/__pycache__/peliculas.cpython-312.pyc
+gui/__pycache__/main.cpython-312.pyc
