@@ -8,7 +8,7 @@ class Peliculas:
         self.db = con.Conexion().conectar()
         self.cursor = self.db.cursor()
         try:
-            self.cursor.execute(f"SELECT * FROM peliculas WHERE id_director = {id_director_seleccionado}")
+            self.cursor.execute(f"SELECT * FROM peliculas WHERE id_director = {id_director_seleccionado} ORDER BY anio, nombre_film")
         except Exception as ex:
             print(ex)
     def getFilas_Peliculas(self):

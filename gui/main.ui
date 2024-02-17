@@ -169,7 +169,7 @@ border-color: yellow;</string>
    <widget class="QComboBox" name="cbcDirectores">
     <property name="geometry">
      <rect>
-      <x>168</x>
+      <x>221</x>
       <y>65</y>
       <width>341</width>
       <height>30</height>
@@ -194,9 +194,9 @@ border-color: yellow;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>168</x>
+      <x>221</x>
       <y>103</y>
-      <width>551</width>
+      <width>498</width>
       <height>30</height>
      </rect>
     </property>
@@ -224,15 +224,15 @@ border-color: rgb(218, 247, 166);
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txtCarpeta_Contenedora">
+   <widget class="QLineEdit" name="txtCarpeta">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>207</x>
+      <x>221</x>
       <y>140</y>
-      <width>513</width>
+      <width>498</width>
       <height>30</height>
      </rect>
     </property>
@@ -241,6 +241,9 @@ border-color: rgb(218, 247, 166);
       <family>Calibri</family>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
@@ -251,15 +254,15 @@ border-color: rgb(218, 247, 166);
      <set>Qt::ImhUrlCharactersOnly</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txtFilmaffinity">
+   <widget class="QLineEdit" name="txtInternet">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>206</x>
+      <x>221</x>
       <y>177</y>
-      <width>514</width>
+      <width>498</width>
       <height>30</height>
      </rect>
     </property>
@@ -288,7 +291,7 @@ border-color: rgb(218, 247, 166);
    <widget class="QPushButton" name="btnCarpeta">
     <property name="geometry">
      <rect>
-      <x>164</x>
+      <x>174</x>
       <y>138</y>
       <width>43</width>
       <height>36</height>
@@ -510,7 +513,7 @@ border-radius: 6px;
    <widget class="QPushButton" name="btnInternet">
     <property name="geometry">
      <rect>
-      <x>164</x>
+      <x>176</x>
       <y>178</y>
       <width>38</width>
       <height>32</height>
@@ -559,7 +562,7 @@ border-radius: 6px;
      <rect>
       <x>10</x>
       <y>67</y>
-      <width>154</width>
+      <width>161</width>
       <height>142</height>
      </rect>
     </property>
@@ -591,7 +594,7 @@ border-radius: 6px;
         </font>
        </property>
        <property name="text">
-        <string>Nombre del film:</string>
+        <string>Año y nombre del film:</string>
        </property>
       </widget>
      </item>
@@ -622,7 +625,7 @@ border-radius: 6px;
         </font>
        </property>
        <property name="text">
-        <string>Resumen Film Affinity:</string>
+        <string>FilmAffinity:</string>
        </property>
       </widget>
      </item>
@@ -758,8 +761,11 @@ border-radius: 6px;
          <height>30</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Salir</string>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: transparent;</string>
        </property>
        <property name="text">
         <string/>
@@ -770,8 +776,8 @@ border-radius: 6px;
        </property>
        <property name="iconSize">
         <size>
-         <width>25</width>
-         <height>25</height>
+         <width>27</width>
+         <height>27</height>
         </size>
        </property>
       </widget>
@@ -3237,10 +3243,10 @@ border-color: rgb(0, 0, 0);
    <widget class="QTableWidget" name="tblPeliculas">
     <property name="geometry">
      <rect>
-      <x>84</x>
+      <x>74</x>
       <y>265</y>
-      <width>571</width>
-      <height>299</height>
+      <width>581</width>
+      <height>300</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -3256,13 +3262,16 @@ border-color: rgb(0, 0, 0);
      </font>
     </property>
     <property name="editTriggers">
-     <set>QAbstractItemView::DoubleClicked|QAbstractItemView::SelectedClicked</set>
+     <set>QAbstractItemView::SelectedClicked</set>
     </property>
     <property name="alternatingRowColors">
      <bool>true</bool>
     </property>
     <property name="showGrid">
      <bool>false</bool>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>50</number>
@@ -3371,16 +3380,273 @@ border-color: rgb(0, 0, 0);
      </property>
     </column>
    </widget>
+   <widget class="QLineEdit" name="txtAnio">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>176</x>
+      <y>103</y>
+      <width>39</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(218, 247, 166);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDirector">
+    <property name="geometry">
+     <rect>
+      <x>176</x>
+      <y>62</y>
+      <width>43</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;
+border: 5px;
+border-radius: 6px;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../dire.png</normaloff>../dire.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>38</height>
+     </size>
+    </property>
+   </widget>
    <zorder>cbcDirectores</zorder>
    <zorder>txtNombre</zorder>
-   <zorder>txtCarpeta_Contenedora</zorder>
-   <zorder>txtFilmaffinity</zorder>
+   <zorder>txtCarpeta</zorder>
+   <zorder>txtInternet</zorder>
    <zorder>btnInternet</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>btnCarpeta</zorder>
    <zorder>frame</zorder>
    <zorder>frame_2</zorder>
    <zorder>tblPeliculas</zorder>
+   <zorder>txtAnio</zorder>
+   <zorder>btnDirector</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">

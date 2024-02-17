@@ -9,6 +9,8 @@ from data.peliculas import Peliculas ,EstaPeliculaData, EliminarPeliculaData
 from model.peliculas import EstaPelicula
 from PyQt5.QtCore import Qt
 import sys
+import socket
+
 
 ############# Clase MainWindow #############
 
@@ -29,6 +31,7 @@ class MainWindow():
 
     def botones(self):
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
+        # self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
         self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
@@ -37,18 +40,23 @@ class MainWindow():
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.actionSalir.triggered.connect(self.on_actionSalir_triggered)
+        self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
 
     def on_btnCarpeta_clicked(self):
-        ubicacion = self.main.txtCarpeta_Contenedora.text()
+        ubicacion = self.main.txtCarpeta.text()
         if ubicacion:  # Si el campo input_ubicacion no está vacío
-            # servidor = "\\\\Titular\\"
-            # ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
-            print(ubicacion)
+            nombre_host = socket.gethostname()
+            servidor = "\\\\Titular\\"
+            
+            if not nombre_host == servidor:
+                ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
+            
             if os.path.isdir(ubicacion):  # Si la ubicación es un directorio válido
                 os.startfile(ubicacion)  # Abre el directorio
             else:
                 message = "La ubicación especificada no es un directorio válido"
                 QMessageBox.critical(None, "Error", message)
+        
         else:  # Si el campo input_ubicacion está vacío
             directory = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
             print(directory)
@@ -63,38 +71,31 @@ class MainWindow():
         
     def on_btnEditar_clicked(self):
         if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
-            QMessageBox.information(self.main, "Información", "Seleccione un film para editar.")
+            QMessageBox.information(None, "Información", "Seleccione un film para editar.")
         else:
             self.insertando_editando()
             self.habilitar_txts()
             
     def on_btnGuardar_clicked(self):
-        # Obtener los datos de los campos de texto
         id_film = self.id_pelicula_seleccionada
         id_director = self.id_director_seleccionado
+        anio = self.txtAnio.text()
         nombre_film = self.main.txtNombre.text()
-        carpeta_contenedora = self.main.txtCarpeta_Contenedora.text()
-        filmaffinity = self.main.txtFilmaffinity.text()
-        # Crear una nueva instancia de EstaPelicula pasando los datos al constructor
-        esta_pelicula = EstaPelicula(id_film, id_director, nombre_film, carpeta_contenedora, filmaffinity)
-        # Crear una nueva instancia de EstaPeliculaData
+        carpeta = self.main.txtCarpeta_Contenedora.text()
+        internet = self.main.txtInternet.text()
+        esta_pelicula = EstaPelicula(id_film, id_director,anio, nombre_film, carpeta, internet)
         esta_peliculaData = EstaPeliculaData(esta_pelicula)
-        # Llamar al método insert_data de peliculaData pasando pelicula
-        # esta_peliculaData.insert_data(esta_pelicula)
-        # Actualizar la tabla de películas
         self.llenarTablaPeliculas()
         self.vaciarCampos()
         self.deshabilitar_txts()
         self.mirando()
-        # if self.id_pelicula_seleccionada == 0:
-            # self.on_row_clicked(self.main.tblPeliculas.currentIndex())
             
     def on_btnCancelar_clicked(self):
         self.vaciarCampos()
         self.deshabilitar_txts()
         self.mirando()
         if self.id_pelicula_seleccionada == 0:
-            self.on_row_clicked(self.main.tblPeliculas.currentIndex())
+            self.on_row_clicked()
 
     def on_btnEliminar_clicked(self):
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
@@ -144,7 +145,7 @@ class MainWindow():
         # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
             id_director, nombre_director = fila
             self.main.cbcDirectores.addItem(nombre_director, id_director)
-        self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
+        
         
         
     #####################################################
@@ -152,9 +153,7 @@ class MainWindow():
     #####################################################
     
     def llenarTablaPeliculas(self):
-        # Crear una nueva instancia de Peliculas pasando self.id_director_seleccionado al constructor
         peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
-               # Obtener las filas
         datos_peliculas = peliculas.getFilas_Peliculas()
         if datos_peliculas:
             self.main.tblPeliculas.setRowCount(len(datos_peliculas))
@@ -164,10 +163,13 @@ class MainWindow():
                 for j, dato in enumerate(fila):
                     item = QTableWidgetItem(str(dato))
                     self.main.tblPeliculas.setItem(i, j, item)
-            
+            self.main.tblPeliculas.selectRow(0)
+            self.on_row_clicked()
+            self.main.tblPeliculas.setEnabled(True) 
         else:
             self.main.tblPeliculas.setRowCount(0)
             self.vaciarCampos()
+            self.main.tblPeliculas.setEnabled(False)
         
     def ocultarColumnas(self):
         self.main.tblPeliculas.hideColumn(1)  # Oculta la columna 1
@@ -183,52 +185,34 @@ class MainWindow():
             fila = 0
             self.vaciarCampos()
         else:
-            nombre = self.main.tblPeliculas.item(fila, 0).text()
-            carpeta_contenedora = self.main.tblPeliculas.item(fila, 1).text()
-
-        self.main.txtNombre.setText(nombre)
-        self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
-    # # etc.
-    #     # Obtener los datos de la fila seleccionada
-    #     items = self.main.tblPeliculas.selectedItems()
-    #     print(items)
-    #     if items:
-    #         items = self.main.tblPeliculas.selectedItems()
-    #     if items:
-    #         fila = [item.text() for item in items if item.row() == items[0].row()]
-    #         print(fila)
-    #         self.main.txtNombre.setText(fila[3])
-    #         self.main.txtCarpeta_Contenedora.setText(fila[4])
-    #     # etc.    
-    
-        # nombre_film = self.main.tblPeliculas.model().index(data.row(), 2).data()
-        # carpeta_contenedora = self.main.tblPeliculas.model().index(data.row(), 3).data()
-        # filmaffinity = self.main.tblPeliculas.model().index(data.row(), 4).data()
-
-        # # Establecer los datos en los campos de texto
-        # self.main.txtNombre.setText(nombre_film)
-        # self.main.txtCarpeta_Contenedora.setText(carpeta_contenedora)
-        # self.main.txtFilmaffinity.setText(filmaffinity)
-    
+            self.id_pelicula_seleccionada = self.main.tblPeliculas.item(fila, 0).text()
+            self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
+            self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
+            self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
+            self.main.txtInternet.setText(self.main.tblPeliculas.item(fila, 5).text())
 
 ######### Campos y botones de main #########
 # Estos métodos se ejecutarán cada vez que el usuario haga clic en un botón
 #################################
 
     def vaciarCampos(self):
+        # self.id_pelicula_seleccionada = 0
         self.main.txtNombre.setText("")
-        self.main.txtCarpeta_Contenedora.setText("")
-        self.main.txtFilmaffinity.setText("")
+        self.main.txtAnio.setText("")
+        self.main.txtCarpeta.setText("")
+        self.main.txtInternet.setText("")
             
     def habilitar_txts(self):
         self.main.txtNombre.setEnabled(True)
-        self.main.txtCarpeta_Contenedora.setEnabled(True)
-        self.main.txtFilmaffinity.setEnabled(True)
+        self.main.txtAnio.setEnabled(True)
+        self.main.txtCarpeta.setEnabled(True)
+        self.main.txtInternet.setEnabled(True)
             
     def deshabilitar_txts(self):
+        self.main.txtAnio.setEnabled(False)
         self.main.txtNombre.setEnabled(False)
-        self.main.txtCarpeta_Contenedora.setEnabled(False)
-        self.main.txtFilmaffinity.setEnabled(False)
+        self.main.txtCarpeta.setEnabled(False)
+        self.main.txtInternet.setEnabled(False)
 
     def mirando(self):
         self.main.btnGuardar.setEnabled(False)
@@ -239,7 +223,7 @@ class MainWindow():
         self.main.btnEliminar.setEnabled(True)
         self.main.btnCarpeta.setEnabled(True)
         self.main.btnInternet.setEnabled(True)
-            
+        
     def insertando_editando(self):
         self.main.btnGuardar.setEnabled(True)
         self.main.btnCancelar.setEnabled(True)
@@ -249,4 +233,4 @@ class MainWindow():
         self.main.tblPeliculas.setEnabled(False)
         self.main.btnInternet.setEnabled(False)
         self.main.btnCarpeta.setEnabled(False)
-        self.main.txtNombre.setFocus()
+        self.main.txtAnio.setFocus()

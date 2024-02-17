@@ -1,6 +1,5 @@
 *__pycache__/*
-data/__pycache__/
 gui/__pycache__/
 data/__pycache__/
-gui/__pycache__/
-data/__pycache__/
+data/__pycache__/*.*
+gui/__pycache__/main.cpython-312.pyc
