@@ -76,11 +76,10 @@ class MainWindow():
         
     def on_btnEditar_clicked(self):
         if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
-            QMessageBox.information(None, "Información", "Seleccione un film para editar.")
+            QMessageBox.information(None, "Información", "No hay un film seleccionado para editar.")
         else:
             self.insertando_editando()
             self.habilitar_txts()
-            # self.id_pelicula_old = self.id_pelicula_seleccionada
             
     def on_btnGuardar_clicked(self):
         id_film = self.id_pelicula_seleccionada
@@ -93,7 +92,6 @@ class MainWindow():
         esta_peliculadata = EstaPeliculaData()
         esta_peliculadata.insert_data(esta_pelicula)            
         self.llenarTablaPeliculas()
-        print("Ultimo id:", self.id_pelicula_seleccionada)
         
         if self.id_pelicula_seleccionada == 0:
                 ultimo_id_film = UltimoIdFilm()
@@ -111,31 +109,29 @@ class MainWindow():
         self.vaciarCampos()
         self.deshabilitar_txts()
         self.mirando()
-        # if self.id_pelicula_seleccionada == 0:
         self.on_row_clicked()
 
     def on_btnEliminar_clicked(self):
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
         if eliminar == QMessageBox.Yes:
-            # Crear una nueva instancia de EliminarPeliculaData pasando el id del film seleccionado
-            eliminar_peliculaData = EliminarPeliculaData(self.id_pelicula_seleccionada)
-            # Llamar al método delete_data de eliminar_peliculaData pasando el id del film seleccionado
-            # eliminar_peliculaData.delete_data(self.id_pelicula_seleccionada)
-            # Actualizar la tabla de películas
+            eliminar_peliculaData = EliminarPeliculaData()
+            eliminar_peliculaData.delete_data(self.id_pelicula_seleccionada)    
         self.llenarTablaPeliculas()
-        self.vaciarCampos()
-        self.deshabilitar_txts()
-        self.mirando()
-        self.on_row_clicked(self.main.tblPeliculas.currentIndex())
+        registros = self.main.tblPeliculas.rowCount()
+        if registros > 0:
+            self.main.tblPeliculas.selectRow(0)
+        else:
+            self.vaciarCampos()
+            self.deshabilitar_txts()
+            self.mirando()
     
     def on_btnInternet_clicked(self):
-        # QMessageBox.information(self.main, "Información", "Botón Internet clickeado!")
-        url = self.main.txtFilmaffinity.text()
+        url = self.main.txtInternet.text()
         if not url == "":  # Si el campo no está vacío
             # Abrir la URL en el navegador
             QDesktopServices.openUrl(QUrl(url))
         else:  # Si el campo está vacío
-            QMessageBox.information(self.main, "Información", "No hay LINK para abrir.")            
+            QMessageBox.information(self.main, "Información", "No hay link para abrir.")            
 
         
   ######### Comobo Directores #########
@@ -152,7 +148,6 @@ class MainWindow():
     def llenarComboDirectores(self):
         directores = Directores()
         filas = directores.getFilas()
-        # self.main.cbcDirectores.insertItem(0, "-> Seleccionar una opción:")
         for fila in filas:
         # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
             id_director, nombre_director = fila

@@ -59,18 +59,18 @@ class UltimoIdFilm:
         return self.ultimo_id_film
 
 class EliminarPeliculaData:
-    def __init__(self, id_pelicula_seleccionada):
+    def __init__(self):
         pass
-    #     self.db = QSqlDatabase.addDatabase("QSQLITE")
-    #     self.db.setDatabaseName("cine.db")
-    #     self.db.open()
-    #     self.model = QSqlQueryModel()
-    #     self.delete_data(id_pelicula_seleccionada)
-    #     self.db.close()
+        self.db = con.Conexion().conectar()
+        self.cursor = self.db.cursor()    #     self.delete_data(id_pelicula_seleccionada)
 
-    # def delete_data(self,id_pelicula_seleccionada):
-    #     query = f"DELETE FROM peliculas WHERE id_film = {id_pelicula_seleccionada}"
-    #     self.model.setQuery(query, self.db)
-        
-    #     if self.model.lastError().isValid():
-    #         print(self.model.lastError().text())
+    def delete_data(self,id_pelicula_seleccionada):
+        query = f"DELETE FROM peliculas WHERE id_film = {id_pelicula_seleccionada}"
+        try:
+            self.cursor.execute(query)
+            self.db.commit()
+        except Exception as ex:
+            QMessageBox.critical(None, f"Error al eliminar registro. Error: {ex}")
+        finally:
+            self.cursor.close()
+            self.db.close()
