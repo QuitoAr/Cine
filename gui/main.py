@@ -1,15 +1,15 @@
 from PyQt5 import uic
 from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import os
-from data.directores import Directores
-from data.peliculas import Peliculas ,EstaPeliculaData, EliminarPeliculaData
-from model.peliculas import EstaPelicula
-from PyQt5.QtCore import Qt
-import sys
 import socket
+import os
+
+from data.directores import Directores
+from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
+from model.peliculas import EstaPelicula
 
 
 ############# Clase MainWindow #############
@@ -41,7 +41,6 @@ class MainWindow():
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
-        self.main.actionSalir.triggered.connect(self.on_actionSalir_triggered)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
 
     def on_btnCarpeta_clicked(self):
@@ -66,6 +65,10 @@ class MainWindow():
         
 
     def on_btnNuevo_clicked(self):
+        if self.id_director_seleccionado == 0:
+            QMessageBox.information(None, "Agregar un film", "Seleccione un director.")
+            return
+        self.id_pelicula_old = self.id_pelicula_seleccionada
         self.id_pelicula_seleccionada = 0
         self.vaciarCampos()
         self.habilitar_txts()
@@ -82,16 +85,27 @@ class MainWindow():
     def on_btnGuardar_clicked(self):
         id_film = self.id_pelicula_seleccionada
         id_director = self.id_director_seleccionado
-        anio = self.txtAnio.text()
+        anio = self.main.txtAnio.text()
         nombre_film = self.main.txtNombre.text()
-        carpeta = self.main.txtCarpeta_Contenedora.text()
+        carpeta = self.main.txtCarpeta.text()
         internet = self.main.txtInternet.text()
         esta_pelicula = EstaPelicula(id_film, id_director,anio, nombre_film, carpeta, internet)
-        esta_peliculaData = EstaPeliculaData(esta_pelicula)
+        esta_peliculadata = EstaPeliculaData()
+        esta_peliculadata.insert_data(esta_pelicula)            
         self.llenarTablaPeliculas()
-        self.vaciarCampos()
-        self.deshabilitar_txts()
-        self.mirando()
+        print("Ultimo id:", self.id_pelicula_seleccionada)
+        
+        if self.id_pelicula_seleccionada == 0:
+                ultimo_id_film = UltimoIdFilm()
+                self.id_pelicula_seleccionada = ultimo_id_film.get_ultimo_id_film()
+                
+        try:
+            fila = self.encontrar_fila_por_id(self.id_pelicula_seleccionada)
+            self.main.tblPeliculas.selectRow(fila)  
+            self.deshabilitar_txts()
+            self.mirando()
+        except Exception as ex:
+            print("Error al mostrar:", ex)
             
     def on_btnCancelar_clicked(self):
         self.vaciarCampos()
@@ -120,12 +134,8 @@ class MainWindow():
         if not url == "":  # Si el campo no está vacío
             # Abrir la URL en el navegador
             QDesktopServices.openUrl(QUrl(url))
-        
-    
-    def on_actionSalir_triggered(self):
-        self.main.close()
-        
-        
+        else:  # Si el campo está vacío
+            QMessageBox.information(self.main, "Información", "No hay LINK para abrir.")            
 
         
   ######### Comobo Directores #########
@@ -142,7 +152,7 @@ class MainWindow():
     def llenarComboDirectores(self):
         directores = Directores()
         filas = directores.getFilas()
-        self.main.cbcDirectores.insertItem(0, "-> Seleccionar una opción:")
+        # self.main.cbcDirectores.insertItem(0, "-> Seleccionar una opción:")
         for fila in filas:
         # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
             id_director, nombre_director = fila
@@ -171,6 +181,7 @@ class MainWindow():
             self.main.tblPeliculas.setRowCount(0)
             self.vaciarCampos()
             self.main.tblPeliculas.setEnabled(False)
+            self.id_pelicula_seleccionada = 0
         
     def ocultarColumnas(self):
         self.main.tblPeliculas.hideColumn(1)  # Oculta la columna 1
@@ -191,6 +202,12 @@ class MainWindow():
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
             self.main.txtInternet.setText(self.main.tblPeliculas.item(fila, 5).text())
+
+    def encontrar_fila_por_id(self, id_pelicula_seleccionada):
+        for i in range(self.main.tblPeliculas.rowCount()):
+            if self.main.tblPeliculas.item(i, 0).text() == id_pelicula_seleccionada:
+                return i
+        return -1  # Retorna -1 si no se encuentra el id
 
 ######### Campos y botones de main #########
 # Estos métodos se ejecutarán cada vez que el usuario haga clic en un botón

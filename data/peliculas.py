@@ -1,7 +1,5 @@
-from PyQt5.QtSql import QSqlQueryModel
-from PyQt5.QtSql import QSqlDatabase
-
 import conexion as con
+from PyQt5.QtWidgets import QMessageBox
 
 class Peliculas:
     def __init__(self, id_director_seleccionado):
@@ -10,7 +8,10 @@ class Peliculas:
         try:
             self.cursor.execute(f"SELECT * FROM peliculas WHERE id_director = {id_director_seleccionado} ORDER BY anio, nombre_film")
         except Exception as ex:
-            print(ex)
+            QMessageBox.critical(None, f"Error al leer la base de datos. Error: {ex}")
+            self.db.close()
+            self.cursor.close()
+    
     def getFilas_Peliculas(self):
         try:
             filas_peliculas = self.cursor.fetchall()
@@ -20,25 +21,42 @@ class Peliculas:
         return filas_peliculas
 
 class EstaPeliculaData:
-    pass
-    # def __init__(self, esta_pelicula):
-    #     self.db = QSqlDatabase.addDatabase("QSQLITE")
-    #     self.db.setDatabaseName("cine.db")
-    #     self.db.open()
-    #     self.model = QSqlQueryModel()
-    #     self.insert_data(esta_pelicula)
-    #     self.db.close()
+    def __init__(self):
+        self.db = con.Conexion().conectar()
+        self.cursor = self.db.cursor()
+        # self.insert_data(esta_pelicula)
 
-    # def insert_data(self,esta_pelicula):
-    #     if esta_pelicula.id_film == 0:
-    #         query = f"INSERT INTO peliculas (id_director, nombre_film, carpeta_contenedora, filmaffinity) VALUES ({esta_pelicula.id_director}, '{esta_pelicula.nombre_film}', '{esta_pelicula.carpeta_contenedora}', '{esta_pelicula.filmaffinity}')"
-    #     else:
-    #         query = f"UPDATE peliculas SET nombre_film = '{esta_pelicula.nombre_film}', carpeta_contenedora = '{esta_pelicula.carpeta_contenedora}', filmaffinity = '{esta_pelicula.filmaffinity}' WHERE id_film = {esta_pelicula.id_film}"
-    #     self.model.setQuery(query, self.db)
+    def insert_data(self, esta_pelicula):
+        if esta_pelicula.id_film == 0:
+            accion = "insertar"
+            query = f"INSERT INTO peliculas (id_director, anio, nombre_film, carpeta, internet) VALUES ({esta_pelicula.id_director}, '{esta_pelicula.anio}' ,'{esta_pelicula.nombre_film}', '{esta_pelicula.carpeta}', '{esta_pelicula.internet}')"
+        else:
+            accion = "actualizar"
+            query = f"UPDATE peliculas SET anio = '{esta_pelicula.anio}' ,nombre_film = '{esta_pelicula.nombre_film}', carpeta = '{esta_pelicula.carpeta}', internet = '{esta_pelicula.internet}' WHERE id_film = {esta_pelicula.id_film}"
+        try:
+            self.cursor.execute(query)
+            self.db.commit()
+        except Exception as ex:
+            QMessageBox.critical(None, f"Error al {accion} en la base de datos. Error: {ex}")        
         
-    #     if self.model.lastError().isValid():
-    #         print(self.model.lastError().text())
-        
+        self.cursor.close()
+        self.db.close()
+
+class UltimoIdFilm:
+    def __init__(self):
+        self.db = con.Conexion().conectar()
+        self.cursor = self.db.cursor()
+
+    def get_ultimo_id_film(self):
+        try:
+            self.cursor.execute("SELECT MAX(id_film) FROM peliculas")
+            self.ultimo_id_film = self.cursor.fetchone()[0]
+        except Exception as ex:
+            QMessageBox.critical(None, f"Error al leer la base de datos. Error: {ex}")
+        finally:
+            self.cursor.close()
+            self.db.close()
+        return self.ultimo_id_film
 
 class EliminarPeliculaData:
     def __init__(self, id_pelicula_seleccionada):

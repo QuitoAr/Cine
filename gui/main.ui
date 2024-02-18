@@ -3402,7 +3402,7 @@ border-color: rgb(0, 0, 0);
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
@@ -3680,7 +3680,22 @@ border-radius: 6px;
   </action>
  </widget>
  <tabstops>
+  <tabstop>txtAnio</tabstop>
+  <tabstop>txtNombre</tabstop>
+  <tabstop>txtCarpeta</tabstop>
+  <tabstop>txtInternet</tabstop>
+  <tabstop>btnInternet</tabstop>
+  <tabstop>btnMinimizar</tabstop>
+  <tabstop>P</tabstop>
+  <tabstop>btnEditar</tabstop>
+  <tabstop>btnNuevo</tabstop>
+  <tabstop>btnGuardar</tabstop>
+  <tabstop>btnCancelar</tabstop>
+  <tabstop>btnEliminar</tabstop>
+  <tabstop>tblPeliculas</tabstop>
   <tabstop>cbcDirectores</tabstop>
+  <tabstop>btnDirector</tabstop>
+  <tabstop>btnCarpeta</tabstop>
  </tabstops>
  <resources>
   <include location="../imagenes.qrc"/>
