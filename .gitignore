@@ -1,6 +1,2 @@
 gui/
 data/
-data/__pycache__/
-gui/__pycache__/
-data/__pycache__/peliculas.cpython-312.pyc
-gui/__pycache__/login.cpython-312.pyc
