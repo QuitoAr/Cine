@@ -32,7 +32,7 @@ class EstaPeliculaData:
             query = f"INSERT INTO peliculas (id_director, anio, nombre_film, carpeta, internet) VALUES ({esta_pelicula.id_director}, '{esta_pelicula.anio}' ,'{esta_pelicula.nombre_film}', '{esta_pelicula.carpeta}', '{esta_pelicula.internet}')"
         else:
             accion = "actualizar"
-            query = f"UPDATE peliculas SET anio = '{esta_pelicula.anio}' ,nombre_film = '{esta_pelicula.nombre_film}', carpeta = '{esta_pelicula.carpeta}', internet = '{esta_pelicula.internet}' WHERE id_film = {esta_pelicula.id_film}"
+            query = f"UPDATE peliculas SET anio = '{esta_pelicula.anio}' ,nombre_film = '{esta_pelicula.nombre_film.replace("'", "''")}', carpeta = '{esta_pelicula.carpeta}', internet = '{esta_pelicula.internet}' WHERE id_film = {esta_pelicula.id_film}"
         try:
             self.cursor.execute(query)
             self.db.commit()

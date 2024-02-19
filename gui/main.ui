@@ -3243,9 +3243,9 @@ border-color: rgb(0, 0, 0);
    <widget class="QTableWidget" name="tblPeliculas">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>17</x>
       <y>265</y>
-      <width>581</width>
+      <width>692</width>
       <height>300</height>
      </rect>
     </property>

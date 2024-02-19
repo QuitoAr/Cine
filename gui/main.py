@@ -94,22 +94,20 @@ class MainWindow():
         self.llenarTablaPeliculas()
         
         if self.id_pelicula_seleccionada == 0:
-                ultimo_id_film = UltimoIdFilm()
-                self.id_pelicula_seleccionada = ultimo_id_film.get_ultimo_id_film()
-                
+            ultimo_id_film = UltimoIdFilm()
+            self.id_pelicula_seleccionada = ultimo_id_film.get_ultimo_id_film()
         try:
             fila = self.encontrar_fila_por_id(self.id_pelicula_seleccionada)
-            self.main.tblPeliculas.selectRow(fila)  
+            self.main.tblPeliculas.selectRow(fila)
             self.deshabilitar_txts()
             self.mirando()
         except Exception as ex:
-            print("Error al mostrar:", ex)
+            print("Error:", ex)
             
     def on_btnCancelar_clicked(self):
-        self.vaciarCampos()
+        self.on_row_clicked()
         self.deshabilitar_txts()
         self.mirando()
-        self.on_row_clicked()
 
     def on_btnEliminar_clicked(self):
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
@@ -120,8 +118,6 @@ class MainWindow():
         registros = self.main.tblPeliculas.rowCount()
         if registros > 0:
             self.main.tblPeliculas.selectRow(0)
-        else:
-            self.vaciarCampos()
             self.deshabilitar_txts()
             self.mirando()
     
@@ -143,6 +139,9 @@ class MainWindow():
     def on_combobox_changed(self):
         self.id_director_seleccionado = self.main.cbcDirectores.currentData()
         self.llenarTablaPeliculas()
+        if self.main.tblPeliculas.rowCount() > 0:
+            self.main.tblPeliculas.selectRow(0)
+            self.on_row_clicked()
        
         
     def llenarComboDirectores(self):
@@ -163,6 +162,7 @@ class MainWindow():
         peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
         datos_peliculas = peliculas.getFilas_Peliculas()
         if datos_peliculas:
+            self.main.tblPeliculas.horizontalHeaderVisible = True
             self.main.tblPeliculas.setRowCount(len(datos_peliculas))
             self.main.tblPeliculas.setColumnCount(len(datos_peliculas[0]))
             # Llena el QTableWidget con los datos
@@ -171,8 +171,8 @@ class MainWindow():
                     item = QTableWidgetItem(str(dato))
                     self.main.tblPeliculas.setItem(i, j, item)
             self.main.tblPeliculas.setEnabled(True)
-            self.main.tblPeliculas.selectRow(0)
         else:
+            self.main.tblPeliculas.horizontalHeaderVisible = False
             self.main.tblPeliculas.setRowCount(0)
             self.vaciarCampos()
             self.main.tblPeliculas.setEnabled(False)
