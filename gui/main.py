@@ -109,7 +109,7 @@ class MainWindow():
         self.deshabilitar_txts()
         self.mirando()
 
-    def on_btnEliminar_clicked(self):
+    def on_btnEliminar_clicked(self): # Elimina un film y selecciona el primero de la lista
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
         if eliminar == QMessageBox.Yes:
             eliminar_peliculaData = EliminarPeliculaData()

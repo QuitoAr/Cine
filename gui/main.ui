@@ -3273,6 +3273,9 @@ border-color: rgb(0, 0, 0);
     <property name="sortingEnabled">
      <bool>true</bool>
     </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>true</bool>
+    </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>50</number>
     </attribute>
