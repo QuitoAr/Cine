@@ -3,7 +3,7 @@
  <class>win_directores</class>
  <widget class="QMainWindow" name="win_directores">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -14,7 +14,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Gestión de Directores</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../dire.png</normaloff>../dire.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">

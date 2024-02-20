@@ -1,22 +1,17 @@
-import pyodbc
 from PyQt5.QtWidgets import QMessageBox
+import pyodbc
 
 class Conexion():
     def __init__(self):
         try:
-            # msgBox = QMessageBox()
-            # msgBox.setText("Conectando con el servidor...")
-            # msgBox.setStandardButtons(QMessageBox.NoButton)
-            # msgBox.exec_()            
             server = 'titular' 
             database = 'Cine' 
             username = 'python' 
             password = 'cala9405' 
             self.con = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password+';Encrypt=no;Trusted_Connection=no;')
             # self.crearTablas()
-            # msgBox.close()
         except Exception as ex:
-            QMessageBox.critical(None, "Falló la conexión con el Servidor")
+            QMessageBox.information(None, "Falló la conexión con el Servidor")
             self.quit()
     
     def conectar(self):

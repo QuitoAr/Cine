@@ -32,6 +32,7 @@ class MainWindow():
 
     def botones(self):
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
+        self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
         # self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
@@ -43,13 +44,23 @@ class MainWindow():
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
 
+    def on_btnDirectores_clicked(self):
+        self.win_directores = uic.loadUi('gui/directores.ui')
+        self.win_directores.show()
+
+
     def on_btnCarpeta_clicked(self):
         ubicacion = self.main.txtCarpeta.text()
+        servidor = "\\\\Titular\\"
+        nombre_host = socket.gethostname()
+        
+        if nombre_host == servidor:
+            es_servidor = True
+        else:
+            es_servidor = False
+        
         if ubicacion:  # Si el campo input_ubicacion no está vacío
-            nombre_host = socket.gethostname()
-            servidor = "\\\\Titular\\"
-            
-            if not nombre_host == servidor:
+            if not es_servidor:
                 ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
             
             if os.path.isdir(ubicacion):  # Si la ubicación es un directorio válido
@@ -59,9 +70,14 @@ class MainWindow():
                 QMessageBox.critical(None, "Error", message)
         
         else:  # Si el campo input_ubicacion está vacío
+            self.insertando_editando()
             directory = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
-            print(directory)
-            self.main.txtCarpeta_Contenedora.setText(directory)
+            if not es_servidor:
+                directory = directory[10:]
+                directory = directory.replace("/", chr(92))
+                directory = directory[0] + ":" + directory[1:]
+            
+            self.main.txtCarpeta.setText(directory)
         
 
     def on_btnNuevo_clicked(self):
