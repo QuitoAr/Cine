@@ -26,16 +26,13 @@ class MainWindow():
         self.botones()
         self.main.show()
 
-############# Métodos de la clase MainWindow #############
-# Estos métodos se ejecutarán cada vez que el usuario haga clic en un botón
-###########################################################
+#######################################################################
+############# Métodos de la clase MainWindow ###########################
+#######################################################################
 
     def botones(self):
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
-        self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
-
-        # self.main.tblPeliculas.clicked.connect(self.on_row_clicked)
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGuardar.clicked.connect(self.on_btnGuardar_clicked)
@@ -43,6 +40,7 @@ class MainWindow():
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
+        self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
     def on_btnDirectores_clicked(self):
         self.win_directores = uic.loadUi('gui/directores.ui')
@@ -75,7 +73,7 @@ class MainWindow():
             if not es_servidor:
                 directory = directory[10:]
                 directory = directory.replace("/", chr(92))
-                directory = directory[0] + ":" + directory[1:]
+                directory = directory[0].upper() + ":" + directory[1:]
             
             self.main.txtCarpeta.setText(directory)
         
@@ -167,9 +165,7 @@ class MainWindow():
         # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
             id_director, nombre_director = fila
             self.main.cbcDirectores.addItem(nombre_director, id_director)
-        
-        
-        
+
     #####################################################
     ################### TABLAS DE PELICULAS
     #####################################################
@@ -252,6 +248,7 @@ class MainWindow():
         self.main.btnEliminar.setEnabled(True)
         self.main.btnCarpeta.setEnabled(True)
         self.main.btnInternet.setEnabled(True)
+        self.main.cboDirectores.setEnabled(True)
         
     def insertando_editando(self):
         self.main.btnGuardar.setEnabled(True)
@@ -262,4 +259,6 @@ class MainWindow():
         self.main.tblPeliculas.setEnabled(False)
         self.main.btnInternet.setEnabled(False)
         self.main.btnCarpeta.setEnabled(False)
+        self.main.cboDirectores.setEnabled(False)
         self.main.txtAnio.setFocus()
+        
