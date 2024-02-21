@@ -274,7 +274,7 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>Calibri</family>
       <pointsize>12</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -283,7 +283,6 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
-font: 12pt &quot;Arial&quot;;
 border-color: rgb(218, 247, 166);
 </string>
     </property>
