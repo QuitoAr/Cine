@@ -11,8 +11,8 @@ class Conexion():
             self.con = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password+';Encrypt=no;Trusted_Connection=no;')
             # self.crearTablas()
         except Exception as ex:
-            QMessageBox.information(None, "Falló la conexión con el Servidor")
-            self.quit()
+            QMessageBox.information(None, "Error", "Falló la conexión con el Servidor: {}".format(ex))
+            self.con = None
     
     def conectar(self):
         return self.con
