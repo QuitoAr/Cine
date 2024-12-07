@@ -6,8 +6,8 @@ class Conexion():
         try:
             server = 'titular' 
             database = 'Cine' 
-            username = 'python' 
-            password = 'cala9405' 
+            username = 'sa' 
+            password = '123' 
             self.con = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password+';Encrypt=no;Trusted_Connection=no;')
             # self.crearTablas()
         except Exception as ex:
