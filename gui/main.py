@@ -248,7 +248,7 @@ class MainWindow():
         self.main.btnEliminar.setEnabled(True)
         self.main.btnCarpeta.setEnabled(True)
         self.main.btnInternet.setEnabled(True)
-        self.main.cboDirectores.setEnabled(True)
+        self.main.cbcDirectores.setEnabled(True)
         
     def insertando_editando(self):
         self.main.btnGuardar.setEnabled(True)
@@ -259,6 +259,6 @@ class MainWindow():
         self.main.tblPeliculas.setEnabled(False)
         self.main.btnInternet.setEnabled(False)
         self.main.btnCarpeta.setEnabled(False)
-        self.main.cboDirectores.setEnabled(False)
+        self.main.cbcDirectores.setEnabled(False)
         self.main.txtAnio.setFocus()
         
