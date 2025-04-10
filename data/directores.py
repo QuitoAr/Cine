@@ -4,7 +4,7 @@ class Directores:
     def __init__(self):
         self.db = con.Conexion().conectar()
         self.cursor = self.db.cursor()
-        self.cursor.execute("SELECT * FROM directores")
+        self.cursor.execute("SELECT * FROM directores ORDER BY nombre_director")
         
     def getFilas(self):
         try:

@@ -1,5 +1,4 @@
-**/__pycache__/
-imagenes_rc.py
+**/__pycache__/**
 imagenes_rc.py
 __pycache__/cine.cpython-312.pyc
 model/__pycache__/peliculas.cpython-312.pyc
@@ -8,3 +7,5 @@ model/__pycache__/usuario.cpython-312.pyc
 imagenes_rc.py
 gui/__pycache__/login.cpython-312.pyc
 gui/__pycache__/main.cpython-312.pyc
+__pycache__/cine.cpython-312.pyc
+__pycache__/cine.cpython-312.pyc

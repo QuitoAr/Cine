@@ -10,6 +10,7 @@ import os
 from data.directores import Directores
 from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
 from model.peliculas import EstaPelicula
+from gui.directores import DirectorsWindow  # Importá la clase, no uic
 
 
 ############# Clase MainWindow #############
@@ -42,8 +43,10 @@ class MainWindow():
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
+
+
     def on_btnDirectores_clicked(self):
-        self.win_directores = uic.loadUi('gui/directores.ui')
+        self.win_directores = DirectorsWindow(self.id_director_seleccionado)
         self.win_directores.show()
 
 

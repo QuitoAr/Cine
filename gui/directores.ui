@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>532</width>
-    <height>312</height>
+    <width>465</width>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,13 +20,63 @@
    <iconset>
     <normaloff>../dire.png</normaloff>../dire.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>441</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="nombreCineasta"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="wikiDirector">
+       <property name="placeholderText">
+        <string extracomment="Sitio"/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="actionInternet">
+       <property name="text">
+        <string>Internet</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Nombre director</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="labelId_Director">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>532</width>
+     <width>465</width>
      <height>21</height>
     </rect>
    </property>
@@ -35,13 +85,9 @@
      <string>Archivo</string>
     </property>
     <addaction name="actionNuevo"/>
-    <addaction name="actionModificar"/>
-    <addaction name="actionCancelar"/>
     <addaction name="actionEliminar"/>
     <addaction name="separator"/>
-    <addaction name="actionBuscar"/>
     <addaction name="separator"/>
-    <addaction name="actionSalir"/>
    </widget>
    <addaction name="menuArchivo"/>
   </widget>
@@ -74,6 +120,11 @@
   <action name="actionSalir">
    <property name="text">
     <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionModificar_2">
+   <property name="text">
+    <string>Modificar</string>
    </property>
   </action>
  </widget>
