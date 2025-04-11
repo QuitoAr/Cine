@@ -6,6 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import socket
 import os
+from PyQt5.QtWidgets import QDialog
 
 from data.directores import Directores
 from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
@@ -36,7 +37,7 @@ class MainWindow():
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
         self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
-        self.main.btnGuardar.clicked.connect(self.on_btnGuardar_clicked)
+        self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
@@ -46,8 +47,21 @@ class MainWindow():
 
 
     def on_btnDirectores_clicked(self):
-        self.win_directores = DirectorsWindow(self.id_director_seleccionado)
-        self.win_directores.show()
+        id_director = self.id_director_seleccionado or 0
+        dialogo = DirectorsWindow(id_director)
+        resultado = dialogo.exec_()
+
+        if resultado == QDialog.Accepted:
+            nuevo_id = dialogo.id_director
+            if nuevo_id == 0:
+                # Director eliminado, podrías limpiar o seleccionar otro
+                self.main.cbcDirectores.setCurrentIndex(-1)
+            else:
+                # Buscar el índice del director actualizado o nuevo y seleccionarlo
+                index = self.main.cbcDirectores.findData(nuevo_id)
+                if index != -1:
+                    self.main.cbcDirectores.setCurrentIndex(index)
+
 
 
     def on_btnCarpeta_clicked(self):
@@ -98,7 +112,7 @@ class MainWindow():
             self.insertando_editando()
             self.habilitar_txts()
             
-    def on_btnGuardar_clicked(self):
+    def on_btnGrabar_clicked(self):
         id_film = self.id_pelicula_seleccionada
         id_director = self.id_director_seleccionado
         anio = self.main.txtAnio.text()
@@ -243,7 +257,7 @@ class MainWindow():
         self.main.txtInternet.setEnabled(False)
 
     def mirando(self):
-        self.main.btnGuardar.setEnabled(False)
+        self.main.btnGrabar.setEnabled(False)
         self.main.btnCancelar.setEnabled(False)
         self.main.btnNuevo.setEnabled(True)
         self.main.tblPeliculas.setEnabled(True)
@@ -254,7 +268,7 @@ class MainWindow():
         self.main.cbcDirectores.setEnabled(True)
         
     def insertando_editando(self):
-        self.main.btnGuardar.setEnabled(True)
+        self.main.btnGrabar.setEnabled(True)
         self.main.btnCancelar.setEnabled(True)
         self.main.btnNuevo.setEnabled(False)
         self.main.btnEditar.setEnabled(False)

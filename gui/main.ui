@@ -1786,7 +1786,7 @@ border-color: rgb(0, 0, 0);
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnGuardar">
+      <widget class="QPushButton" name="btnGrabar">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -3691,7 +3691,7 @@ border-radius: 6px;
   <tabstop>P</tabstop>
   <tabstop>btnEditar</tabstop>
   <tabstop>btnNuevo</tabstop>
-  <tabstop>btnGuardar</tabstop>
+  <tabstop>btnGrabar</tabstop>
   <tabstop>btnCancelar</tabstop>
   <tabstop>btnEliminar</tabstop>
   <tabstop>tblPeliculas</tabstop>
