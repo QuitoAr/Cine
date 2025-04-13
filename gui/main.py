@@ -48,19 +48,28 @@ class MainWindow():
 
     def on_btnDirectores_clicked(self):
         id_director = self.id_director_seleccionado or 0
-        dialogo = DirectorsWindow(id_director)
+        dialogo = DirectorsWindow(id_director, parent=self.main, main_window=self)
+
         resultado = dialogo.exec_()
 
-        if resultado == QDialog.Accepted:
+        if resultado == QDialog.Accepted and dialogo.cambios:
             nuevo_id = dialogo.id_director
-            if nuevo_id == 0:
-                # Director eliminado, podrías limpiar o seleccionar otro
-                self.main.cbcDirectores.setCurrentIndex(-1)
-            else:
-                # Buscar el índice del director actualizado o nuevo y seleccionarlo
+
+            self.llenarComboDirectores()  # Siempre refrescamos el combo desde la base
+
+            if nuevo_id != 0:
+                # Se creó uno nuevo o se modificó el mismo director
                 index = self.main.cbcDirectores.findData(nuevo_id)
-                if index != -1:
+                if index >= 0:
                     self.main.cbcDirectores.setCurrentIndex(index)
+            else:
+                # Se eliminó el director actual
+                if self.main.cbcDirectores.count() > 0:
+                    self.main.cbcDirectores.setCurrentIndex(0)  # Seleccionamos el primero disponible
+                else:
+                    self.id_director_seleccionado = 0
+                    self.main.tblPeliculas.setRowCount(0)
+
 
 
 
@@ -176,12 +185,19 @@ class MainWindow():
        
         
     def llenarComboDirectores(self):
+        self.main.cbcDirectores.clear()
         directores = Directores()
         filas = directores.getFilas()
-        for fila in filas:
-        # Asumiendo que cada fila es una tupla donde el primer elemento es el id y el segundo es el nombre
-            id_director, nombre_director = fila
+        
+        for id_director, nombre_director in filas:
             self.main.cbcDirectores.addItem(nombre_director, id_director)
+
+        if self.main.cbcDirectores.count() > 0:
+            self.main.cbcDirectores.setCurrentIndex(0)  # Esto dispara on_combobox_changed automáticamente
+        else:
+            self.id_director_seleccionado = 0
+            self.main.tblPeliculas.setRowCount(0)
+
 
     #####################################################
     ################### TABLAS DE PELICULAS
@@ -278,4 +294,51 @@ class MainWindow():
         self.main.btnCarpeta.setEnabled(False)
         self.main.cbcDirectores.setEnabled(False)
         self.main.txtAnio.setFocus()
+
+    def actualizarComboDirectores(self):
+        """Rellena el ComboBox de directores desde la base de datos."""
+        self.main.cbcDirectores.clear()
+        directores = Directores()
+        filas = directores.getFilas()
+        for id_dir, nombre_dir in filas:
+            self.main.cbcDirectores.addItem(nombre_dir, id_dir)
+
+
+    def seleccionarDirectorEnCombo(self, id_director):
+        """Selecciona en el combo el director por ID."""
+        index = self.main.cbcDirectores.findData(id_director)
+        if index != -1:
+            self.main.cbcDirectores.setCurrentIndex(index)
+        else:
+            self.main.cbcDirectores.setCurrentIndex(-1)
         
+    def actualizarComboDirectores(self):
+        """Rellena el ComboBox con los directores actuales desde la base."""
+        self.main.cbcDirectores.blockSignals(True)  # Evita que se dispare el cambio de índice
+        self.main.cbcDirectores.clear()
+        directores = Directores()
+        filas = directores.getFilas()
+        for id_dir, nombre_dir in filas:
+            self.main.cbcDirectores.addItem(nombre_dir, id_dir)
+        self.main.cbcDirectores.blockSignals(False)
+
+
+
+    def setearDirectorActivo(self, id_director):
+        """Selecciona un director por ID y actualiza la vista de películas."""
+        index = self.main.cbcDirectores.findData(id_director)
+        if index != -1:
+            self.main.cbcDirectores.setCurrentIndex(index)
+        else:
+            self.main.cbcDirectores.setCurrentIndex(-1)
+
+        self.id_director_seleccionado = id_director
+        self.llenarTablaPeliculas()
+        if self.main.tblPeliculas.rowCount() > 0:
+            self.main.tblPeliculas.selectRow(0)
+            self.on_row_clicked()
+
+    def obtenerIdDirectorActual(self):
+        if self.main.cbcDirectores.count() == 0:
+            return 0
+        return self.main.cbcDirectores.itemData(0)  # Selecciona el primer item si queda alguno

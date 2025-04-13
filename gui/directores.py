@@ -5,16 +5,19 @@ import webbrowser
 
 
 class DirectorsWindow(QDialog):
-    def __init__(self, id_director, parent=None):
+    def __init__(self, id_director=0, parent=None, main_window=None):
         super().__init__(parent)
         uic.loadUi("gui/directores.ui", self)
         self.id_director = id_director
+        self.main_window = main_window
+        self.cambios = False
         self.original_nombre = ""
         self.original_wiki = ""
 
         self.btnGrabar.clicked.connect(self.guardar)
         self.btnEliminar.clicked.connect(self.eliminar)
         self.btnCancelar.clicked.connect(self.reject)
+        self.btnNuevo.clicked.connect(self.nuevo_director)
 
         self.nombreCineasta.textChanged.connect(self.detectar_cambios)
         self.wikiDirector.textChanged.connect(self.detectar_cambios)
@@ -60,30 +63,36 @@ class DirectorsWindow(QDialog):
             QMessageBox.warning(self, "Advertencia", "El nombre del director no puede estar vacío.")
             return
 
-        if self.id_director == 0:
+        if self.id_director == 0:  # Es nuevo
             nuevo = Director(0)
-            self.id_director = nuevo.crear_director(nombre, wiki)
-        else:
+            nuevo_id = nuevo.crear_director(nombre, wiki)
+            if nuevo_id:
+                self.id_director = nuevo_id
+                self.cambios = True
+        else:  # Modificación
             d = Director(self.id_director)
-            d.actualizar_director(nombre, wiki)
+            if d.actualizar_director(nombre, wiki):
+                self.cambios = True
 
-        self.accept()
+        self.accept()  # Cierra la ventana
+
+
 
     def eliminar(self):
-        confirmar = QMessageBox.question(
-            self, "Confirmar eliminación",
-            "¿Estás seguro de eliminar este director?",
+        confirmacion = QMessageBox.question(
+            self, "Confirmar", "¿Estás seguro de que deseas eliminar este director?",
             QMessageBox.Yes | QMessageBox.No
         )
-
-        if confirmar == QMessageBox.Yes:
-            d = Director(self.id_director)
-            eliminado = d.eliminar_director()
-            if eliminado:
+        if confirmacion == QMessageBox.Yes:
+            try:
+                d = Director(self.id_director)
+                d.eliminar_director()
+                self.cambios = True
                 self.id_director = 0
                 self.accept()
-            else:
-                QMessageBox.warning(self, "Error", "No se pudo eliminar el director.")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"No se pudo eliminar el director.\n{str(e)}")
+
 
     def abrir_enlace_wiki(self):
         url = self.wikiDirector.text().strip()
@@ -91,3 +100,39 @@ class DirectorsWindow(QDialog):
             if not url.startswith("http"):
                 url = "https://" + url
             webbrowser.open(url)
+            
+    def nuevo_director(self):
+        self.id_director = 0
+        self.nombreCineasta.clear()
+        self.wikiDirector.clear()
+
+        self.original_nombre = ""
+        self.original_wiki = ""
+
+        self.btnGrabar.setEnabled(False)
+        self.btnCancelar.setEnabled(True)
+        self.btnNuevo.setEnabled(False)
+        self.btnEliminar.setEnabled(False)
+
+        self.nombreCineasta.setFocus()
+
+    def cancelar_operacion(self):
+        QMessageBox.information(self, "Cancelado", "Se canceló la operación.")
+
+        if self.id_director == 0:
+            # Operación cancelada al crear uno nuevo: limpiar todo
+            self.nombreCineasta.clear()
+            self.wikiDirector.clear()
+            self.btnGrabar.setEnabled(False)
+            self.btnEliminar.setEnabled(False)
+            self.btnNuevo.setEnabled(True)
+        else:
+            # Restaurar valores originales del director en edición
+            self.nombreCineasta.setText(self.original_nombre)
+            self.wikiDirector.setText(self.original_wiki)
+            self.btnGrabar.setEnabled(False)
+
+        self.btnCancelar.setEnabled(False)
+        self.btnNuevo.setEnabled(True)
+        self.btnEliminar.setEnabled(True)   
+

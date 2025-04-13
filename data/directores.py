@@ -62,29 +62,36 @@ class Director(BaseDirectoresDB):
             
     def crear_director(self, nombre, wiki):
         try:
-            self.cursor.execute(
-                "INSERT INTO directores (nombre_director, wikipedia_director) VALUES (?, ?)",
-                (nombre, wiki)
-            )
+            self.cursor.execute("""
+                INSERT INTO directores (nombre_director, wikipedia_director)
+                OUTPUT INSERTED.id_director
+                VALUES (?, ?)
+            """, (nombre, wiki))
+            
+            nuevo_id = self.cursor.fetchone()[0]
             self.db.commit()
-            nuevo_id = self.cursor.lastrowid
-            return nuevo_id
+            return int(nuevo_id)
+
         except Exception as e:
             print("❌ Error al crear:", e)
-            return None
+            return 0
+
         finally:
             self.cerrar()
 
+
     def eliminar_director(self):
+        db = con.Conexion().conectar()
+        cursor = db.cursor()
+
         try:
-            self.cursor.execute(
-                "DELETE FROM directores WHERE id_director = ?",
-                (self.id_director,)
-            )
-            self.db.commit()
-            return self.cursor.rowcount > 0
+            cursor.execute("DELETE FROM directores WHERE id_director = ?", (self.id_director,))
+            db.commit()
+
         except Exception as e:
-            print("❌ Error al eliminar:", e)
-            return False
+            print("❌ Error al eliminar director:", e)
+            raise e
+
         finally:
-            self.cerrar()
+            cursor.close()
+            db.close()
