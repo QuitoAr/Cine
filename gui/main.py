@@ -278,7 +278,7 @@ class MainWindow():
     def deshabilitar_txts(self):
         self.main.txtAnio.setEnabled(False)
         self.main.txtNombre.setEnabled(False)
-        self.main.txtCarpeta.setEnabled(False)
+        self.main.txtCarpeta.setEnabled(True)
         self.main.txtInternet.setEnabled(False)
 
     def mirando(self):

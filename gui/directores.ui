@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
-    <height>218</height>
+    <width>480</width>
+    <height>233</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,9 +27,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>20</y>
      <width>461</width>
-     <height>173</height>
+     <height>171</height>
     </rect>
    </property>
    <widget class="QWidget" name="layoutWidget">
@@ -37,13 +37,19 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>441</width>
-      <height>48</height>
+      <width>481</width>
+      <height>54</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="1">
       <widget class="QLineEdit" name="nombreCineasta">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Book</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
@@ -54,6 +60,12 @@
      </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="wikiDirector">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Book</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
@@ -64,6 +76,12 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="actionInternet">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Book</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Wikipedia</string>
        </property>
@@ -71,34 +89,36 @@
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Book</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>Nombre director</string>
+        <string>Nombre</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="labelId_Director">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnGrabar">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>120</y>
+      <x>80</x>
+      <y>130</y>
       <width>75</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Book</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 0);</string>
     </property>
     <property name="text">
      <string>Grabar</string>
@@ -107,40 +127,45 @@
    <widget class="QPushButton" name="btnCancelar">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>120</y>
+      <x>170</x>
+      <y>130</y>
       <width>75</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Book</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 255, 255);</string>
+    </property>
     <property name="text">
      <string>Cancelar</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Id </string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnNuevo">
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>122</y>
+      <y>130</y>
       <width>75</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Book</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::WheelFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 170, 127);</string>
     </property>
     <property name="text">
      <string>Nuevo</string>
@@ -149,22 +174,94 @@
    <widget class="QPushButton" name="btnEliminar">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>120</y>
+      <x>350</x>
+      <y>130</y>
       <width>75</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Book</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 85, 255);</string>
+    </property>
     <property name="text">
      <string>Eliminar</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>72</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="maximumSize">
+        <size>
+         <width>51</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Book</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Id:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelId_Director">
+       <property name="maximumSize">
+        <size>
+         <width>47</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>6</width>
+         <height>11</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>465</width>
      <height>21</height>
     </rect>

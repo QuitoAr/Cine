@@ -96,6 +96,7 @@ class Ui_main(object):
         font.setPointSize(12)
         self.txtNombre.setFont(font)
         self.txtNombre.setAcceptDrops(True)
+        self.txtNombre.setToolTipDuration(-6)
         self.txtNombre.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-color: rgb(218, 247, 166);\n"
 "")
@@ -108,6 +109,7 @@ class Ui_main(object):
         font.setFamily("Calibri")
         font.setPointSize(12)
         self.txtCarpeta.setFont(font)
+        self.txtCarpeta.setToolTipDuration(1)
         self.txtCarpeta.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.txtCarpeta.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-color: rgb(218, 247, 166);\n"
@@ -301,7 +303,7 @@ class Ui_main(object):
         self.label_5 = QtWidgets.QLabel(self.frame)
         font = QtGui.QFont()
         font.setFamily("Franklin Gothic Heavy")
-        font.setPointSize(19)
+        font.setPointSize(16)
         self.label_5.setFont(font)
         self.label_5.setStyleSheet("color: rgb(218, 247, 166);")
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
@@ -1396,7 +1398,7 @@ class Ui_main(object):
         self.label.setText(_translate("main", "Director del film:"))
         self.label_2.setText(_translate("main", "Año y nombre del film:"))
         self.label_3.setText(_translate("main", "Carpeta contenedora:"))
-        self.label_4.setText(_translate("main", "FilmAffinity:"))
+        self.label_4.setText(_translate("main", "Wikipedia:"))
         self.label_5.setText(_translate("main", "Catálogo de Películas"))
         self.btnMinimizar.setText(_translate("main", "___"))
         self.P.setToolTip(_translate("main", "Salir"))
