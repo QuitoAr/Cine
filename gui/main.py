@@ -44,8 +44,6 @@ class MainWindow():
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
-
-
     def on_btnDirectores_clicked(self):
         id_director = self.id_director_seleccionado or 0
         dialogo = DirectorsWindow(id_director, parent=self.main, main_window=self)
@@ -55,21 +53,32 @@ class MainWindow():
         if resultado == QDialog.Accepted and dialogo.cambios:
             nuevo_id = dialogo.id_director
 
-            self.llenarComboDirectores()  # Siempre refrescamos el combo desde la base
+            self.actualizarComboDirectores()  # Siempre refrescamos el combo
 
             if nuevo_id != 0:
-                # Se creó uno nuevo o se modificó el mismo director
-                index = self.main.cbcDirectores.findData(nuevo_id)
-                if index >= 0:
-                    self.main.cbcDirectores.setCurrentIndex(index)
+                # Se creó uno nuevo o se modificó el mismo
+                self.seleccionarDirectorEnCombo(nuevo_id)
             else:
-                # Se eliminó el director actual
-                if self.main.cbcDirectores.count() > 0:
-                    self.main.cbcDirectores.setCurrentIndex(0)  # Seleccionamos el primero disponible
-                else:
-                    self.id_director_seleccionado = 0
-                    self.main.tblPeliculas.setRowCount(0)
+                # Se eliminó el director actual: seleccionamos uno anterior o primero disponible
+                self.id_director_seleccionado = self.obtenerIdDirectorActual()  # este método puede retornar el primer ID válido
+                self.seleccionarDirectorEnCombo(self.id_director_seleccionado)
 
+            # Al cambiar el director, la tabla se debe actualizar automáticamente
+            # Esto ocurre porque on_combobox_changed se encarga de actualizar la tabla
+
+
+    def on_combobox_changed(self):
+        self.id_director_seleccionado = self.main.cbcDirectores.currentData()
+        
+        if self.id_director_seleccionado is None:
+            self.main.tblPeliculas.setRowCount(0)
+            return
+
+        self.llenarTablaPeliculas()
+
+        if self.main.tblPeliculas.rowCount() > 0:
+            self.main.tblPeliculas.selectRow(0)
+            self.on_row_clicked()
 
 
 

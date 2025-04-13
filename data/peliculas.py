@@ -8,7 +8,7 @@ class Peliculas:
         try:
             self.cursor.execute(f"SELECT * FROM peliculas WHERE id_director = {id_director_seleccionado} ORDER BY anio, nombre_film")
         except Exception as ex:
-            QMessageBox.critical(None, f"Error al leer la base de datos. Error: {ex}")
+            QMessageBox.critical(None, "Error", f"Error al leer la base de datos: {ex}")
             self.db.close()
             self.cursor.close()
     
