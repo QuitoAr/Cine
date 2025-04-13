@@ -35,9 +35,10 @@ class DirectorsWindow(QDialog):
         director = Director(self.id_director)
         datos = director.getDirector()
         if datos:
-            self.labelIdDirector.setText(str(datos["id_director"]))
+            self.id_cargado = datos["id_director"]
             self.original_nombre = datos["nombre_director"]
             self.original_wiki = datos["wikipedia_director"]
+            self.labelId_Director.setText(str(self.id_cargado))
             self.nombreCineasta.setText(self.original_nombre)
             self.wikiDirector.setText(self.original_wiki)
         self.btnGrabar.setEnabled(False)
@@ -106,7 +107,7 @@ class DirectorsWindow(QDialog):
         self.id_director = 0
         self.nombreCineasta.clear()
         self.wikiDirector.clear()
-        self.labelIdDirector.clear()
+        self.labelId_Director.clear()
 
         self.original_nombre = ""
         self.original_wiki = ""
