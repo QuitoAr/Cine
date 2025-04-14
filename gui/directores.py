@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5 import uic
 from data.directores import Director
 import webbrowser
-
+import requests
 
 class DirectorsWindow(QDialog):
     def __init__(self, id_director=0, parent=None, main_window=None):
@@ -96,12 +96,41 @@ class DirectorsWindow(QDialog):
                 QMessageBox.critical(self, "Error", f"No se pudo eliminar el director.\n{str(e)}")
 
 
+
     def abrir_enlace_wiki(self):
         url = self.wikiDirector.text().strip()
+        
         if url:
             if not url.startswith("http"):
                 url = "https://" + url
             webbrowser.open(url)
+        else:
+            nombre = self.nombreCineasta.text().strip()
+            if not nombre:
+                return
+
+            # Usamos la API de Wikipedia para buscar
+            search_url = "https://en.wikipedia.org/w/api.php"
+            params = {
+                "action": "query",
+                "list": "search",
+                "srsearch": nombre,
+                "format": "json"
+            }
+
+            try:
+                response = requests.get(search_url, params=params)
+                data = response.json()
+                resultados = data.get("query", {}).get("search", [])
+                if resultados:
+                    # Tomamos la primera página encontrada
+                    titulo = resultados[0]["title"]
+                    wiki_url = f"https://en.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
+                    self.wikiDirector.setText(wiki_url)
+                    webbrowser.open(wiki_url)
+            except Exception as e:
+                print("Error al buscar en Wikipedia:", e)
+
             
     def nuevo_director(self):
         self.id_director = 0
