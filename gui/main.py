@@ -40,7 +40,8 @@ class MainWindow():
         self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
-        self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
+        self.main.txtInternet.returnPressed.connect(self.on_btnInternet_clicked)
+        #self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
 
@@ -276,10 +277,10 @@ class MainWindow():
         self.main.txtInternet.setEnabled(True)
             
     def deshabilitar_txts(self):
-        self.main.txtAnio.setEnabled(False)
-        self.main.txtNombre.setEnabled(False)
+        self.main.txtAnio.setEnabled(True)
+        self.main.txtNombre.setEnabled(True)
         self.main.txtCarpeta.setEnabled(True)
-        self.main.txtInternet.setEnabled(False)
+        self.main.txtInternet.setEnabled(True)
 
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)
