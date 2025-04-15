@@ -1,12 +1,11 @@
 from PyQt5 import uic
-from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem
 import socket
 import os
-from PyQt5.QtWidgets import QDialog
+
 
 from data.directores import Directores
 from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
@@ -33,17 +32,22 @@ class MainWindow():
 #######################################################################
 
     def botones(self):
+        #self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
+        #self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
-        self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.txtInternet.returnPressed.connect(self.on_btnInternet_clicked)
-        #self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
+        
+        self.txtanio.textChanged.connect(self.on_btnEditar_changed)
+        self.txtnombre.textChanged.connect(self.on_btnEditar_changed)
+        self.txtcarpeta.textChanged.connect(self.on_btnEditar_changed)
+        self.txtinternet.textChanged.connect(self.on_btnEditar_changed)
 
     def on_btnDirectores_clicked(self):
         id_director = self.id_director_seleccionado or 0
@@ -121,7 +125,6 @@ class MainWindow():
         self.id_pelicula_old = self.id_pelicula_seleccionada
         self.id_pelicula_seleccionada = 0
         self.vaciarCampos()
-        self.habilitar_txts()
         self.insertando_editando()
         
     def on_btnEditar_clicked(self):
@@ -129,7 +132,6 @@ class MainWindow():
             QMessageBox.information(None, "Información", "No hay un film seleccionado para editar.")
         else:
             self.insertando_editando()
-            self.habilitar_txts()
             
     def on_btnGrabar_clicked(self):
         id_film = self.id_pelicula_seleccionada
@@ -149,14 +151,12 @@ class MainWindow():
         try:
             fila = self.encontrar_fila_por_id(self.id_pelicula_seleccionada)
             self.main.tblPeliculas.selectRow(fila)
-            self.deshabilitar_txts()
             self.mirando()
         except Exception as ex:
             print("Error:", ex)
             
     def on_btnCancelar_clicked(self):
         self.on_row_clicked()
-        self.deshabilitar_txts()
         self.mirando()
 
     def on_btnEliminar_clicked(self): # Elimina un film y selecciona el primero de la lista
@@ -168,7 +168,6 @@ class MainWindow():
         registros = self.main.tblPeliculas.rowCount()
         if registros > 0:
             self.main.tblPeliculas.selectRow(0)
-            self.deshabilitar_txts()
             self.mirando()
     
     def on_btnInternet_clicked(self):
@@ -186,12 +185,7 @@ class MainWindow():
   # El método obtiene el registro completo del director seleccionado
   #####################################
           
-    def on_combobox_changed(self):
-        self.id_director_seleccionado = self.main.cbcDirectores.currentData()
-        self.llenarTablaPeliculas()
-        if self.main.tblPeliculas.rowCount() > 0:
-            self.main.tblPeliculas.selectRow(0)
-            self.on_row_clicked()
+    # Removed redundant definition of on_combobox_changed
        
         
     def llenarComboDirectores(self):
@@ -241,7 +235,7 @@ class MainWindow():
     def on_row_clicked(self):
         try:
             fila = self.main.tblPeliculas.currentRow()
-        except:
+        except Exception:
             fila = -1
         if fila == -1:
             fila = 0
@@ -270,18 +264,6 @@ class MainWindow():
         self.main.txtCarpeta.setText("")
         self.main.txtInternet.setText("")
             
-    def habilitar_txts(self):
-        self.main.txtNombre.setEnabled(True)
-        self.main.txtAnio.setEnabled(True)
-        self.main.txtCarpeta.setEnabled(True)
-        self.main.txtInternet.setEnabled(True)
-            
-    def deshabilitar_txts(self):
-        self.main.txtAnio.setEnabled(True)
-        self.main.txtNombre.setEnabled(True)
-        self.main.txtCarpeta.setEnabled(True)
-        self.main.txtInternet.setEnabled(True)
-
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)
         self.main.btnCancelar.setEnabled(False)
@@ -322,15 +304,6 @@ class MainWindow():
         else:
             self.main.cbcDirectores.setCurrentIndex(-1)
         
-    def actualizarComboDirectores(self):
-        """Rellena el ComboBox con los directores actuales desde la base."""
-        self.main.cbcDirectores.blockSignals(True)  # Evita que se dispare el cambio de índice
-        self.main.cbcDirectores.clear()
-        directores = Directores()
-        filas = directores.getFilas()
-        for id_dir, nombre_dir in filas:
-            self.main.cbcDirectores.addItem(nombre_dir, id_dir)
-        self.main.cbcDirectores.blockSignals(False)
 
 
 
