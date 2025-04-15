@@ -1,11 +1,10 @@
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import QDesktopServices
 from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem
 import socket
 import os
-
+import webbrowser
+import requests
 
 from data.directores import Directores
 from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
@@ -27,25 +26,25 @@ class MainWindow():
         self.botones()
         self.main.show()
         
-        self.main.txtAnio.textChanged.connect(self.on_btnEditar_clicked)
-        self.main.txtNombre.textChanged.connect(self.on_btnEditar_clicked)
-        self.main.txtCarpeta.textChanged.connect(self.on_btnEditar_clicked)
-        self.main.txtInternet.textChanged.connect(self.on_btnEditar_clicked)
+        self.main.txtAnio.textChanged.connect(self.hay_cambios)
+        self.main.txtNombre.textChanged.connect(self.hay_cambios)
+        self.main.txtCarpeta.textChanged.connect(self.hay_cambios)
+        self.main.txtInternet.textChanged.connect(self.hay_cambios)
+        self.main.txtInternet.returnPressed.connect(self.abrir_wikipedia)
 
 #######################################################################
 ############# Métodos de la clase MainWindow ###########################
 #######################################################################
 
     def botones(self):
-        #self.main.btnInternet.clicked.connect(self.on_btnInternet_clicked)
-        #self.main.btnEditar.clicked.connect(self.on_btnEditar_clicked)
+        #self.main.btnInternet.clicked.connect(self.abrir_wikipedia)
+        #self.main.btnEditar.clicked.connect(self.hay_cambios)
         self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
-        self.main.txtInternet.returnPressed.connect(self.on_btnInternet_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
         
@@ -128,7 +127,7 @@ class MainWindow():
         self.vaciarCampos()
         self.insertando_editando()
         
-    def on_btnEditar_clicked(self):
+    def hay_cambios(self):
         if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
             QMessageBox.information(None, "Información", "No hay un film seleccionado para editar.")
         else:
@@ -171,13 +170,40 @@ class MainWindow():
             self.main.tblPeliculas.selectRow(0)
             self.mirando()
     
-    def on_btnInternet_clicked(self):
-        url = self.main.txtInternet.text()
-        if not url == "":  # Si el campo no está vacío
-            # Abrir la URL en el navegador
-            QDesktopServices.openUrl(QUrl(url))
-        else:  # Si el campo está vacío
-            QMessageBox.information(self.main, "Información", "No hay link para abrir.")            
+    def abrir_wikipedia(self):
+        url = self.main.txtInternet.text().strip()
+        
+        if url:
+            if not url.startswith("http"):
+                url = "https://" + url
+            webbrowser.open(url)
+        else:
+            nombre = self.main.txtNombre.text().strip()
+            if not nombre:
+                return
+
+            # Usamos la API de Wikipedia para buscar
+            search_url = "https://en.wikipedia.org/w/api.php"
+            params = {
+                "action": "query",
+                "list": "search",
+                "srsearch": nombre,
+                "format": "json"
+            }
+
+            try:
+                response = requests.get(search_url, params=params)
+                data = response.json()
+                resultados = data.get("query", {}).get("search", [])
+                if resultados:
+                    # Tomamos la primera página encontrada
+                    titulo = resultados[0]["title"]
+                    wiki_url = f"https://en.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
+                    self.main.txtInternet.setText(wiki_url)
+                    webbrowser.open(wiki_url)
+            except Exception as e:
+                print("Error al buscar en Wikipedia:", e)
+         
 
         
   ######### Comobo Directores #########
@@ -301,9 +327,6 @@ class MainWindow():
             self.main.cbcDirectores.setCurrentIndex(index)
         else:
             self.main.cbcDirectores.setCurrentIndex(-1)
-        
-
-
 
     def setearDirectorActivo(self, id_director):
         """Selecciona un director por ID y actualiza la vista de películas."""

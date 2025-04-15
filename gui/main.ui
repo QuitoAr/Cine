@@ -266,9 +266,9 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="geometry">
      <rect>
-      <x>221</x>
+      <x>178</x>
       <y>177</y>
-      <width>498</width>
+      <width>541</width>
       <height>30</height>
      </rect>
     </property>
@@ -512,53 +512,6 @@ border-radius: 6px;
      <size>
       <width>50</width>
       <height>38</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnInternet">
-    <property name="geometry">
-     <rect>
-      <x>176</x>
-      <y>178</y>
-      <width>38</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-      <pointsize>11</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;
-border: 5px;
-border-radius: 6px;
-
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../Internet.png</normaloff>../Internet.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>50</width>
-      <height>30</height>
      </size>
     </property>
    </widget>
@@ -3163,7 +3116,6 @@ border-radius: 6px;
    <zorder>txtNombre</zorder>
    <zorder>txtCarpeta</zorder>
    <zorder>txtInternet</zorder>
-   <zorder>btnInternet</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>btnCarpeta</zorder>
    <zorder>frame</zorder>
@@ -3208,7 +3160,6 @@ border-radius: 6px;
   <tabstop>txtNombre</tabstop>
   <tabstop>txtCarpeta</tabstop>
   <tabstop>txtInternet</tabstop>
-  <tabstop>btnInternet</tabstop>
   <tabstop>btnMinimizar</tabstop>
   <tabstop>P</tabstop>
   <tabstop>btnGrabar</tabstop>
