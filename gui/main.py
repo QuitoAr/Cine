@@ -26,6 +26,11 @@ class MainWindow():
         self.llenarComboDirectores()
         self.botones()
         self.main.show()
+        
+        self.main.txtAnio.textChanged.connect(self.on_btnEditar_clicked)
+        self.main.txtNombre.textChanged.connect(self.on_btnEditar_clicked)
+        self.main.txtCarpeta.textChanged.connect(self.on_btnEditar_clicked)
+        self.main.txtInternet.textChanged.connect(self.on_btnEditar_clicked)
 
 #######################################################################
 ############# Métodos de la clase MainWindow ###########################
@@ -44,10 +49,6 @@ class MainWindow():
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
         
-        self.txtanio.textChanged.connect(self.on_btnEditar_changed)
-        self.txtnombre.textChanged.connect(self.on_btnEditar_changed)
-        self.txtcarpeta.textChanged.connect(self.on_btnEditar_changed)
-        self.txtinternet.textChanged.connect(self.on_btnEditar_changed)
 
     def on_btnDirectores_clicked(self):
         id_director = self.id_director_seleccionado or 0
@@ -269,7 +270,6 @@ class MainWindow():
         self.main.btnCancelar.setEnabled(False)
         self.main.btnNuevo.setEnabled(True)
         self.main.tblPeliculas.setEnabled(True)
-        self.main.btnEditar.setEnabled(True)
         self.main.btnEliminar.setEnabled(True)
         self.main.btnCarpeta.setEnabled(True)
         self.main.btnInternet.setEnabled(True)
@@ -279,13 +279,11 @@ class MainWindow():
         self.main.btnGrabar.setEnabled(True)
         self.main.btnCancelar.setEnabled(True)
         self.main.btnNuevo.setEnabled(False)
-        self.main.btnEditar.setEnabled(False)
         self.main.btnEliminar.setEnabled(False)
         self.main.tblPeliculas.setEnabled(False)
         self.main.btnInternet.setEnabled(False)
         self.main.btnCarpeta.setEnabled(False)
         self.main.cbcDirectores.setEnabled(False)
-        self.main.txtAnio.setFocus()
 
     def actualizarComboDirectores(self):
         """Rellena el ComboBox de directores desde la base de datos."""
