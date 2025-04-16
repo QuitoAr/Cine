@@ -22,6 +22,7 @@ class MainWindow():
         self.id_pelicula_seleccionada = 0
         self.id_pelicula_old = 0
         self.id_director_seleccionado = 0
+        self.actualizando_campos = True
         self.llenarComboDirectores()
         self.botones()
         self.main.show()
@@ -122,18 +123,23 @@ class MainWindow():
         if self.id_director_seleccionado == 0:
             QMessageBox.information(None, "Agregar un film", "Seleccione un director.")
             return
+        self.actualizando_campos = True
         self.id_pelicula_old = self.id_pelicula_seleccionada
         self.id_pelicula_seleccionada = 0
         self.vaciarCampos()
         self.insertando_editando()
         
     def hay_cambios(self):
+        if self.actualizando_campos:
+            return
+        ' Averigua si los campos cambiaron por presion de una tecla'
         if self.id_pelicula_seleccionada == 0: # Si no hay un film seleccionado
             QMessageBox.information(None, "Información", "No hay un film seleccionado para editar.")
         else:
             self.insertando_editando()
             
     def on_btnGrabar_clicked(self):
+        self.actualizando_campos = True
         id_film = self.id_pelicula_seleccionada
         id_director = self.id_director_seleccionado
         anio = self.main.txtAnio.text()
@@ -154,10 +160,13 @@ class MainWindow():
             self.mirando()
         except Exception as ex:
             print("Error:", ex)
-            
+        self.actualizando_campos = False
+        
     def on_btnCancelar_clicked(self):
+        self.actualizando_campos = True
         self.on_row_clicked()
         self.mirando()
+        self.actualizando_campos = False
 
     def on_btnEliminar_clicked(self): # Elimina un film y selecciona el primero de la lista
         eliminar = QMessageBox.question(self.main, "Eliminar", "¿Estás seguro de que quieres eliminar este film?", QMessageBox.Yes | QMessageBox.No)
@@ -260,6 +269,7 @@ class MainWindow():
         self.main.tblPeliculas.hideColumn(5)  # Oculta la columna 2
                 
     def on_row_clicked(self):
+        self.actualizando_campos = True
         try:
             fila = self.main.tblPeliculas.currentRow()
         except Exception:
@@ -273,6 +283,7 @@ class MainWindow():
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
             self.main.txtInternet.setText(self.main.tblPeliculas.item(fila, 5).text())
+        self.actualizando_campos = False
 
     def encontrar_fila_por_id(self, id_pelicula_seleccionada):
         for i in range(self.main.tblPeliculas.rowCount()):
@@ -298,7 +309,6 @@ class MainWindow():
         self.main.tblPeliculas.setEnabled(True)
         self.main.btnEliminar.setEnabled(True)
         self.main.btnCarpeta.setEnabled(True)
-        self.main.btnInternet.setEnabled(True)
         self.main.cbcDirectores.setEnabled(True)
         
     def insertando_editando(self):
@@ -307,7 +317,6 @@ class MainWindow():
         self.main.btnNuevo.setEnabled(False)
         self.main.btnEliminar.setEnabled(False)
         self.main.tblPeliculas.setEnabled(False)
-        self.main.btnInternet.setEnabled(False)
         self.main.btnCarpeta.setEnabled(False)
         self.main.cbcDirectores.setEnabled(False)
 
