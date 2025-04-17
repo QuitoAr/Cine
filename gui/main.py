@@ -1,5 +1,7 @@
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QUrl
+from PyQt5.QtGui import QDesktopServices
 from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem
 import socket
 import os
@@ -40,7 +42,7 @@ class MainWindow():
     def botones(self):
         #self.main.btnInternet.clicked.connect(self.abrir_wikipedia)
         #self.main.btnEditar.clicked.connect(self.hay_cambios)
-        self.main.btnCarpeta.clicked.connect(self.on_btnCarpeta_clicked)
+        self.main.txtCarpeta.returnPressed.connect(self.on_txtCarpeta_enter)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
@@ -87,37 +89,47 @@ class MainWindow():
             self.on_row_clicked()
 
 
+    def estoy_en_titular(self):
+        return socket.gethostname().lower() == 'titular'
 
-    def on_btnCarpeta_clicked(self):
-        ubicacion = self.main.txtCarpeta.text()
-        servidor = "\\\\Titular\\"
-        nombre_host = socket.gethostname()
-        
-        if nombre_host == servidor:
-            es_servidor = True
+    def ruta_para_abrir(self, ubicacion_local):
+        """Devuelve la ruta adecuada para abrir según si estás en \\Titular o en otra máquina."""
+        if self.estoy_en_titular():
+            return ubicacion_local
         else:
-            es_servidor = False
-        
-        if ubicacion:  # Si el campo input_ubicacion no está vacío
-            if not es_servidor:
-                ubicacion = servidor +  ubicacion[0] + ubicacion[2:]
-            
-            if os.path.isdir(ubicacion):  # Si la ubicación es un directorio válido
-                os.startfile(ubicacion)  # Abre el directorio
+            unidad = ubicacion_local[0].lower()
+            subruta = ubicacion_local[3:]  # salta 'D:\' -> empieza desde posición 3
+            return fr"\\Titular\{unidad}\{subruta}"
+
+    def on_txtCarpeta_enter(self):
+        ubicacion = self.main.txtCarpeta.text().strip()
+
+        if ubicacion:
+            ruta_final = self.ruta_para_abrir(ubicacion)
+
+            if os.path.isdir(ruta_final):
+                QDesktopServices.openUrl(QUrl.fromLocalFile(ruta_final))
             else:
-                message = "La ubicación especificada no es un directorio válido"
-                QMessageBox.critical(None, "Error", message)
-        
-        else:  # Si el campo input_ubicacion está vacío
+                QMessageBox.critical(self.main, "Error", "La ubicación especificada no es un directorio válido.")
+        else:
             self.insertando_editando()
-            directory = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
-            if not es_servidor:
-                directory = directory[10:]
-                directory = directory.replace("/", chr(92))
-                directory = directory[0].upper() + ":" + directory[1:]
-            
-            self.main.txtCarpeta.setText(directory)
-        
+            carpeta_seleccionada = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
+
+        if carpeta_seleccionada:
+            carpeta_local = carpeta_seleccionada
+
+            # 🔁 Si viene como ruta de red tipo '//titular/f/Films/...' la convertimos
+            if carpeta_local.startswith('//') or carpeta_local.startswith('/'):
+                partes = carpeta_local.replace('/', '\\').split('\\')
+                # Esperamos algo como ['', '', 'titular', 'f', 'Films', 'Carpeta']
+                if len(partes) >= 5 and partes[2].lower() == 'titular':
+                    unidad = partes[3].upper()
+                    subruta = '\\'.join(partes[4:])
+                    carpeta_local = f"{unidad}:\\{subruta}"
+
+            self.main.txtCarpeta.setText(carpeta_local)
+
+
 
     def on_btnNuevo_clicked(self):
         if self.id_director_seleccionado == 0:
