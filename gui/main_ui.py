@@ -115,6 +115,7 @@ class Ui_main(object):
 "border-color: rgb(218, 247, 166);\n"
 "")
         self.txtCarpeta.setInputMethodHints(QtCore.Qt.ImhUrlCharactersOnly)
+        self.txtCarpeta.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
         self.txtCarpeta.setObjectName("txtCarpeta")
         self.txtInternet = QtWidgets.QLineEdit(self.centralwidget)
         self.txtInternet.setEnabled(True)
