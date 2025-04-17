@@ -6,13 +6,73 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
+    <width>514</width>
     <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Busqueda de películas</string>
   </property>
+  <widget class="QLineEdit" name="txtBuscar">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>9</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Gothic</family>
+    </font>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAceptar">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>20</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>aceptar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCancelar">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>20</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>cancelar</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tblResultados">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>501</width>
+     <height>361</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -12,6 +12,8 @@ from data.directores import Directores
 from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, UltimoIdFilm
 from model.peliculas import EstaPelicula
 from gui.directores import DirectorsWindow  # Importá la clase, no uic
+from gui.buscar import BuscarWindow  # asegurate de importar
+
 
 
 ############# Clase MainWindow #############
@@ -368,7 +370,17 @@ class MainWindow():
             return 0
         return self.main.cbcDirectores.itemData(0)  # Selecciona el primer item si queda alguno
 
+
     def on_btnBuscar_clicked(self):
-        # Abre la ventana de búsqueda
-        pass
- 
+        dialogo = BuscarWindow(parent=self.main)
+        resultado = dialogo.exec_()
+
+        if resultado == QDialog.Accepted:
+            id_film = dialogo.id_film
+            id_director = dialogo.id_director
+
+            self.setearDirectorActivo(id_director)
+            fila = self.encontrar_fila_por_id(str(id_film))
+            if fila >= 0:
+                self.main.tblPeliculas.selectRow(fila)
+                self.on_row_clicked()

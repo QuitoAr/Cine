@@ -21,7 +21,20 @@ class Peliculas(ConexionBase):
         finally:
             self.cerrar()
     
-    # Removed duplicate method definition
+    def getTodasPeliculas(self):
+        try:
+            self.cursor.execute("""
+                SELECT f.id_film, f.id_director, f.anio, f.nombre_film, d.nombre_director
+                FROM peliculas f
+                JOIN directores d ON f.id_director = d.id_director
+                ORDER BY d.nombre_director, f.anio
+            """)
+            return self.cursor.fetchall()
+        except Exception as ex:
+            QMessageBox.critical(None, "Error", f"Error al obtener todas las películas: {ex}")
+            return []
+        finally:
+            self.cerrar()
 
 
 class EstaPeliculaData(ConexionBase):
@@ -110,3 +123,4 @@ class UltimoIdFilm(ConexionBase):
         finally:
             self.cerrar()
         return self.ultimo_id_film
+
