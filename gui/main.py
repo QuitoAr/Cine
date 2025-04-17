@@ -50,6 +50,7 @@ class MainWindow():
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
+        self.main.btnBuscar.clicked.connect(self.on_btnBuscar_clicked)
         
 
     def on_btnDirectores_clicked(self):
@@ -366,3 +367,8 @@ class MainWindow():
         if self.main.cbcDirectores.count() == 0:
             return 0
         return self.main.cbcDirectores.itemData(0)  # Selecciona el primer item si queda alguno
+
+    def on_btnBuscar_clicked(self):
+        # Abre la ventana de búsqueda
+        pass
+ 

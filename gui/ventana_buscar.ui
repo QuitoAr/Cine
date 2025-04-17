@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ventana_busqueda</class>
+ <widget class="QDialog" name="ventana_busqueda">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>393</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Busqueda de películas</string>
+  </property>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
