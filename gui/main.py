@@ -114,20 +114,21 @@ class MainWindow():
         else:
             self.insertando_editando()
             carpeta_seleccionada = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
+            print("Carpeta seleccionada:", carpeta_seleccionada)
 
-        if carpeta_seleccionada:
-            carpeta_local = carpeta_seleccionada
+            if carpeta_seleccionada:
+                carpeta_local = carpeta_seleccionada
 
-            # 🔁 Si viene como ruta de red tipo '//titular/f/Films/...' la convertimos
-            if carpeta_local.startswith('//') or carpeta_local.startswith('/'):
-                partes = carpeta_local.replace('/', '\\').split('\\')
-                # Esperamos algo como ['', '', 'titular', 'f', 'Films', 'Carpeta']
-                if len(partes) >= 5 and partes[2].lower() == 'titular':
-                    unidad = partes[3].upper()
-                    subruta = '\\'.join(partes[4:])
-                    carpeta_local = f"{unidad}:\\{subruta}"
+                # 🔁 Si viene como ruta de red tipo '//titular/f/Films/...' la convertimos
+                if carpeta_local.startswith('//') or carpeta_local.startswith('/'):
+                    partes = carpeta_local.replace('/', '\\').split('\\')
+                    # Esperamos algo como ['', '', 'titular', 'f', 'Films', 'Carpeta']
+                    if len(partes) >= 5 and partes[2].lower() == 'titular':
+                        unidad = partes[3].upper()
+                        subruta = '\\'.join(partes[4:])
+                        carpeta_local = f"{unidad}:\\{subruta}"
 
-            self.main.txtCarpeta.setText(carpeta_local)
+                self.main.txtCarpeta.setText(carpeta_local)
 
 
 
@@ -320,7 +321,6 @@ class MainWindow():
         self.main.btnNuevo.setEnabled(True)
         self.main.tblPeliculas.setEnabled(True)
         self.main.btnEliminar.setEnabled(True)
-        self.main.btnCarpeta.setEnabled(True)
         self.main.cbcDirectores.setEnabled(True)
         
     def insertando_editando(self):
@@ -329,7 +329,6 @@ class MainWindow():
         self.main.btnNuevo.setEnabled(False)
         self.main.btnEliminar.setEnabled(False)
         self.main.tblPeliculas.setEnabled(False)
-        self.main.btnCarpeta.setEnabled(False)
         self.main.cbcDirectores.setEnabled(False)
 
     def actualizarComboDirectores(self):
