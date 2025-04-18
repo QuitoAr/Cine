@@ -263,6 +263,7 @@ class MainWindow():
         peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
         datos_peliculas = peliculas.getFilas_Peliculas()
         if datos_peliculas:
+            self.main.tblPeliculas.verticalHeader().setVisible(False)
             self.main.tblPeliculas.horizontalHeaderVisible = True
             self.main.tblPeliculas.setRowCount(len(datos_peliculas))
             self.main.tblPeliculas.setColumnCount(len(datos_peliculas[0]))

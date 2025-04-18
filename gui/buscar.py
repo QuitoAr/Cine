@@ -9,6 +9,7 @@ class BuscarWindow(QDialog):
         import os
         ruta_ui = os.path.join(os.path.dirname(__file__), "ventana_buscar.ui")
         uic.loadUi(ruta_ui, self)
+        self.tblResultados.verticalHeader().setVisible(False)
 
         self.id_film = None
         self.id_director = None
