@@ -25,10 +25,11 @@ class Ui_ventana_busqueda(object):
         icon.addPixmap(QtGui.QPixmap("c:\\Cine\\gui\\../film.ico"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         ventana_busqueda.setWindowIcon(icon)
         ventana_busqueda.setAutoFillBackground(False)
-        ventana_busqueda.setStyleSheet("border: 10px;\n"
+        ventana_busqueda.setStyleSheet("border: 50px;\n"
 "border-radius: 20 px;\n"
 "border-color: rgb(48, 45, 44);\n"
-"background-color: rgb(255, 255, 127);")
+"background-color: rgb(85, 255, 127);\n"
+"background-color: rgb(0, 85, 0);")
         self.tblResultados = QtWidgets.QTableWidget(ventana_busqueda)
         self.tblResultados.setGeometry(QtCore.QRect(10, 50, 571, 371))
         font = QtGui.QFont()
@@ -42,8 +43,14 @@ class Ui_ventana_busqueda(object):
         self.tblResultados.setObjectName("tblResultados")
         self.tblResultados.setColumnCount(0)
         self.tblResultados.setRowCount(0)
-        self.txtBuscar = QtWidgets.QLineEdit(ventana_busqueda)
-        self.txtBuscar.setGeometry(QtCore.QRect(10, 10, 571, 31))
+        self.layoutWidget = QtWidgets.QWidget(ventana_busqueda)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 571, 24))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(14)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.txtBuscar = QtWidgets.QLineEdit(self.layoutWidget)
         self.txtBuscar.setBaseSize(QtCore.QSize(1, 9))
         font = QtGui.QFont()
         font.setFamily("Franklin Gothic Book")
@@ -54,6 +61,13 @@ class Ui_ventana_busqueda(object):
         self.txtBuscar.setCursorPosition(0)
         self.txtBuscar.setAlignment(QtCore.Qt.AlignCenter)
         self.txtBuscar.setObjectName("txtBuscar")
+        self.horizontalLayout.addWidget(self.txtBuscar)
+        self.ckbVisto = QtWidgets.QCheckBox(self.layoutWidget)
+        self.ckbVisto.setStyleSheet("color: rgb(255, 255, 255);")
+        self.ckbVisto.setText("")
+        self.ckbVisto.setObjectName("ckbVisto")
+        self.horizontalLayout.addWidget(self.ckbVisto)
+        self.layoutWidget.raise_()
         self.tblResultados.raise_()
 
         self.retranslateUi(ventana_busqueda)
@@ -62,3 +76,4 @@ class Ui_ventana_busqueda(object):
     def retranslateUi(self, ventana_busqueda):
         _translate = QtCore.QCoreApplication.translate
         ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE PELÍCULAS"))
+        self.txtBuscar.setPlaceholderText(_translate("ventana_busqueda", "Ingresar nombre del film"))

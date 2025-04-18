@@ -88,8 +88,8 @@ border-color: yellow;</string>
   </property>
   <property name="iconSize">
    <size>
-    <width>50</width>
-    <height>50</height>
+    <width>70</width>
+    <height>70</height>
    </size>
   </property>
   <property name="tabShape">
@@ -2994,6 +2994,12 @@ border-color: rgb(0, 0, 0);
       <height>299</height>
      </size>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>692</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="baseSize">
      <size>
       <width>3</width>
@@ -3390,6 +3396,36 @@ border-radius: 6px;
      <size>
       <width>50</width>
       <height>38</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="ckbVisto">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>70</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>Visto</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
      </size>
     </property>
    </widget>
