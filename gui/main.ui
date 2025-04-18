@@ -3143,6 +3143,11 @@ border-color: rgb(0, 0, 0);
       <string>INTERNET</string>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>VISTO</string>
+     </property>
+    </column>
    </widget>
    <widget class="QLineEdit" name="txtAnio">
     <property name="enabled">

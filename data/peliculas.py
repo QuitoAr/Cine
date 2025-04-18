@@ -24,7 +24,7 @@ class Peliculas(ConexionBase):
     def getTodasPeliculas(self):
         try:
             self.cursor.execute("""
-                SELECT f.id_film, f.id_director, f.anio, f.nombre_film, d.nombre_director
+                SELECT f.id_film, f.id_director, f.anio, f.nombre_film, d.nombre_director,f.film_visto
                 FROM peliculas f
                 JOIN directores d ON f.id_director = d.id_director
                 ORDER BY f.nombre_film, f.anio
@@ -48,21 +48,22 @@ class EstaPeliculaData(ConexionBase):
         if esta_pelicula.id_film == 0:
             accion = "insertar"
             query = """
-                INSERT INTO peliculas (id_director, anio, nombre_film, carpeta, internet)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO peliculas (id_director, anio, nombre_film, carpeta, internet, film_visto)
+                VALUES (?, ?, ?, ?, ?, ?)
             """
             params = (
                 esta_pelicula.id_director,
                 esta_pelicula.anio,
                 esta_pelicula.nombre_film,
                 esta_pelicula.carpeta,
-                esta_pelicula.internet
+                esta_pelicula.internet,
+                esta_pelicula.film_visto
             )
         else:
             accion = "actualizar"
             query = """
                 UPDATE peliculas
-                SET anio = ?, nombre_film = ?, carpeta = ?, internet = ?
+                SET anio = ?, nombre_film = ?, carpeta = ?, internet = ?,film_visto = ?
                 WHERE id_film = ?
             """
             params = (
@@ -70,6 +71,7 @@ class EstaPeliculaData(ConexionBase):
                 esta_pelicula.nombre_film,
                 esta_pelicula.carpeta,
                 esta_pelicula.internet,
+                esta_pelicula.film_visto,
                 esta_pelicula.id_film
             )
 
@@ -77,7 +79,11 @@ class EstaPeliculaData(ConexionBase):
             self.cursor.execute(query, params)
             self.db.commit()
         except Exception as ex:
-            QMessageBox.critical(None, f"Error al {accion} en la base de datos. Error: {ex}")
+            QMessageBox.critical(
+                None,
+                "Error en la base de datos",  # Título del mensaje
+                f"Error al {accion} en la base de datos. Error: {ex}"  # Texto del mensaje
+)
         finally:
             self.cerrar()
 

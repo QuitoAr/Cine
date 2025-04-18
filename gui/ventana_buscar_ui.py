@@ -44,7 +44,7 @@ class Ui_ventana_busqueda(object):
         self.tblResultados.setColumnCount(0)
         self.tblResultados.setRowCount(0)
         self.layoutWidget = QtWidgets.QWidget(ventana_busqueda)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 571, 24))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 571, 37))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -63,10 +63,14 @@ class Ui_ventana_busqueda(object):
         self.txtBuscar.setObjectName("txtBuscar")
         self.horizontalLayout.addWidget(self.txtBuscar)
         self.ckbVisto = QtWidgets.QCheckBox(self.layoutWidget)
+        self.ckbVisto.setMinimumSize(QtCore.QSize(0, 0))
         self.ckbVisto.setStyleSheet("color: rgb(255, 255, 255);")
-        self.ckbVisto.setText("")
         self.ckbVisto.setObjectName("ckbVisto")
         self.horizontalLayout.addWidget(self.ckbVisto)
+        self.checkBox = QtWidgets.QCheckBox(self.layoutWidget)
+        self.checkBox.setStyleSheet("color: rgb(255, 255, 255);")
+        self.checkBox.setObjectName("checkBox")
+        self.horizontalLayout.addWidget(self.checkBox)
         self.layoutWidget.raise_()
         self.tblResultados.raise_()
 
@@ -75,5 +79,7 @@ class Ui_ventana_busqueda(object):
 
     def retranslateUi(self, ventana_busqueda):
         _translate = QtCore.QCoreApplication.translate
-        ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE PELÍCULAS"))
+        ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE FILMS"))
         self.txtBuscar.setPlaceholderText(_translate("ventana_busqueda", "Ingresar nombre del film"))
+        self.ckbVisto.setText(_translate("ventana_busqueda", "Visto"))
+        self.checkBox.setText(_translate("ventana_busqueda", "Todos"))

@@ -24,7 +24,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>BÚSQUEDA DE PELÍCULAS</string>
+   <string>BÚSQUEDA DE FILMS</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -125,7 +125,17 @@ background-color: rgb(0, 85, 0);</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string/>
+       <string>Visto</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Todos</string>
       </property>
      </widget>
     </item>

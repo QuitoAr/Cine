@@ -35,6 +35,7 @@ class MainWindow():
         self.main.txtNombre.textChanged.connect(self.hay_cambios)
         self.main.txtCarpeta.textChanged.connect(self.hay_cambios)
         self.main.txtInternet.textChanged.connect(self.hay_cambios)
+        self.main.ckbVisto.stateChanged.connect(self.hay_cambios)
         self.main.txtInternet.returnPressed.connect(self.abrir_wikipedia)
 
 #######################################################################
@@ -162,7 +163,8 @@ class MainWindow():
         nombre_film = self.main.txtNombre.text()
         carpeta = self.main.txtCarpeta.text()
         internet = self.main.txtInternet.text()
-        esta_pelicula = EstaPelicula(id_film, id_director,anio, nombre_film, carpeta, internet)
+        visto = bool(self.main.ckbVisto.isChecked())
+        esta_pelicula = EstaPelicula(id_film, id_director,anio, nombre_film, carpeta, internet, visto)
         esta_peliculadata = EstaPeliculaData()
         esta_peliculadata.insert_data(esta_pelicula)            
         self.llenarTablaPeliculas()
@@ -296,6 +298,8 @@ class MainWindow():
             self.vaciarCampos()
         else:
             self.id_pelicula_seleccionada = self.main.tblPeliculas.item(fila, 0).text()
+            valor_booleano = self.main.tblPeliculas.item(fila, 6).text() == "True" # Ajusta según tu tabla
+            self.main.ckbVisto.setChecked(valor_booleano)
             self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
@@ -318,6 +322,7 @@ class MainWindow():
         self.main.txtAnio.setText("")
         self.main.txtCarpeta.setText("")
         self.main.txtInternet.setText("")
+        self.main.ckbVisto.setChecked(False)
             
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)
