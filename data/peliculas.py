@@ -96,8 +96,8 @@ class EstaPeliculaData(ConexionBase):
 class EliminarPeliculaData(ConexionBase):
     def __init__(self):
         super().__init__()
-        self.db = self.conectar()
-        self.cursor = self.db.cursor()    #     self.delete_data(id_pelicula_seleccionada)
+        #self.db = self.conectar()
+        #self.cursor = self.db.cursor()    #     self.delete_data(id_pelicula_seleccionada)
 
     def delete_data(self,id_pelicula_seleccionada):
         query = f"DELETE FROM peliculas WHERE id_film = {id_pelicula_seleccionada}"
