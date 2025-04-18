@@ -27,7 +27,7 @@ class Peliculas(ConexionBase):
                 SELECT f.id_film, f.id_director, f.anio, f.nombre_film, d.nombre_director
                 FROM peliculas f
                 JOIN directores d ON f.id_director = d.id_director
-                ORDER BY d.nombre_director, f.anio
+                ORDER BY f.nombre_film, f.anio
             """)
             return self.cursor.fetchall()
         except Exception as ex:

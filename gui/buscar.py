@@ -1,12 +1,12 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from data.peliculas import Peliculas
+import os
 
 
 class BuscarWindow(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        import os
         ruta_ui = os.path.join(os.path.dirname(__file__), "ventana_buscar.ui")
         uic.loadUi(ruta_ui, self)
         self.tblResultados.verticalHeader().setVisible(False)
@@ -19,8 +19,7 @@ class BuscarWindow(QDialog):
 
         # Conectamos los eventos
         self.txtBuscar.textChanged.connect(self.filtrar)
-        self.btnAceptar.clicked.connect(self.seleccionar)
-        self.btnCancelar.clicked.connect(self.reject)
+        self.tblResultados.itemDoubleClicked.connect(self.seleccionar)
         
         self.resultados_filtrados = []
 
@@ -32,9 +31,9 @@ class BuscarWindow(QDialog):
         # Establecer el número de columnas: id_film, id_director y nombre_film
         self.tblResultados.setColumnCount(3)
         self.tblResultados.setHorizontalHeaderLabels(["ID", "Director", "Nombre de la Película"])
-        self.tblResultados.setColumnWidth(0, 50)   # id_film
-        self.tblResultados.setColumnWidth(1, 80)   # id_director
-        self.tblResultados.setColumnWidth(2, 300)  # nombre_film
+        self.tblResultados.setColumnWidth(0, 40)   # id_film
+        self.tblResultados.setColumnWidth(1, 50)   # id_director
+        self.tblResultados.setColumnWidth(2, 450)  # nombre_film
 
         # Establecer el número de filas según el tamaño de la lista
         self.tblResultados.setRowCount(len(lista))
