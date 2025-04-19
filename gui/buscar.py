@@ -34,7 +34,7 @@ class BuscarWindow(QDialog):
         self.tblResultados.setColumnWidth(0, 0)   # id_film
         self.tblResultados.setColumnWidth(1, 0)   # id_director
         self.tblResultados.setColumnWidth(2, 350)  # nombre_film
-        self.tblResultados.setColumnWidth(3, 150)  # nombre_director
+        self.tblResultados.setColumnWidth(3, 170)  # nombre_director
         self.tblResultados.setColumnWidth(4, 10) # film_visto
 
         # Establecer el número de filas según el tamaño de la lista
