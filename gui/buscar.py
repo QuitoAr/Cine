@@ -29,11 +29,13 @@ class BuscarWindow(QDialog):
 
     def cargarTabla(self, lista):
         # Establecer el número de columnas: id_film, id_director y nombre_film
-        self.tblResultados.setColumnCount(3)
-        self.tblResultados.setHorizontalHeaderLabels(["ID", "Director", "Nombre de la Película"])
-        self.tblResultados.setColumnWidth(0, 40)   # id_film
-        self.tblResultados.setColumnWidth(1, 50)   # id_director
-        self.tblResultados.setColumnWidth(2, 450)  # nombre_film
+        self.tblResultados.setColumnCount(5)
+        self.tblResultados.setHorizontalHeaderLabels(["","","Nombre del Film", "Director", "Visto"]) # Cambié el encabezado a español
+        self.tblResultados.setColumnWidth(0, 0)   # id_film
+        self.tblResultados.setColumnWidth(1, 0)   # id_director
+        self.tblResultados.setColumnWidth(2, 350)  # nombre_film
+        self.tblResultados.setColumnWidth(3, 150)  # nombre_director
+        self.tblResultados.setColumnWidth(4, 10) # film_visto
 
         # Establecer el número de filas según el tamaño de la lista
         self.tblResultados.setRowCount(len(lista))
@@ -43,6 +45,9 @@ class BuscarWindow(QDialog):
             self.tblResultados.setItem(i, 0, QTableWidgetItem(str(fila[0])))  # id_film
             self.tblResultados.setItem(i, 1, QTableWidgetItem(str(fila[1])))  # id_director
             self.tblResultados.setItem(i, 2, QTableWidgetItem(str(fila[3])))  # nombre_film
+            self.tblResultados.setItem(i, 3, QTableWidgetItem(str(fila[4]))) # nombre_director  
+            self.tblResultados.setItem(i, 4, QTableWidgetItem(str(fila[5]))) # film_visto
+            # Ocultar las columnas de id_film y id_director
 
     def filtrar(self):
         texto = self.txtBuscar.text().lower()

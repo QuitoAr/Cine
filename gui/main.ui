@@ -3019,6 +3019,12 @@ border-color: rgb(0, 0, 0);
     <property name="contextMenuPolicy">
      <enum>Qt::NoContextMenu</enum>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="editTriggers">
      <set>QAbstractItemView::SelectedClicked</set>
     </property>

@@ -1097,6 +1097,8 @@ class Ui_main(object):
         self.tblPeliculas.setFont(font)
         self.tblPeliculas.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.tblPeliculas.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.tblPeliculas.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.tblPeliculas.setAutoFillBackground(True)
         self.tblPeliculas.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.tblPeliculas.setDragDropMode(QtWidgets.QAbstractItemView.DropOnly)
         self.tblPeliculas.setAlternatingRowColors(True)

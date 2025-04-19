@@ -23,6 +23,8 @@ class MainWindow():
         self.main = uic.loadUi('gui/main.ui')
         self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.ocultarColumnas()
+        self.main.tblPeliculas.setColumnWidth(3,520)  # nombre_film
+
         self.id_pelicula_seleccionada = 0
         self.id_pelicula_old = 0
         self.id_director_seleccionado = 0

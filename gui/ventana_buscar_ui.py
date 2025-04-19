@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ventana_busqueda(object):
     def setupUi(self, ventana_busqueda):
         ventana_busqueda.setObjectName("ventana_busqueda")
-        ventana_busqueda.resize(588, 430)
+        ventana_busqueda.resize(669, 430)
         ventana_busqueda.setMaximumSize(QtCore.QSize(16777214, 16777215))
         font = QtGui.QFont()
         font.setFamily("Franklin Gothic Book")
@@ -31,7 +31,7 @@ class Ui_ventana_busqueda(object):
 "background-color: rgb(85, 255, 127);\n"
 "background-color: rgb(0, 85, 0);")
         self.tblResultados = QtWidgets.QTableWidget(ventana_busqueda)
-        self.tblResultados.setGeometry(QtCore.QRect(10, 50, 571, 371))
+        self.tblResultados.setGeometry(QtCore.QRect(10, 50, 651, 371))
         font = QtGui.QFont()
         font.setFamily("Franklin Gothic Book")
         font.setPointSize(10)
@@ -44,11 +44,11 @@ class Ui_ventana_busqueda(object):
         self.tblResultados.setColumnCount(0)
         self.tblResultados.setRowCount(0)
         self.layoutWidget = QtWidgets.QWidget(ventana_busqueda)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 571, 37))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 631, 37))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setSpacing(14)
+        self.horizontalLayout.setSpacing(26)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.txtBuscar = QtWidgets.QLineEdit(self.layoutWidget)
         self.txtBuscar.setBaseSize(QtCore.QSize(1, 9))
@@ -67,10 +67,6 @@ class Ui_ventana_busqueda(object):
         self.ckbVisto.setStyleSheet("color: rgb(255, 255, 255);")
         self.ckbVisto.setObjectName("ckbVisto")
         self.horizontalLayout.addWidget(self.ckbVisto)
-        self.checkBox = QtWidgets.QCheckBox(self.layoutWidget)
-        self.checkBox.setStyleSheet("color: rgb(255, 255, 255);")
-        self.checkBox.setObjectName("checkBox")
-        self.horizontalLayout.addWidget(self.checkBox)
         self.layoutWidget.raise_()
         self.tblResultados.raise_()
 
@@ -82,4 +78,3 @@ class Ui_ventana_busqueda(object):
         ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE FILMS"))
         self.txtBuscar.setPlaceholderText(_translate("ventana_busqueda", "Ingresar nombre del film"))
         self.ckbVisto.setText(_translate("ventana_busqueda", "Visto"))
-        self.checkBox.setText(_translate("ventana_busqueda", "Todos"))
