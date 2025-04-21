@@ -121,6 +121,11 @@ background-color: rgb(0, 85, 0);</string>
         <height>0</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Demi</family>
+       </font>
+      </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
       </property>
@@ -128,7 +133,7 @@ background-color: rgb(0, 85, 0);</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>Visto</string>
+       <string>SIN VER</string>
       </property>
      </widget>
     </item>
