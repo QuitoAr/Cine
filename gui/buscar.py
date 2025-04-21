@@ -19,6 +19,8 @@ class BuscarWindow(QDialog):
 
         # Conectamos los eventos
         self.txtBuscar.textChanged.connect(self.filtrar)
+        self.checkVisto.stateChanged.connect(self.filtrar)
+
         self.tblResultados.itemDoubleClicked.connect(self.seleccionar)
         
         self.resultados_filtrados = []
@@ -26,6 +28,7 @@ class BuscarWindow(QDialog):
         # Llamamos a cargarTabla pasando la lista completa de películas
         self.cargarTabla(self.peliculas)
 
+# buscar.py
 
     def cargarTabla(self, lista):
         # Establecer el número de columnas: id_film, id_director y nombre_film
@@ -51,8 +54,17 @@ class BuscarWindow(QDialog):
 
     def filtrar(self):
         texto = self.txtBuscar.text().lower()
+        solo_no_vistas = self.checkVisto.isChecked()
+
+        # Filtra por nombre
         filtradas = [fila for fila in self.peliculas if texto in fila[3].lower()]
+
+        # Si el checkbox está tildado, filtramos también por film_visto = False
+        if solo_no_vistas:
+            filtradas = [fila for fila in filtradas if not fila[5]]  # fila[5] es film_visto
+
         self.cargarTabla(filtradas)
+
 
     def seleccionar(self):
         fila = self.tblResultados.currentRow()
