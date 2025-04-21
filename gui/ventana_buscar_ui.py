@@ -62,11 +62,12 @@ class Ui_ventana_busqueda(object):
         self.txtBuscar.setAlignment(QtCore.Qt.AlignCenter)
         self.txtBuscar.setObjectName("txtBuscar")
         self.horizontalLayout.addWidget(self.txtBuscar)
-        self.ckbVisto = QtWidgets.QCheckBox(self.layoutWidget)
-        self.ckbVisto.setMinimumSize(QtCore.QSize(0, 0))
-        self.ckbVisto.setStyleSheet("color: rgb(255, 255, 255);")
-        self.ckbVisto.setObjectName("ckbVisto")
-        self.horizontalLayout.addWidget(self.ckbVisto)
+        self.checkVisto = QtWidgets.QCheckBox(self.layoutWidget)
+        self.checkVisto.setMinimumSize(QtCore.QSize(0, 0))
+        self.checkVisto.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.checkVisto.setStyleSheet("color: rgb(255, 255, 255);")
+        self.checkVisto.setObjectName("checkVisto")
+        self.horizontalLayout.addWidget(self.checkVisto)
         self.layoutWidget.raise_()
         self.tblResultados.raise_()
 
@@ -77,4 +78,4 @@ class Ui_ventana_busqueda(object):
         _translate = QtCore.QCoreApplication.translate
         ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE FILMS"))
         self.txtBuscar.setPlaceholderText(_translate("ventana_busqueda", "Ingresar nombre del film"))
-        self.ckbVisto.setText(_translate("ventana_busqueda", "Visto"))
+        self.checkVisto.setText(_translate("ventana_busqueda", "Visto"))
