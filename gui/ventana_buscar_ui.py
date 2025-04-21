@@ -64,6 +64,9 @@ class Ui_ventana_busqueda(object):
         self.horizontalLayout.addWidget(self.txtBuscar)
         self.checkVisto = QtWidgets.QCheckBox(self.layoutWidget)
         self.checkVisto.setMinimumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Franklin Gothic Demi")
+        self.checkVisto.setFont(font)
         self.checkVisto.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkVisto.setStyleSheet("color: rgb(255, 255, 255);")
         self.checkVisto.setObjectName("checkVisto")
@@ -78,4 +81,4 @@ class Ui_ventana_busqueda(object):
         _translate = QtCore.QCoreApplication.translate
         ventana_busqueda.setWindowTitle(_translate("ventana_busqueda", "BÚSQUEDA DE FILMS"))
         self.txtBuscar.setPlaceholderText(_translate("ventana_busqueda", "Ingresar nombre del film"))
-        self.checkVisto.setText(_translate("ventana_busqueda", "Visto"))
+        self.checkVisto.setText(_translate("ventana_busqueda", "SIN VER"))
