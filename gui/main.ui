@@ -194,9 +194,9 @@ border-color: yellow;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>221</x>
+      <x>218</x>
       <y>103</y>
-      <width>498</width>
+      <width>501</width>
       <height>30</height>
      </rect>
     </property>
@@ -233,9 +233,9 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="geometry">
      <rect>
-      <x>178</x>
+      <x>172</x>
       <y>140</y>
-      <width>541</width>
+      <width>547</width>
       <height>30</height>
      </rect>
     </property>
@@ -269,9 +269,9 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="geometry">
      <rect>
-      <x>178</x>
+      <x>172</x>
       <y>177</y>
-      <width>541</width>
+      <width>547</width>
       <height>30</height>
      </rect>
     </property>
@@ -295,80 +295,6 @@ border-color: rgb(218, 247, 166);
 border-color: rgb(218, 247, 166);
 </string>
     </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>67</y>
-      <width>161</width>
-      <height>142</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-         <kerning>false</kerning>
-        </font>
-       </property>
-       <property name="text">
-        <string>Director del film:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Año y nombre del film:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-         <kerning>false</kerning>
-        </font>
-       </property>
-       <property name="text">
-        <string>Carpeta contenedora:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Wikipedia:</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -3025,6 +2951,9 @@ border-color: rgb(0, 0, 0);
     <property name="autoFillBackground">
      <bool>true</bool>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
     <property name="editTriggers">
      <set>QAbstractItemView::SelectedClicked</set>
     </property>
@@ -3053,7 +2982,7 @@ border-color: rgb(0, 0, 0);
      <bool>true</bool>
     </attribute>
     <attribute name="verticalHeaderDefaultSectionSize">
-     <number>30</number>
+     <number>25</number>
     </attribute>
     <attribute name="verticalHeaderMinimumSectionSize">
      <number>15</number>
@@ -3161,9 +3090,9 @@ border-color: rgb(0, 0, 0);
     </property>
     <property name="geometry">
      <rect>
-      <x>176</x>
+      <x>172</x>
       <y>103</y>
-      <width>39</width>
+      <width>43</width>
       <height>30</height>
      </rect>
     </property>
@@ -3439,6 +3368,105 @@ border-radius: 6px;
       <height>30</height>
      </size>
     </property>
+   </widget>
+   <widget class="QLabel" name="labelId_film">
+    <property name="geometry">
+     <rect>
+      <x>132</x>
+      <y>112</y>
+      <width>39</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Narrow</family>
+      <pointsize>11</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font:11pt &quot;Arial Narrow&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;12345&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>74</y>
+      <width>155</width>
+      <height>133</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <kerning>false</kerning>
+        </font>
+       </property>
+       <property name="text">
+        <string>Director del film:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Año-Nombre film:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <kerning>false</kerning>
+        </font>
+       </property>
+       <property name="text">
+        <string>Carpeta contenedora:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Wikipedia:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <action name="actionNuevo">

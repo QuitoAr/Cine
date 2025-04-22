@@ -267,7 +267,7 @@ class MainWindow():
         peliculas = Peliculas(self.id_director_seleccionado)    #self.id_director_seleccionado)
         datos_peliculas = peliculas.getFilas_Peliculas()
         if datos_peliculas:
-            self.main.tblPeliculas.verticalHeader().setVisible(False)
+            self.main.tblPeliculas.verticalHeader().setVisible(True)
             self.main.tblPeliculas.horizontalHeaderVisible = True
             self.main.tblPeliculas.setRowCount(len(datos_peliculas))
             self.main.tblPeliculas.setColumnCount(len(datos_peliculas[0]))
@@ -285,9 +285,10 @@ class MainWindow():
             self.id_pelicula_seleccionada = 0
         
     def ocultarColumnas(self):
-        self.main.tblPeliculas.hideColumn(1)  # Oculta la columna 1
-        self.main.tblPeliculas.hideColumn(4)  # Oculta la columna 2
-        self.main.tblPeliculas.hideColumn(5)  # Oculta la columna 2
+        self.main.tblPeliculas.hideColumn(0)  # Oculta la columna 0 (id_film)
+        self.main.tblPeliculas.hideColumn(1)  # Oculta la columna 1 (id_director)
+        self.main.tblPeliculas.hideColumn(4)  # Oculta la columna 4 (carpeta)
+        self.main.tblPeliculas.hideColumn(5)  # Oculta la columna 5 (internet)
                 
     def on_row_clicked(self):
         self.actualizando_campos = True
@@ -302,6 +303,7 @@ class MainWindow():
             self.id_pelicula_seleccionada = self.main.tblPeliculas.item(fila, 0).text()
             valor_booleano = self.main.tblPeliculas.item(fila, 6).text() == "True" # Ajusta según tu tabla
             self.main.ckbVisto.setChecked(valor_booleano)
+            self.main.labelId_film.setText(self.main.tblPeliculas.item(fila, 0).text())
             self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
@@ -325,6 +327,7 @@ class MainWindow():
         self.main.txtCarpeta.setText("")
         self.main.txtInternet.setText("")
         self.main.ckbVisto.setChecked(False)
+        self.main.labelId_film.setText("") # Limpia el label de ID_film
             
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)
