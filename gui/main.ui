@@ -260,7 +260,7 @@ border-color: rgb(218, 247, 166);
      <set>Qt::ImhUrlCharactersOnly</set>
     </property>
     <property name="alignment">
-     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="txtInternet">
@@ -3372,35 +3372,42 @@ border-radius: 6px;
    <widget class="QLabel" name="labelId_film">
     <property name="geometry">
      <rect>
-      <x>132</x>
-      <y>112</y>
-      <width>39</width>
-      <height>19</height>
+      <x>126</x>
+      <y>103</y>
+      <width>43</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial Narrow</family>
-      <pointsize>11</pointsize>
-      <weight>50</weight>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font:11pt &quot;Arial Narrow&quot;;</string>
+     <string notr="true">font: bold 12pt &quot;Calibri&quot;;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;12345&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>7</x>
-      <y>74</y>
+      <y>64</y>
       <width>155</width>
-      <height>133</height>
+      <height>143</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -3431,7 +3438,7 @@ border-radius: 6px;
         </font>
        </property>
        <property name="text">
-        <string>Año-Nombre film:</string>
+        <string>Id-Año-Nombre:</string>
        </property>
       </widget>
      </item>
@@ -3468,6 +3475,18 @@ border-radius: 6px;
      </item>
     </layout>
    </widget>
+   <zorder>cbcDirectores</zorder>
+   <zorder>txtNombre</zorder>
+   <zorder>txtCarpeta</zorder>
+   <zorder>txtInternet</zorder>
+   <zorder>frame</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>tblPeliculas</zorder>
+   <zorder>txtAnio</zorder>
+   <zorder>btnDirector</zorder>
+   <zorder>ckbVisto</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>labelId_film</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">
