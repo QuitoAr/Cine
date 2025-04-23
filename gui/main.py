@@ -29,6 +29,8 @@ class MainWindow():
         self.id_director_seleccionado = 0
         self.actualizando_campos = True
         self.llenarComboDirectores()
+        self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
+        self.on_combobox_changed()
         self.botones()
         self.main.show()
         
@@ -38,7 +40,6 @@ class MainWindow():
         self.main.txtInternet.textChanged.connect(self.hay_cambios)
         self.main.ckbVisto.stateChanged.connect(self.hay_cambios)
         self.main.txtInternet.returnPressed.connect(self.abrir_wikipedia)
-        self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
 
 #######################################################################
 ############# Métodos de la clase MainWindow ###########################
