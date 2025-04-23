@@ -46,8 +46,6 @@ class MainWindow():
 #######################################################################
 
     def botones(self):
-        #self.main.btnInternet.clicked.connect(self.abrir_wikipedia)
-        #self.main.btnEditar.clicked.connect(self.hay_cambios)
         self.main.txtCarpeta.returnPressed.connect(self.on_txtCarpeta_enter)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
@@ -84,6 +82,8 @@ class MainWindow():
 
     def on_combobox_changed(self):
         self.id_director_seleccionado = self.main.cbcDirectores.currentData()
+        self.main.labelDirector.setText(str(self.obtenerIdDirectorActual()))  # Muestra el ID del director
+
         
         if self.id_director_seleccionado is None:
             self.main.tblPeliculas.setRowCount(0)
@@ -330,6 +330,7 @@ class MainWindow():
         self.main.txtInternet.setText("")
         self.main.ckbVisto.setChecked(False)
         self.main.labelId_film.setText("") # Limpia el label de ID_film
+        self.main.labelDirector.setText("") # Limpia el label de ID_director
             
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)

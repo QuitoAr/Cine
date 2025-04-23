@@ -3039,6 +3039,9 @@ border-color: rgb(218, 247, 166);
     <property name="text">
      <string/>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnDirector">
     <property name="geometry">
@@ -3326,6 +3329,40 @@ border-radius: 6px;
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="labelDirector">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>56</y>
+      <width>33</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string notr="true">0000</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -3345,7 +3382,7 @@ border-radius: 6px;
      </font>
     </property>
     <property name="text">
-     <string>Director del film:</string>
+     <string>Director: Id</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -3421,6 +3458,10 @@ border-radius: 6px;
      <string>Wikipedia:</string>
     </property>
    </widget>
+   <zorder>label</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_4</zorder>
    <zorder>cbcDirectores</zorder>
    <zorder>txtNombre</zorder>
    <zorder>txtCarpeta</zorder>
@@ -3431,8 +3472,8 @@ border-radius: 6px;
    <zorder>txtAnio</zorder>
    <zorder>btnDirector</zorder>
    <zorder>ckbVisto</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>labelId_film</zorder>
+   <zorder>labelDirector</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">
