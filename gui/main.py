@@ -1,5 +1,4 @@
 from PyQt5 import uic
-from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QDesktopServices
 from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem
@@ -39,6 +38,7 @@ class MainWindow():
         self.main.txtInternet.textChanged.connect(self.hay_cambios)
         self.main.ckbVisto.stateChanged.connect(self.hay_cambios)
         self.main.txtInternet.returnPressed.connect(self.abrir_wikipedia)
+        self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
 
 #######################################################################
 ############# Métodos de la clase MainWindow ###########################
