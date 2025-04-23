@@ -1,13 +1,16 @@
-from PyQt5.QtWidgets import QDialog, QMessageBox
-from PyQt5 import uic
-from data.directores import Director
 import webbrowser
 import requests
 
+from PyQt5.QtWidgets import QDialog, QMessageBox
+from PyQt5 import uic
+from data.directores import Director
+from utiles import recurso_relativo
 class DirectorsWindow(QDialog):
     def __init__(self, id_director=0, parent=None, main_window=None):
         super().__init__(parent)
-        uic.loadUi("gui/directores.ui", self)
+        #uic.loadUi("gui/directores.ui", self)
+        ui_path = recurso_relativo('gui/directores.ui') # Cargar la ruta del archivo .ui
+        self.main = uic.loadUi(ui_path, self)
         self.id_director = id_director
         self.main_window = main_window
         self.cambios = False
