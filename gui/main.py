@@ -12,6 +12,7 @@ from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, Ul
 from model.peliculas import EstaPelicula
 from gui.directores import DirectorsWindow  # Importá la clase, no uic
 from gui.buscar import BuscarWindow  # asegurate de importar
+from utiles import recurso_relativo 
 
 
 
@@ -19,7 +20,8 @@ from gui.buscar import BuscarWindow  # asegurate de importar
 
 class MainWindow():
     def __init__(self):
-        self.main = uic.loadUi('gui/main.ui')
+        ui_path = recurso_relativo('gui/main.ui')
+        self.main = uic.loadUi(ui_path)
         #self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.ocultarColumnas()
         self.main.tblPeliculas.setColumnWidth(3,520)  # nombre_film
