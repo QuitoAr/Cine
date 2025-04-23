@@ -1,14 +1,22 @@
+
 from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from data.peliculas import Peliculas
-import os
+from utiles import recurso_relativo
 
 
 class BuscarWindow(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        ruta_ui = os.path.join(os.path.dirname(__file__), "ventana_buscar.ui")
-        uic.loadUi(ruta_ui, self)
+        ui_path = recurso_relativo('gui/ventana_buscar.ui') # Cambié la ruta a la función recurso_relativo
+        self.main = uic.loadUi(ui_path, self) # Cambié la ruta a la función recurso_relativo
+        
+         # Verificar si tblResultados está presente
+        if hasattr(self.main, 'tblResultados'):
+            self.tblResultados = self.main.tblResultados
+        else:
+            print("Error: El widget tblResultados no se encuentra en el archivo .ui")
+            return       
         self.tblResultados.verticalHeader().setVisible(True)
 
         self.id_film = None

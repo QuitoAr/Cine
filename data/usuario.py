@@ -1,6 +1,5 @@
 import conexion as con
 from model.usuario import Usuario
-import pyodbc
 
 class UsuarioData():
     
