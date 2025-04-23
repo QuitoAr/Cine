@@ -81,8 +81,10 @@ class MainWindow():
 
 
     def on_combobox_changed(self):
-        self.id_director_seleccionado = self.main.cbcDirectores.currentData()
-        self.main.labelDirector.setText(str(self.obtenerIdDirectorActual()))  # Muestra el ID del director
+        id_director = self.main.cbcDirectores.currentData()
+        self.id_director_seleccionado = id_director
+        self.main.labelDirector.setText(str(id_director))
+
 
         
         if self.id_director_seleccionado is None:
@@ -304,8 +306,7 @@ class MainWindow():
             self.id_pelicula_seleccionada = self.main.tblPeliculas.item(fila, 0).text()
             valor_booleano = self.main.tblPeliculas.item(fila, 6).text() == "True" # Ajusta según tu tabla
             self.main.ckbVisto.setChecked(valor_booleano)
-            value = int(self.main.tblPeliculas.item(fila, 0).text())  # Obtén el valor como un entero
-            self.main.labelId_film.setText(f"{value:05d}")  # Aplícale el formato "00000"
+            self.main.labelId_film.setText(self.main.tblPeliculas.item(fila, 0).text()) 
             self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
@@ -330,7 +331,6 @@ class MainWindow():
         self.main.txtInternet.setText("")
         self.main.ckbVisto.setChecked(False)
         self.main.labelId_film.setText("") # Limpia el label de ID_film
-        self.main.labelDirector.setText("") # Limpia el label de ID_director
             
     def mirando(self):
         self.main.btnGrabar.setEnabled(False)
