@@ -21,7 +21,7 @@ from gui.buscar import BuscarWindow  # asegurate de importar
 class MainWindow():
     def __init__(self):
         self.main = uic.loadUi('gui/main.ui')
-        self.main.setWindowFlag(Qt.FramelessWindowHint)
+        #self.main.setWindowFlag(Qt.FramelessWindowHint)
         self.ocultarColumnas()
         self.main.tblPeliculas.setColumnWidth(3,520)  # nombre_film
 
@@ -303,7 +303,8 @@ class MainWindow():
             self.id_pelicula_seleccionada = self.main.tblPeliculas.item(fila, 0).text()
             valor_booleano = self.main.tblPeliculas.item(fila, 6).text() == "True" # Ajusta según tu tabla
             self.main.ckbVisto.setChecked(valor_booleano)
-            self.main.labelId_film.setText(self.main.tblPeliculas.item(fila, 0).text())
+            value = int(self.main.tblPeliculas.item(fila, 0).text())  # Obtén el valor como un entero
+            self.main.labelId_film.setText(f"{value:05d}")  # Aplícale el formato "00000"
             self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
