@@ -1,18 +1,20 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QDialog  # Importar QDialog en lugar de QWidget
 from data.usuario import UsuarioData
 from gui.main import MainWindow
 from model.usuario import Usuario
-from PyQt5 import QtCore
-import pyodbc
+from utiles import recurso_relativo
 
-class Login():
+
+class Login(QDialog):  # Cambié QWidget por QDialog
     def __init__(self):
-        self.login = uic.loadUi('gui/login.ui')
+        super().__init__()
+        ui_path = recurso_relativo('gui/login.ui')
+        self.login = uic.loadUi(ui_path, self)  # Carga el archivo .ui en la instancia de Login        
         self.initGUI()
         self.login.lblMensaje.setText('')
-        self.login.show()
-        
+        self.show()
+
     def ingresar(self):
         if self.login.txtUsuario.text() == '':
             self.login.lblMensaje.setText('Debe ingresar un usuario válido.')
@@ -32,6 +34,6 @@ class Login():
             else:
                 self.login.lblMensaje.setText('Usuario o clave incorrectos.')
                 self.login.txtUsuario.setFocus()
-    
+
     def initGUI(self):
         self.login.btnAcceder.clicked.connect(self.ingresar)
