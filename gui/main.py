@@ -82,6 +82,8 @@ class MainWindow():
             # Esto ocurre porque on_combobox_changed se encarga de actualizar la tabla
 
 
+
+
     def on_combobox_changed(self):
         id_director = self.main.cbcDirectores.currentData()
         self.id_director_seleccionado = id_director
