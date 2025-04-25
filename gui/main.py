@@ -391,9 +391,15 @@ class MainWindow():
         dialogo = BuscarWindow(parent=self.main)
         resultado = dialogo.exec_()
 
+        dialogoid_film = dialogo.id_film
+        dialogoid_director = dialogo.id_director
+
+        dialogo.deleteLater()  # Destruye la ventana completamente
+        
+
         if resultado == QDialog.Accepted:
-            id_film = dialogo.id_film
-            id_director = dialogo.id_director
+            id_film = dialogoid_film
+            id_director = dialogoid_director
 
             self.setearDirectorActivo(id_director)
             fila = self.encontrar_fila_por_id(str(id_film))
