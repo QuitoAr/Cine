@@ -21,7 +21,7 @@ class DirectorsWindow(QDialog):
 
         self.btnGrabar.clicked.connect(self.guardar)
         self.btnEliminar.clicked.connect(self.eliminar)
-        self.btnCancelar.clicked.connect(self.reject)
+        self.btnCancelar.clicked.connect(self.close)
         self.btnNuevo.clicked.connect(self.nuevo_director)
 
         self.nombreCineasta.textChanged.connect(self.detectar_cambios)
@@ -75,21 +75,29 @@ class DirectorsWindow(QDialog):
             nuevo_id = nuevo.crear_director(nombre, wiki)
             if nuevo_id:
                 self.id_director = nuevo_id
-                self.cambios = True
+                self.cambios = True  # Marcar como cambiado
         else:  # Modificación
             d = Director(self.id_director)
             if d.actualizar_director(nombre, wiki):
-                self.cambios = True
+                self.cambios = True  # Marcar como cambiado
 
         self.accept()  # Cierra la ventana
 
-
-
     def eliminar(self):
+        d = Director(self.id_director)
+
+        if d.tiene_peliculas_asociadas():
+            QMessageBox.warning(
+                self, "No se puede eliminar",
+                "Este director tiene películas asociadas y no puede ser eliminado."
+            )
+            return
+
         confirmacion = QMessageBox.question(
             self, "Confirmar", "¿Estás seguro de que deseas eliminar este director?",
             QMessageBox.Yes | QMessageBox.No
         )
+
         if confirmacion == QMessageBox.Yes:
             try:
                 d = Director(self.id_director)
@@ -99,6 +107,11 @@ class DirectorsWindow(QDialog):
                 self.accept()
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"No se pudo eliminar el director.\n{str(e)}")
+
+
+    def cancelar_operacion(self):
+        self.close()  # Cierra la ventana
+
 
 
 
@@ -152,24 +165,4 @@ class DirectorsWindow(QDialog):
         self.btnEliminar.setEnabled(False)
 
         self.nombreCineasta.setFocus()
-
-    def cancelar_operacion(self):
-        QMessageBox.information(self, "Cancelado", "Se canceló la operación.")
-
-        if self.id_director == 0:
-            # Operación cancelada al crear uno nuevo: limpiar todo
-            self.nombreCineasta.clear()
-            self.wikiDirector.clear()
-            self.btnGrabar.setEnabled(False)
-            self.btnEliminar.setEnabled(False)
-            self.btnNuevo.setEnabled(True)
-        else:
-            # Restaurar valores originales del director en edición
-            self.nombreCineasta.setText(self.original_nombre)
-            self.wikiDirector.setText(self.original_wiki)
-            self.btnGrabar.setEnabled(False)
-
-        self.btnCancelar.setEnabled(False)
-        self.btnNuevo.setEnabled(True)
-        self.btnEliminar.setEnabled(True)   
 

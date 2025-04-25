@@ -95,3 +95,15 @@ class Director(BaseDirectoresDB):
         finally:
             cursor.close()
             db.close()
+            
+    def tiene_peliculas_asociadas(self):
+        try:
+            self.cursor.execute(
+                "SELECT COUNT(*) FROM peliculas WHERE id_director = ?",
+                (self.id_director,)
+            )
+            resultado = self.cursor.fetchone()
+            return resultado[0] > 0
+        finally:
+            self.cerrar()
+

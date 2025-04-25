@@ -64,22 +64,20 @@ class MainWindow():
         dialogo = DirectorsWindow(id_director, parent=self.main, main_window=self)
 
         resultado = dialogo.exec_()
+        cambios = dialogo.cambios
+        nuevo_id = dialogo.id_director
 
-        if resultado == QDialog.Accepted and dialogo.cambios:
-            nuevo_id = dialogo.id_director
+        dialogo.deleteLater()  # <-- 🔥 Destruye la ventana completamente
 
-            self.actualizarComboDirectores()  # Siempre refrescamos el combo
+        if resultado == QDialog.Accepted and cambios:
+            self.actualizarComboDirectores()
 
             if nuevo_id != 0:
-                # Se creó uno nuevo o se modificó el mismo
                 self.seleccionarDirectorEnCombo(nuevo_id)
             else:
-                # Se eliminó el director actual: seleccionamos uno anterior o primero disponible
-                self.id_director_seleccionado = self.obtenerIdDirectorActual()  # este método puede retornar el primer ID válido
+                self.id_director_seleccionado = self.obtenerIdDirectorActual()
                 self.seleccionarDirectorEnCombo(self.id_director_seleccionado)
 
-            # Al cambiar el director, la tabla se debe actualizar automáticamente
-            # Esto ocurre porque on_combobox_changed se encarga de actualizar la tabla
 
 
 
