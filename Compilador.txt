@@ -1,0 +1,1 @@
+pyinstaller app.py --noconfirm --clean --onefile --icon=icoMain.ico --add-data "gui/*.ui;gui" --add-data "*.ico;." --add-data "*.png;." --add-data "*.jpg;." --windowed
