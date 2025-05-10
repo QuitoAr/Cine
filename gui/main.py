@@ -1,7 +1,7 @@
 from PyQt5 import uic
-from PyQt5.QtCore import QUrl
+from PyQt5.QtCore import QUrl, Qt
 from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem
+from PyQt5.QtWidgets import QDialog, QMessageBox, QFileDialog, QTableWidgetItem,QComboBox,QCompleter
 import socket
 import os
 import webbrowser
@@ -30,6 +30,14 @@ class MainWindow():
         self.id_pelicula_old = 0
         self.id_director_seleccionado = 0
         self.actualizando_campos = True
+        self.cbcDirectores = self.main.cbcDirectores  # Initialize cbcDirectores from the UI
+        self.cbcDirectores.setEditable(True)
+        self.cbcDirectores.lineEdit().textEdited.connect(self.filtrar_directores)
+        self.main.cbcDirectores.setInsertPolicy(QComboBox.NoInsert)
+        self.main.cbcDirectores.completer().setCompletionMode(QCompleter.PopupCompletion)
+        self.main.cbcDirectores.completer().setFilterMode(Qt.MatchContains)
+        self.main.cbcDirectores.setCompleter(None)
+        self.main.cbcDirectores.setEditable(True)
         self.llenarComboDirectores()
         self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
         self.on_combobox_changed()
@@ -250,18 +258,24 @@ class MainWindow():
        
         
     def llenarComboDirectores(self):
+        # Limpiamos el combo
         self.main.cbcDirectores.clear()
+
+        # Obtenemos y guardamos las filas
         directores = Directores()
-        filas = directores.getFilas()
-        
-        for id_director, nombre_director in filas:
+        self.lista_directores = directores.getFilas()
+
+        # Cargamos los directores en el combo
+        for id_director, nombre_director in self.lista_directores:
             self.main.cbcDirectores.addItem(nombre_director, id_director)
 
+        # Seleccionamos ningún ítem inicialmente para evitar disparos automáticos
         if self.main.cbcDirectores.count() > 0:
-            self.main.cbcDirectores.setCurrentIndex(0)  # Esto dispara on_combobox_changed automáticamente
+            self.main.cbcDirectores.setCurrentIndex(-1)  # Sin selección inicial
         else:
             self.id_director_seleccionado = 0
             self.main.tblPeliculas.setRowCount(0)
+    
 
 
     #####################################################
@@ -406,3 +420,36 @@ class MainWindow():
             if fila >= 0:
                 self.main.tblPeliculas.selectRow(fila)
                 self.on_row_clicked()
+
+
+    def filtrar_directores(self, texto):
+        # Guardamos manualmente el texto original del usuario
+        texto_filtrado = self.main.cbcDirectores.lineEdit().text()
+
+        # Evitamos filtrado si está vacío
+        if texto_filtrado.strip() == "":
+            self.llenarComboDirectores()
+            self.main.cbcDirectores.setCurrentIndex(0) # Selecciona el primer elemento
+            #self.main.cbcDirectores.showPopup()
+            return
+
+        # Limpiamos combo sin perder el texto
+        self.main.cbcDirectores.blockSignals(True)  # Detenemos señales para evitar recursividad
+        self.main.cbcDirectores.clear()
+        self.main.cbcDirectores.blockSignals(False)
+
+        hay_coincidencias = False
+
+        for id_director, nombre_director in self.lista_directores:
+            if texto_filtrado.lower() in nombre_director.lower():
+                self.main.cbcDirectores.addItem(nombre_director, id_director)
+                hay_coincidencias = True
+
+        if not hay_coincidencias:
+            self.main.cbcDirectores.addItem("No hay coincidencias")
+
+        # Restauramos el texto del usuario manualmente
+        self.main.cbcDirectores.lineEdit().setText(texto_filtrado)
+        self.main.cbcDirectores.lineEdit().setCursorPosition(len(texto_filtrado))
+        
+
