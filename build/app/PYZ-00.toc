@@ -167,6 +167,7 @@
   ('gui.directores', 'C:\\Cine\\gui\\directores.py', 'PYMODULE'),
   ('gui.login', 'C:\\Cine\\gui\\login.py', 'PYMODULE'),
   ('gui.main', 'C:\\Cine\\gui\\main.py', 'PYMODULE'),
+  ('gui.personalizar', 'C:\\Cine\\gui\\personalizar.py', 'PYMODULE'),
   ('gzip', 'C:\\Python\\Lib\\gzip.py', 'PYMODULE'),
   ('hashlib', 'C:\\Python\\Lib\\hashlib.py', 'PYMODULE'),
   ('hmac', 'C:\\Python\\Lib\\hmac.py', 'PYMODULE'),
