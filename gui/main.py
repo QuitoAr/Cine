@@ -441,7 +441,6 @@ class MainWindow():
         if texto_filtrado.strip() == "":
             self.llenarComboDirectores()
             self.main.cbcDirectores.setCurrentIndex(0) # Selecciona el primer elemento
-            #self.main.cbcDirectores.showPopup()
             return
 
         # Limpiamos combo sin perder el texto
