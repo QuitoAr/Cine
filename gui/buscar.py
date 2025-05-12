@@ -35,6 +35,7 @@ class BuscarWindow(QDialog):
 
         # Llamamos a cargarTabla pasando la lista completa de películas
         self.cargarTabla(self.peliculas)
+        self.filtrar()  # Llamamos a filtrar para aplicar el filtro inicial
 
 # buscar.py
 

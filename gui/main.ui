@@ -193,6 +193,9 @@ border-color: yellow;</string>
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="txtNombre">
     <property name="enabled">

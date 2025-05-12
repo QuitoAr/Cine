@@ -38,8 +38,7 @@
    <string notr="true">border: 50px;
 border-radius: 20 px;
 border-color: rgb(48, 45, 44);
-background-color: rgb(85, 255, 127);
-background-color: rgb(0, 85, 0);</string>
+background-color: rgb(0, 170, 127);</string>
   </property>
   <widget class="QTableWidget" name="tblResultados">
    <property name="geometry">
@@ -134,6 +133,9 @@ background-color: rgb(0, 85, 0);</string>
       </property>
       <property name="text">
        <string>SIN VER</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

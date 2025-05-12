@@ -12,7 +12,9 @@ from data.peliculas import Peliculas, EstaPeliculaData, EliminarPeliculaData, Ul
 from model.peliculas import EstaPelicula
 from gui.directores import DirectorsWindow  # Importá la clase, no uic
 from gui.buscar import BuscarWindow  # asegurate de importar
-from utiles import recurso_relativo 
+from utiles import recurso_relativo
+from personalizar import SelectAllLineEdit
+
 
 
 
@@ -31,8 +33,16 @@ class MainWindow():
         self.id_director_seleccionado = 0
         self.actualizando_campos = True
         self.cbcDirectores = self.main.cbcDirectores  # Initialize cbcDirectores from the UI
-        self.cbcDirectores.setEditable(True)
-        self.cbcDirectores.lineEdit().textEdited.connect(self.filtrar_directores)
+        
+        # Crear instancia del lineEdit personalizado con el combo como parent
+        self.select_all_lineedit = SelectAllLineEdit(self.main.cbcDirectores)  # Crear instancia con el combo como parent
+
+        # Reemplazar LineEdit por nuestro custom SelectAllLineEdit
+        self.main.cbcDirectores.setLineEdit(self.select_all_lineedit)
+        
+        self.main.cbcDirectores.setEditable(True)
+        self.main.cbcDirectores.lineEdit().textEdited.connect(self.filtrar_directores)
+        self.main.cbcDirectores.lineEdit().editingFinished.connect(self.mostrar_popup)
         self.main.cbcDirectores.setInsertPolicy(QComboBox.NoInsert)
         self.main.cbcDirectores.completer().setCompletionMode(QCompleter.PopupCompletion)
         self.main.cbcDirectores.completer().setFilterMode(Qt.MatchContains)
@@ -50,6 +60,7 @@ class MainWindow():
         self.main.txtInternet.textChanged.connect(self.hay_cambios)
         self.main.ckbVisto.stateChanged.connect(self.hay_cambios)
         self.main.txtInternet.returnPressed.connect(self.abrir_wikipedia)
+
 
 #######################################################################
 ############# Métodos de la clase MainWindow ###########################
@@ -451,5 +462,10 @@ class MainWindow():
         # Restauramos el texto del usuario manualmente
         self.main.cbcDirectores.lineEdit().setText(texto_filtrado)
         self.main.cbcDirectores.lineEdit().setCursorPosition(len(texto_filtrado))
-        
+       
+    def mostrar_popup(self):
+        """Muestra el popup solo después de terminar de escribir."""
+        if self.main.cbcDirectores.lineEdit().hasFocus():  # Verifica si el campo sigue teniendo el foco
+            self.main.cbcDirectores.showPopup()
+ 
 
