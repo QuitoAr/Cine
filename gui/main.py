@@ -13,7 +13,7 @@ from model.peliculas import EstaPelicula
 from gui.directores import DirectorsWindow  # Importá la clase, no uic
 from gui.buscar import BuscarWindow  # asegurate de importar
 from utiles import recurso_relativo
-from personalizar import SelectAllLineEdit
+from gui.personalizar import SelectAllLineEdit
 
 
 
