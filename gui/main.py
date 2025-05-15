@@ -69,13 +69,15 @@ class MainWindow():
     def botones(self):
         self.main.txtCarpeta.returnPressed.connect(self.on_txtCarpeta_enter)
         self.main.btnDirector.clicked.connect(self.on_btnDirectores_clicked)  
+        self.main.btnCarpeta.clicked.connect(self.on_txtCarpeta_enter)
+        self.main.btnWikipedia.clicked.connect(self.abrir_wikipedia)
         self.main.btnNuevo.clicked.connect(self.on_btnNuevo_clicked)
         self.main.btnGrabar.clicked.connect(self.on_btnGrabar_clicked)
         self.main.btnCancelar.clicked.connect(self.on_btnCancelar_clicked)
         self.main.btnEliminar.clicked.connect(self.on_btnEliminar_clicked)
+        self.main.btnBuscar.clicked.connect(self.on_btnBuscar_clicked)
         self.main.cbcDirectores.currentIndexChanged.connect(self.on_combobox_changed)
         self.main.tblPeliculas.itemSelectionChanged.connect(self.on_row_clicked)
-        self.main.btnBuscar.clicked.connect(self.on_btnBuscar_clicked)
         
 
     def on_btnDirectores_clicked(self):

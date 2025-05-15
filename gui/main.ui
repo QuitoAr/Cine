@@ -182,19 +182,34 @@ border-color: yellow;</string>
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
       <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
+      <verstretch>24</verstretch>
      </sizepolicy>
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
-      <pointsize>12</pointsize>
+      <family>Inter Medium</family>
+      <pointsize>11</pointsize>
+      <weight>7</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;Calibri&quot;;</string>
+     <string notr="true">font: 57 11pt &quot;Inter Medium&quot;;</string>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
+    </property>
+    <property name="maxVisibleItems">
+     <number>20</number>
+    </property>
+    <property name="insertPolicy">
+     <enum>QComboBox::InsertAlphabetically</enum>
     </property>
    </widget>
    <widget class="QLineEdit" name="txtNombre">
@@ -217,8 +232,9 @@ border-color: yellow;</string>
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
-      <pointsize>12</pointsize>
+      <family>Inter Variable Text</family>
+      <pointsize>11</pointsize>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="acceptDrops">
@@ -250,8 +266,9 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
-      <pointsize>12</pointsize>
+      <family>Inter Variable Text</family>
+      <pointsize>11</pointsize>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="toolTipDuration">
@@ -292,11 +309,9 @@ border-color: rgb(218, 247, 166);
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
+      <family>Inter Variable Text</family>
+      <pointsize>11</pointsize>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="styleSheet">
@@ -2837,7 +2852,7 @@ border-color: rgb(0, 0, 0);
       <x>17</x>
       <y>265</y>
       <width>692</width>
-      <height>300</height>
+      <height>307</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -2860,9 +2875,10 @@ border-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
-      <family>Bookman Old Style</family>
+      <family>Inter Variable Text</family>
       <pointsize>11</pointsize>
-      <italic>true</italic>
+      <italic>false</italic>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="focusPolicy">
@@ -2896,7 +2912,7 @@ border-color: rgb(0, 0, 0);
      <bool>true</bool>
     </property>
     <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
+     <bool>false</bool>
     </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>50</number>
@@ -3024,8 +3040,9 @@ border-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
-      <pointsize>12</pointsize>
+      <family>Inter Variable Text</family>
+      <pointsize>11</pointsize>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="layoutDirection">
@@ -3501,7 +3518,7 @@ border-color: rgb(218, 247, 166);
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btnWikipedia">
     <property name="geometry">
      <rect>
       <x>166</x>
@@ -3547,7 +3564,7 @@ border-color: rgb(218, 247, 166);
    <zorder>labelId_film</zorder>
    <zorder>labelDirector</zorder>
    <zorder>btnCarpeta</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>btnWikipedia</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">
@@ -3581,13 +3598,21 @@ border-color: rgb(218, 247, 166);
   </action>
  </widget>
  <tabstops>
-  <tabstop>txtAnio</tabstop>
   <tabstop>txtNombre</tabstop>
+  <tabstop>txtAnio</tabstop>
   <tabstop>txtCarpeta</tabstop>
   <tabstop>txtInternet</tabstop>
   <tabstop>tblPeliculas</tabstop>
   <tabstop>cbcDirectores</tabstop>
   <tabstop>btnDirector</tabstop>
+  <tabstop>btnGrabar</tabstop>
+  <tabstop>btnCancelar</tabstop>
+  <tabstop>btnNuevo</tabstop>
+  <tabstop>btnEliminar</tabstop>
+  <tabstop>btnBuscar</tabstop>
+  <tabstop>ckbVisto</tabstop>
+  <tabstop>btnCarpeta</tabstop>
+  <tabstop>btnWikipedia</tabstop>
  </tabstops>
  <resources>
   <include location="../imagenes.qrc"/>
