@@ -23,6 +23,7 @@ class DirectorsWindow(QDialog):
         self.btnEliminar.clicked.connect(self.eliminar)
         self.btnCancelar.clicked.connect(self.close)
         self.btnNuevo.clicked.connect(self.nuevo_director)
+        self.btnWikipedia.clicked.connect(self.abrir_enlace_wiki)
 
         self.nombreCineasta.textChanged.connect(self.detectar_cambios)
         self.wikiDirector.textChanged.connect(self.detectar_cambios)
