@@ -4,16 +4,16 @@ import pyodbc
 class Conexion():
     def __init__(self):
         try:
+            server = 'QUITO\\SQLEXPRESS'  # Nombre del servidor
+            database = 'Cine'  # Nombre de la base de datos
+            
             # Conexión con autenticación de Windows
             self.con = pyodbc.connect(
-                'DRIVER={ODBC Driver 18 for SQL Server};'
-                'SERVER=QUITO\\SQLEXPRESS;'
-                'DATABASE=Cine;'
-                'Trusted_Connection=yes;'
-                'Encrypt=no;'
-                'TrustServerCertificate=yes;'
-            )  
-
+                f'DRIVER={{ODBC Driver 18 for SQL Server}};'
+                f'SERVER={server};'
+                f'DATABASE={database};'
+                f'Trusted_Connection=yes;'
+            )
             
             # self.crearTablas()  # Si necesitas crear tablas, descomenta esta línea
             

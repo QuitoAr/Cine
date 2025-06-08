@@ -4,21 +4,14 @@ import pyodbc
 class Conexion():
     def __init__(self):
         try:
-            # Conexión con autenticación de Windows
-            self.con = pyodbc.connect(
-                'DRIVER={ODBC Driver 18 for SQL Server};'
-                'SERVER=QUITO\\SQLEXPRESS;'
-                'DATABASE=Cine;'
-                'Trusted_Connection=yes;'
-                'Encrypt=no;'
-                'TrustServerCertificate=yes;'
-            )  
-
-            
-            # self.crearTablas()  # Si necesitas crear tablas, descomenta esta línea
-            
+            server = 'titular' 
+            database = 'Cine' 
+            username = 'sa' 
+            password = '123' 
+            self.con = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password+';Encrypt=no;Trusted_Connection=no;')
+            # self.crearTablas()
         except Exception as ex:
-            QMessageBox.information(None, "Error", f"Falló la conexión con el Servidor: {ex}")
+            QMessageBox.information(None, "Error", "Falló la conexión con el Servidor: {}".format(ex))
             self.con = None
     
     def conectar(self):
