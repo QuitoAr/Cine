@@ -11,9 +11,9 @@ class UsuarioData():
        if fila:
            usuario = Usuario(usuario=fila[2], clave=fila[3])
            self.cursor.close()
-           self.db.close()
+           # NO cerrar la conexión singleton - se usa en toda la aplicación
            return usuario
        else:
            self.cursor.close()
-           self.db.close()
+           # NO cerrar la conexión singleton - se usa en toda la aplicación
            return None

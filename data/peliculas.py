@@ -95,7 +95,7 @@ class EstaPeliculaData(ConexionBase):
             QMessageBox.critical(None, f"Error al leer la base de datos. Error: {ex}")
         finally:
             self.cursor.close()
-            self.db.close()
+            # NO cerrar la conexión singleton
         return self.ultimo_id_film
 
 
@@ -114,7 +114,7 @@ class EliminarPeliculaData(ConexionBase):
             QMessageBox.critical(None, f"Error al eliminar registro. Error: {ex}")
         finally:
             self.cursor.close()
-            self.db.close()
+            # NO cerrar la conexión singleton
 
 class UltimoIdFilm(ConexionBase):
     def __init__(self):

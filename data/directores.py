@@ -6,8 +6,8 @@ class BaseDirectoresDB:
         self.cursor = self.db.cursor()
 
     def cerrar(self):
+        # Solo cerrar el cursor, no la conexión (es singleton)
         self.cursor.close()
-        self.db.close()
 
 
 class Directores(BaseDirectoresDB):
@@ -94,7 +94,7 @@ class Director(BaseDirectoresDB):
 
         finally:
             cursor.close()
-            db.close()
+            # NO cerrar la conexión singleton
             
     def tiene_peliculas_asociadas(self):
         try:

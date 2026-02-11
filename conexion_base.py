@@ -12,5 +12,4 @@ class ConexionBase:
     def cerrar(self):
         if self.cursor:
             self.cursor.close()
-        if self.db:
-            self.db.close()
+        # NO cerrar la conexión - es una instancia singleton que se reutiliza
