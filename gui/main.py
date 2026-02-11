@@ -125,24 +125,54 @@ class MainWindow():
         return socket.gethostname().lower() == 'titular'
 
     def ruta_para_abrir(self, ubicacion_local):
-        """Devuelve la ruta adecuada para abrir según si estás en \\Titular o en otra máquina."""
-        if self.estoy_en_titular():
+        """Construye la ruta en \Titular correspondiente a una ubicación local.
+
+        No asume que estamos en Titular: sirve para intentar acceder a la misma
+        carpeta desde la máquina `Titular` cuando la ruta local no exista.
+        Si la ruta ya viene como UNC a Titular, la devuelve normalizada.
+        """
+        if not ubicacion_local:
             return ubicacion_local
-        else:
-            unidad = ubicacion_local[0].lower()
-            subruta = ubicacion_local[3:]  # salta 'D:\' -> empieza desde posición 3
+
+        # Normaliza separadores
+        ruta = ubicacion_local.replace('/', '\\')
+
+        # Si ya es una ruta UNC que apunta a Titular, devolver tal cual
+        if ruta.startswith('\\\\'):
+            partes = ruta.split('\\')
+            # partes ejemplo: ['', '', 'Titular', 'f', 'Films', ...]
+            if len(partes) >= 3 and partes[2].lower() == 'titular':
+                return ruta
+
+        # Si viene en formato unidad local tipo 'D:\\...'
+        if len(ruta) >= 2 and ruta[1] == ':':
+            unidad = ruta[0].lower()
+            subruta = ruta[3:] if len(ruta) > 3 else ''
             return fr"\\Titular\{unidad}\{subruta}"
+
+        # Fallback: devolver la ruta original normalizada
+        return ruta
 
     def on_txtCarpeta_enter(self):
         ubicacion = self.main.txtCarpeta.text().strip()
 
         if ubicacion:
-            ruta_final = self.ruta_para_abrir(ubicacion)
+            # Normalizar separadores para comprobar ruta local
+            ruta_local = ubicacion.replace('/', '\\')
 
-            if os.path.isdir(ruta_final):
-                QDesktopServices.openUrl(QUrl.fromLocalFile(ruta_final))
-            else:
-                QMessageBox.critical(self.main, "Error", "La ubicación especificada no es un directorio válido.")
+            # 1) Intentar abrir la carpeta local primero
+            if os.path.isdir(ruta_local):
+                QDesktopServices.openUrl(QUrl.fromLocalFile(ruta_local))
+                return
+
+            # 2) Si no existe localmente, intentar en la máquina Titular
+            ruta_titular = self.ruta_para_abrir(ruta_local)
+            if ruta_titular and os.path.isdir(ruta_titular):
+                QDesktopServices.openUrl(QUrl.fromLocalFile(ruta_titular))
+                return
+
+            # Ninguna de las rutas existe
+            QMessageBox.critical(self.main, "Error", "La ubicación especificada no es un directorio válido ni local ni en Titular.")
         else:
             self.insertando_editando()
             carpeta_seleccionada = QFileDialog.getExistingDirectory(self.main, "Selecciona un directorio")
