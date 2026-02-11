@@ -10,8 +10,20 @@
     <x>0</x>
     <y>0</y>
     <width>521</width>
-    <height>224</height>
+    <height>212</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>7</height>
+   </size>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>0</width>
+    <height>2</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Gestión de Directores</string>
@@ -47,7 +59,7 @@ background-color: rgb(255, 252, 162);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>157</y>
+      <y>156</y>
       <width>521</width>
       <height>55</height>
      </rect>
@@ -85,6 +97,8 @@ background-color: rgb(255, 252, 162);</string>
       <font>
        <family>Franklin Gothic Book</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -114,6 +128,8 @@ background-color: rgb(255, 208, 181);</string>
       <font>
        <family>Franklin Gothic Book</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -142,6 +158,8 @@ background-color: rgb(255, 208, 181);</string>
       <font>
        <family>Franklin Gothic Book</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -171,6 +189,8 @@ color: rgb(255, 255, 255);</string>
       <font>
        <family>Franklin Gothic Book</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="focusPolicy">
@@ -187,11 +207,47 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btnWikipedia">
     <property name="geometry">
      <rect>
-      <x>23</x>
-      <y>88</y>
-      <width>51</width>
-      <height>43</height>
+      <x>20</x>
+      <y>86</y>
+      <width>55</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>5</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777204</width>
+      <height>16777211</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>1</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>8</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>MT Extra</family>
+      <pointsize>2</pointsize>
+     </font>
     </property>
     <property name="cursor">
      <cursorShape>OpenHandCursor</cursorShape>
@@ -200,23 +256,39 @@ color: rgb(255, 255, 255);</string>
      <bool>false</bool>
     </property>
     <property name="toolTip">
-     <string notr="true">Ir a Wikipedia</string>
+     <string>Ir a Wikipedia</string>
+    </property>
+    <property name="statusTip">
+     <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-color: rgb(255, 255, 127);</string>
+     <string notr="true">QPushButton {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../Wikipedia.png</normaloff>../Wikipedia.png</iconset>
+      <normaloff>../36607_wikipedia_icon.png</normaloff>../36607_wikipedia_icon.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>39</width>
-      <height>35</height>
+      <width>56</width>
+      <height>50</height>
      </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>293</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>98</number>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -244,16 +316,19 @@ color: rgb(255, 255, 255);</string>
      <number>-3</number>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
       <y>58</y>
       <width>429</width>
-      <height>68</height>
+      <height>78</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>16</number>
+     </property>
      <item>
       <widget class="QLineEdit" name="nombreCineasta">
        <property name="minimumSize">
@@ -312,7 +387,7 @@ color: rgb(255, 255, 255);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>188</x>
@@ -405,11 +480,11 @@ color: rgb(255, 255, 255);</string>
      </item>
     </layout>
    </widget>
+   <zorder>label</zorder>
    <zorder>frame</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>btnWikipedia</zorder>
-   <zorder>label_2</zorder>
   </widget>
   <action name="actionNuevo">
    <property name="text">
