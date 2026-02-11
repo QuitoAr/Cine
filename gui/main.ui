@@ -310,7 +310,7 @@ border-color: rgb(218, 247, 166);
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <property name="spacing">
       <number>12</number>
      </property>
@@ -345,6 +345,30 @@ border-color: rgb(218, 247, 166);
        </property>
        <property name="openExternalLinks">
         <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelServidor">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>1</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(218, 247, 166);</string>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -3356,7 +3380,7 @@ border-color: rgb(0, 0, 0);
      </size>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>4</x>
@@ -3533,7 +3557,7 @@ border-color: rgb(218, 247, 166);
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>8</x>
@@ -3589,22 +3613,18 @@ border-color: rgb(218, 247, 166);
      </item>
     </layout>
    </widget>
-   <zorder>label</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>label_3</zorder>
-   <zorder>label_2</zorder>
    <zorder>label_4</zorder>
    <zorder>cbcDirectores</zorder>
-   <zorder>txtNombre</zorder>
    <zorder>txtCarpeta</zorder>
    <zorder>txtInternet</zorder>
    <zorder>frame</zorder>
    <zorder>frame_2</zorder>
    <zorder>tblPeliculas</zorder>
-   <zorder>txtAnio</zorder>
    <zorder>btnDirector</zorder>
    <zorder>ckbVisto</zorder>
-   <zorder>labelId_film</zorder>
-   <zorder>labelDirector</zorder>
    <zorder>btnCarpeta</zorder>
    <zorder>btnWikipedia</zorder>
   </widget>

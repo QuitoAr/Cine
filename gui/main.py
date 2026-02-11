@@ -14,6 +14,7 @@ from gui.directores import DirectorsWindow  # Importá la clase, no uic
 from gui.buscar import BuscarWindow  # asegurate de importar
 from utiles import recurso_relativo
 from gui.personalizar import SelectAllLineEdit
+import conexion as conexion
 
 
 
@@ -49,6 +50,13 @@ class MainWindow():
         self.main.cbcDirectores.setCompleter(None)
         self.main.cbcDirectores.setEditable(True)
         self.llenarComboDirectores()
+        # Mostrar en la UI el servidor conectado (si existe)
+        try:
+            servidor = getattr(conexion, 'servidor_conectado', None)
+            if servidor:
+                self.main.labelServidor.setText(servidor)
+        except Exception:
+            pass
         self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
         self.on_combobox_changed()
         self.botones()
