@@ -358,11 +358,12 @@ border-color: rgb(218, 247, 166);
        </property>
        <property name="font">
         <font>
-         <pointsize>14</pointsize>
+         <pointsize>12</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(218, 247, 166);</string>
+        <string notr="true">color: rgb(218, 247, 166);
+text-transform: uppercase;</string>
        </property>
        <property name="text">
         <string>TextLabel</string>
