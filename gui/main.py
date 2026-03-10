@@ -276,7 +276,7 @@ class MainWindow():
                 return
 
             # Usamos la API de Wikipedia para buscar
-            search_url = "https://en.wikipedia.org/w/api.php"
+            search_url = "https://es.wikipedia.org/w/api.php"
             params = {
                 "action": "query",
                 "list": "search",
@@ -285,16 +285,22 @@ class MainWindow():
             }
 
             try:
-                response = requests.get(search_url, params=params)
+                headers = {"User-Agent": "CineApp/1.0 (https://example.com; info@example.com)"}
+                response = requests.get(search_url, params=params, headers=headers, timeout=10)
+                if not response.ok:
+                    raise Exception(f"Error HTTP {response.status_code}: {response.text}")
                 data = response.json()
                 resultados = data.get("query", {}).get("search", [])
                 if resultados:
                     # Tomamos la primera página encontrada
                     titulo = resultados[0]["title"]
-                    wiki_url = f"https://en.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
+                    wiki_url = f"https://es.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
                     self.main.txtInternet.setText(wiki_url)
                     webbrowser.open(wiki_url)
+                else:
+                    QMessageBox.information(self.main, "Información", f"No se encontraron resultados para '{nombre}' en Wikipedia.")
             except Exception as e:
+                QMessageBox.critical(self.main, "Error", f"Error al buscar en Wikipedia: {str(e)}")
                 print("Error al buscar en Wikipedia:", e)
          
 
@@ -506,5 +512,5 @@ class MainWindow():
         """Muestra el popup solo después de terminar de escribir."""
         if self.main.cbcDirectores.lineEdit().hasFocus():  # Verifica si el campo sigue teniendo el foco
             self.main.cbcDirectores.showPopup()
- 
+
 
