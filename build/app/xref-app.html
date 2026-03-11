@@ -24,7 +24,6 @@ imports:
  &#8226;   <a href="#cine">cine</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
@@ -185,12 +184,13 @@ imports:
 
 <div class="node">
   <a name="pyi_rth_inspect.py"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_inspect.py" type="text/plain"><tt>pyi_rth_inspect.py</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_inspect.py" type="text/plain"><tt>pyi_rth_inspect.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#inspect">inspect</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
   <div class="import">
@@ -203,7 +203,7 @@ imported by:
 
 <div class="node">
   <a name="pyi_rth_pkgutil.py"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py" type="text/plain"><tt>pyi_rth_pkgutil.py</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py" type="text/plain"><tt>pyi_rth_pkgutil.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#pkgutil">pkgutil</a>
@@ -220,7 +220,7 @@ imported by:
 
 <div class="node">
   <a name="pyi_rth_pyqt5.py"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pyqt5.py" type="text/plain"><tt>pyi_rth_pyqt5.py</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pyqt5.py" type="text/plain"><tt>pyi_rth_pyqt5.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
@@ -283,6 +283,26 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="'collections.abc'"></a>
+  <a target="code" href="" type="text/plain"><tt>'collections.abc'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#http.client">http.client</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
+ &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#requests.compat">requests.compat</a>
+ &#8226;   <a href="#selectors">selectors</a>
+ &#8226;   <a href="#traceback">traceback</a>
+ &#8226;   <a href="#tracemalloc">tracemalloc</a>
+ &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#xml.etree.ElementTree">xml.etree.ElementTree</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="'cryptography.x509'"></a>
   <a target="code" href="" type="text/plain"><tt>'cryptography.x509'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -339,10 +359,11 @@ imported by:
 
 <div class="node">
   <a name="PyQt5"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/__init__.py" type="text/plain"><tt>PyQt5</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/__init__.py" type="text/plain"><tt>PyQt5</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
  &#8226;   <a href="#PyQt5.sip">PyQt5.sip</a>
  &#8226;   <a href="#PyQt5.uic">PyQt5.uic</a>
  &#8226;   <a href="#os">os</a>
@@ -370,14 +391,20 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.QtCore"></a>
-  <tt>PyQt5.QtCore</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\PyQt5\QtCore.pyd</tt></span>  <div class="import">
+  <tt>PyQt5.QtCore</tt> <span class="moduletype"><tt>C:\Cine\CineEnv\Lib\site-packages\PyQt5\QtCore.pyd</tt></span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#PyQt5.sip">PyQt5.sip</a>
+ &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#enum">enum</a>
+ &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+    <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
  &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
  &#8226;   <a href="#PyQt5.uic">PyQt5.uic</a>
  &#8226;   <a href="#PyQt5.uic.Loader.loader">PyQt5.uic.Loader.loader</a>
@@ -389,10 +416,14 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.QtGui"></a>
-  <tt>PyQt5.QtGui</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\PyQt5\QtGui.pyd</tt></span>  <div class="import">
+  <tt>PyQt5.QtGui</tt> <span class="moduletype"><tt>C:\Cine\CineEnv\Lib\site-packages\PyQt5\QtGui.pyd</tt></span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
  &#8226;   <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#PyQt5.sip">PyQt5.sip</a>
+ &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
@@ -409,16 +440,21 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.QtWidgets"></a>
-  <tt>PyQt5.QtWidgets</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\PyQt5\QtWidgets.pyd</tt></span>  <div class="import">
+  <tt>PyQt5.QtWidgets</tt> <span class="moduletype"><tt>C:\Cine\CineEnv\Lib\site-packages\PyQt5\QtWidgets.pyd</tt></span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
  &#8226;   <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
  &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+ &#8226;   <a href="#PyQt5.sip">PyQt5.sip</a>
+ &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#PyQt5.uic">PyQt5.uic</a>
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+ &#8226;   <a href="#PyQt5.uic">PyQt5.uic</a>
  &#8226;   <a href="#PyQt5.uic.Loader.loader">PyQt5.uic.Loader.loader</a>
  &#8226;   <a href="#PyQt5.uic.Loader.qobjectcreator">PyQt5.uic.Loader.qobjectcreator</a>
  &#8226;   <a href="#cine">cine</a>
@@ -436,14 +472,18 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.sip"></a>
-  <tt>PyQt5.sip</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\PyQt5\sip.cp312-win_amd64.pyd</tt></span>  <div class="import">
+  <tt>PyQt5.sip</tt> <span class="moduletype"><tt>C:\Cine\CineEnv\Lib\site-packages\PyQt5\sip.cp313-win_amd64.pyd</tt></span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
 
   </div>
 
@@ -451,7 +491,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/__init__.py" type="text/plain"><tt>PyQt5.uic</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/__init__.py" type="text/plain"><tt>PyQt5.uic</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#'PyQt5.uic.port_v2.string_io'">'PyQt5.uic.port_v2.string_io'</a>
@@ -491,7 +531,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/__init__.py" type="text/plain"><tt>PyQt5.uic.Compiler</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/__init__.py" type="text/plain"><tt>PyQt5.uic.Compiler</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -518,7 +558,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.compiler"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/compiler.py" type="text/plain"><tt>PyQt5.uic.Compiler.compiler</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/compiler.py" type="text/plain"><tt>PyQt5.uic.Compiler.compiler</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.Compiler">PyQt5.uic.Compiler</a>
@@ -541,7 +581,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.indenter"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/indenter.py" type="text/plain"><tt>PyQt5.uic.Compiler.indenter</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/indenter.py" type="text/plain"><tt>PyQt5.uic.Compiler.indenter</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.Compiler">PyQt5.uic.Compiler</a>
@@ -561,7 +601,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.misc"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/misc.py" type="text/plain"><tt>PyQt5.uic.Compiler.misc</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/misc.py" type="text/plain"><tt>PyQt5.uic.Compiler.misc</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.Compiler">PyQt5.uic.Compiler</a>
@@ -578,7 +618,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.proxy_metaclass"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/proxy_metaclass.py" type="text/plain"><tt>PyQt5.uic.Compiler.proxy_metaclass</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/proxy_metaclass.py" type="text/plain"><tt>PyQt5.uic.Compiler.proxy_metaclass</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.Compiler">PyQt5.uic.Compiler</a>
@@ -596,7 +636,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.qobjectcreator"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/qobjectcreator.py" type="text/plain"><tt>PyQt5.uic.Compiler.qobjectcreator</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/qobjectcreator.py" type="text/plain"><tt>PyQt5.uic.Compiler.qobjectcreator</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#'PyQt5.uic.port_v2.as_string'">'PyQt5.uic.port_v2.as_string'</a>
@@ -618,7 +658,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Compiler.qtproxies"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Compiler/qtproxies.py" type="text/plain"><tt>PyQt5.uic.Compiler.qtproxies</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Compiler/qtproxies.py" type="text/plain"><tt>PyQt5.uic.Compiler.qtproxies</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#'PyQt5.uic.port_v2.as_string'">'PyQt5.uic.port_v2.as_string'</a>
@@ -645,7 +685,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Loader"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Loader/__init__.py" type="text/plain"><tt>PyQt5.uic.Loader</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Loader/__init__.py" type="text/plain"><tt>PyQt5.uic.Loader</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -662,7 +702,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Loader.loader"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Loader/loader.py" type="text/plain"><tt>PyQt5.uic.Loader.loader</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Loader/loader.py" type="text/plain"><tt>PyQt5.uic.Loader.loader</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
@@ -684,7 +724,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.Loader.qobjectcreator"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/Loader/qobjectcreator.py" type="text/plain"><tt>PyQt5.uic.Loader.qobjectcreator</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/Loader/qobjectcreator.py" type="text/plain"><tt>PyQt5.uic.Loader.qobjectcreator</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5">PyQt5</a>
@@ -704,7 +744,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.exceptions"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/exceptions.py" type="text/plain"><tt>PyQt5.uic.exceptions</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/exceptions.py" type="text/plain"><tt>PyQt5.uic.exceptions</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -721,7 +761,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.icon_cache"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/icon_cache.py" type="text/plain"><tt>PyQt5.uic.icon_cache</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/icon_cache.py" type="text/plain"><tt>PyQt5.uic.icon_cache</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -738,7 +778,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.objcreator"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/objcreator.py" type="text/plain"><tt>PyQt5.uic.objcreator</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/objcreator.py" type="text/plain"><tt>PyQt5.uic.objcreator</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -773,7 +813,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.port_v3"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/port_v3/__init__.py" type="text/plain"><tt>PyQt5.uic.port_v3</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/port_v3/__init__.py" type="text/plain"><tt>PyQt5.uic.port_v3</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -792,7 +832,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.port_v3.as_string"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/port_v3/as_string.py" type="text/plain"><tt>PyQt5.uic.port_v3.as_string</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/port_v3/as_string.py" type="text/plain"><tt>PyQt5.uic.port_v3.as_string</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.port_v3">PyQt5.uic.port_v3</a>
@@ -810,7 +850,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.port_v3.ascii_upper"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/port_v3/ascii_upper.py" type="text/plain"><tt>PyQt5.uic.port_v3.ascii_upper</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/port_v3/ascii_upper.py" type="text/plain"><tt>PyQt5.uic.port_v3.ascii_upper</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.port_v3">PyQt5.uic.port_v3</a>
@@ -826,7 +866,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.port_v3.proxy_base"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/port_v3/proxy_base.py" type="text/plain"><tt>PyQt5.uic.port_v3.proxy_base</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/port_v3/proxy_base.py" type="text/plain"><tt>PyQt5.uic.port_v3.proxy_base</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.Compiler.proxy_metaclass">PyQt5.uic.Compiler.proxy_metaclass</a>
@@ -843,7 +883,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.port_v3.string_io"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/port_v3/string_io.py" type="text/plain"><tt>PyQt5.uic.port_v3.string_io</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/port_v3/string_io.py" type="text/plain"><tt>PyQt5.uic.port_v3.string_io</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic.port_v3">PyQt5.uic.port_v3</a>
@@ -860,7 +900,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.properties"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/properties.py" type="text/plain"><tt>PyQt5.uic.properties</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/properties.py" type="text/plain"><tt>PyQt5.uic.properties</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -884,7 +924,7 @@ imported by:
 
 <div class="node">
   <a name="PyQt5.uic.uiparser"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyQt5/uic/uiparser.py" type="text/plain"><tt>PyQt5.uic.uiparser</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyQt5/uic/uiparser.py" type="text/plain"><tt>PyQt5.uic.uiparser</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PyQt5.uic">PyQt5.uic</a>
@@ -911,14 +951,20 @@ imported by:
   <a target="code" href="///C:/Python/Lib/__future__.py" type="text/plain"><tt>__future__</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
-    <a href="#charset_normalizer">charset_normalizer</a>
+    <a href="#_colorize">_colorize</a>
+ &#8226;   <a href="#charset_normalizer">charset_normalizer</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
  &#8226;   <a href="#charset_normalizer.constant">charset_normalizer.constant</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
+ &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#charset_normalizer.version">charset_normalizer.version</a>
+ &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
+ &#8226;   <a href="#importlib.metadata._meta">importlib.metadata._meta</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
+ &#8226;   <a href="#pyodbc">pyodbc</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
@@ -963,6 +1009,26 @@ imported by:
   <tt>_abc</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
     <a href="#abc">abc</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_aix_support"></a>
+  <a target="code" href="///C:/Python/Lib/_aix_support.py" type="text/plain"><tt>_aix_support</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#sysconfig">sysconfig</a>
 
   </div>
 
@@ -1122,14 +1188,33 @@ imports:
 imported by:
     <a href="#app.py">app.py</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_colorize"></a>
+  <a target="code" href="///C:/Python/Lib/_colorize.py" type="text/plain"><tt>_colorize</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#nt">nt</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#traceback">traceback</a>
 
   </div>
 
@@ -1181,6 +1266,17 @@ imported by:
   <tt>_csv</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
     <a href="#csv">csv</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_ctypes"></a>
+  <tt>_ctypes</tt> <span class="moduletype"><tt>C:\Python\DLLs\_ctypes.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
 
   </div>
 
@@ -1318,6 +1414,24 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="_ios_support"></a>
+  <a target="code" href="///C:/Python/Lib/_ios_support.py" type="text/plain"><tt>_ios_support</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#webbrowser">webbrowser</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="_json"></a>
   <tt>_json</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imports:
@@ -1402,6 +1516,18 @@ imported by:
 <div class="node">
   <a name="_opcode"></a>
   <tt>_opcode</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
+imported by:
+    <a href="#dis">dis</a>
+ &#8226;   <a href="#opcode">opcode</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_opcode_metadata"></a>
+  <a target="code" href="///C:/Python/Lib/_opcode_metadata.py" type="text/plain"><tt>_opcode_metadata</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
     <a href="#opcode">opcode</a>
 
@@ -1515,7 +1641,7 @@ imported by:
 
 <div class="node">
   <a name="_pyi_rth_utils"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyInstaller/fake-modules/_pyi_rth_utils/__init__.py" type="text/plain"><tt>_pyi_rth_utils</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyInstaller/fake-modules/_pyi_rth_utils/__init__.py" type="text/plain"><tt>_pyi_rth_utils</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#_pyi_rth_utils.qt">_pyi_rth_utils.qt</a>
@@ -1534,7 +1660,7 @@ imported by:
 
 <div class="node">
   <a name="_pyi_rth_utils.qt"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/PyInstaller/fake-modules/_pyi_rth_utils/qt.py" type="text/plain"><tt>_pyi_rth_utils.qt</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/PyInstaller/fake-modules/_pyi_rth_utils/qt.py" type="text/plain"><tt>_pyi_rth_utils.qt</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
@@ -1629,7 +1755,7 @@ imported by:
   <tt>_socket</tt> <span class="moduletype"><tt>C:\Python\DLLs\_socket.pyd</tt></span>  <div class="import">
 imported by:
     <a href="#socket">socket</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
+ &#8226;   <a href="#types">types</a>
 
   </div>
 
@@ -1707,8 +1833,10 @@ imports:
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#locale">locale</a>
+ &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
   <div class="import">
@@ -1732,11 +1860,30 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="_suggestions"></a>
+  <tt>_suggestions</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
+imported by:
+    <a href="#traceback">traceback</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_sysconfig"></a>
+  <tt>_sysconfig</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
+imported by:
+    <a href="#sysconfig">sysconfig</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="_thread"></a>
   <tt>_thread</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
     <a href="#_strptime">_strptime</a>
- &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -1848,6 +1995,7 @@ imported by:
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
 
   </div>
 
@@ -1880,7 +2028,6 @@ imported by:
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
 
   </div>
 
@@ -1909,8 +2056,10 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tokenize">tokenize</a>
+ &#8226;   <a href="#webbrowser">webbrowser</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -1972,6 +2121,7 @@ imported by:
 imports:
     <a href="#binascii">binascii</a>
  &#8226;   <a href="#getopt">getopt</a>
+ &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
  &#8226;   <a href="#sys">sys</a>
@@ -2131,7 +2281,7 @@ imported by:
 
 <div class="node">
   <a name="certifi"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/certifi/__init__.py" type="text/plain"><tt>certifi</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/certifi/__init__.py" type="text/plain"><tt>certifi</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#certifi.core">certifi.core</a>
@@ -2148,7 +2298,7 @@ imported by:
 
 <div class="node">
   <a name="certifi.core"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/certifi/core.py" type="text/plain"><tt>certifi.core</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/certifi/core.py" type="text/plain"><tt>certifi.core</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#atexit">atexit</a>
@@ -2181,13 +2331,12 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/__init__.py" type="text/plain"><tt>charset_normalizer</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/__init__.py" type="text/plain"><tt>charset_normalizer</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
- &#8226;   <a href="#charset_normalizer.md__mypyc">charset_normalizer.md__mypyc</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#charset_normalizer.version">charset_normalizer.version</a>
@@ -2201,7 +2350,6 @@ imported by:
  &#8226;   <a href="#charset_normalizer.constant">charset_normalizer.constant</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
  &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
- &#8226;   <a href="#charset_normalizer.md__mypyc">charset_normalizer.md__mypyc</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#charset_normalizer.version">charset_normalizer.version</a>
@@ -2213,7 +2361,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.api"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/api.py" type="text/plain"><tt>charset_normalizer.api</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/api.py" type="text/plain"><tt>charset_normalizer.api</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2239,7 +2387,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.cd"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/cd.py" type="text/plain"><tt>charset_normalizer.cd</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/cd.py" type="text/plain"><tt>charset_normalizer.cd</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2266,7 +2414,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.constant"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/constant.py" type="text/plain"><tt>charset_normalizer.constant</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/constant.py" type="text/plain"><tt>charset_normalizer.constant</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2281,6 +2429,7 @@ imported by:
     <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
+ &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
 
@@ -2290,7 +2439,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.legacy"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/legacy.py" type="text/plain"><tt>charset_normalizer.legacy</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/legacy.py" type="text/plain"><tt>charset_normalizer.legacy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2312,9 +2461,15 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.md"></a>
-  <tt>charset_normalizer.md</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\charset_normalizer\md.cp312-win_amd64.pyd</tt></span>  <div class="import">
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/md.py" type="text/plain"><tt>charset_normalizer.md</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#charset_normalizer">charset_normalizer</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#charset_normalizer">charset_normalizer</a>
+ &#8226;   <a href="#charset_normalizer.constant">charset_normalizer.constant</a>
+ &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#logging">logging</a>
 
   </div>
   <div class="import">
@@ -2327,23 +2482,8 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="charset_normalizer.md__mypyc"></a>
-  <tt>charset_normalizer.md__mypyc</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\charset_normalizer\md__mypyc.cp312-win_amd64.pyd</tt></span>  <div class="import">
-imports:
-    <a href="#charset_normalizer">charset_normalizer</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#charset_normalizer">charset_normalizer</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="charset_normalizer.models"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/models.py" type="text/plain"><tt>charset_normalizer.models</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/models.py" type="text/plain"><tt>charset_normalizer.models</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2370,7 +2510,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.utils"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/utils.py" type="text/plain"><tt>charset_normalizer.utils</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/utils.py" type="text/plain"><tt>charset_normalizer.utils</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2392,6 +2532,7 @@ imported by:
     <a href="#charset_normalizer">charset_normalizer</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
+ &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
 
   </div>
@@ -2400,7 +2541,7 @@ imported by:
 
 <div class="node">
   <a name="charset_normalizer.version"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/charset_normalizer/version.py" type="text/plain"><tt>charset_normalizer.version</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/charset_normalizer/version.py" type="text/plain"><tt>charset_normalizer.version</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -2606,7 +2747,6 @@ imported by:
  &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email.feedparser">email.feedparser</a>
@@ -2631,37 +2771,9 @@ imported by:
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
- &#8226;   <a href="#xml.etree.ElementTree">xml.etree.ElementTree</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="collections.abc"></a>
-  <a target="code" href="///C:/Python/Lib/collections/abc.py" type="text/plain"><tt>collections.abc</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_collections_abc">_collections_abc</a>
- &#8226;   <a href="#collections">collections</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#app.py">app.py</a>
- &#8226;   <a href="#http.client">http.client</a>
- &#8226;   <a href="#inspect">inspect</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#requests.compat">requests.compat</a>
- &#8226;   <a href="#selectors">selectors</a>
- &#8226;   <a href="#traceback">traceback</a>
- &#8226;   <a href="#tracemalloc">tracemalloc</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#xml.etree.ElementTree">xml.etree.ElementTree</a>
 
   </div>
@@ -2720,17 +2832,19 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#_threading_local">_threading_local</a>
+    <a href="#_aix_support">_aix_support</a>
+ &#8226;   <a href="#_threading_local">_threading_local</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#getpass">getpass</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.resources._adapters">importlib.resources._adapters</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.response">urllib3.contrib.emscripten.response</a>
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
@@ -2840,6 +2954,173 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="ctypes"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/__init__.py" type="text/plain"><tt>ctypes</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#_ctypes">_ctypes</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#nt">nt</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#_ios_support">_ios_support</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+ &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#webbrowser">webbrowser</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes._aix"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/_aix.py" type="text/plain"><tt>ctypes._aix</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes.util">ctypes.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes._endian"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/_endian.py" type="text/plain"><tt>ctypes._endian</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes">ctypes</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.macholib"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/macholib/__init__.py" type="text/plain"><tt>ctypes.macholib</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
+ &#8226;   <a href="#ctypes.macholib.dylib">ctypes.macholib.dylib</a>
+ &#8226;   <a href="#ctypes.macholib.framework">ctypes.macholib.framework</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.macholib.dyld"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/macholib/dyld.py" type="text/plain"><tt>ctypes.macholib.dyld</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#_ctypes">_ctypes</a>
+ &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
+ &#8226;   <a href="#ctypes.macholib.dylib">ctypes.macholib.dylib</a>
+ &#8226;   <a href="#ctypes.macholib.framework">ctypes.macholib.framework</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#os">os</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes.util">ctypes.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.macholib.dylib"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/macholib/dylib.py" type="text/plain"><tt>ctypes.macholib.dylib</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes.macholib">ctypes.macholib</a>
+ &#8226;   <a href="#re">re</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.macholib.framework"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/macholib/framework.py" type="text/plain"><tt>ctypes.macholib.framework</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes.macholib">ctypes.macholib</a>
+ &#8226;   <a href="#re">re</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.util"></a>
+  <a target="code" href="///C:/Python/Lib/ctypes/util.py" type="text/plain"><tt>ctypes.util</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
+ &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tempfile">tempfile</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#_ios_support">_ios_support</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="data"></a>
   <a target="code" href="-" type="text/plain"><tt>data</tt></a>
 <span class="moduletype">NamespacePackage</span>  <div class="import">
@@ -2912,14 +3193,13 @@ imported by:
   <a target="code" href="///C:/Python/Lib/dataclasses.py" type="text/plain"><tt>dataclasses</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_thread">_thread</a>
- &#8226;   <a href="#abc">abc</a>
+    <a href="#abc">abc</a>
  &#8226;   <a href="#copy">copy</a>
- &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#types">types</a>
 
@@ -2946,7 +3226,10 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#_strptime">_strptime</a>
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
@@ -2966,6 +3249,7 @@ imported by:
 imports:
     <a href="#_decimal">_decimal</a>
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
+ &#8226;   <a href="#sys">sys</a>
 
   </div>
   <div class="import">
@@ -2983,7 +3267,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/dis.py" type="text/plain"><tt>dis</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#argparse">argparse</a>
+    <a href="#_opcode">_opcode</a>
+ &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#opcode">opcode</a>
@@ -3196,6 +3481,7 @@ imports:
  &#8226;   <a href="#email.errors">email.errors</a>
  &#8226;   <a href="#email.message">email.message</a>
  &#8226;   <a href="#email.quoprimime">email.quoprimime</a>
+ &#8226;   <a href="#sys">sys</a>
 
   </div>
   <div class="import">
@@ -6002,7 +6288,6 @@ imported by:
 imports:
     <a href="#builtins">builtins</a>
  &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#warnings">warnings</a>
@@ -6010,7 +6295,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#app.py">app.py</a>
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#http">http</a>
@@ -6035,7 +6321,8 @@ imported by:
     <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._abc">pathlib._abc</a>
+ &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#ssl">ssl</a>
@@ -6071,7 +6358,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#pathlib">pathlib</a>
+    <a href="#glob">glob</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
@@ -6134,6 +6421,7 @@ imports:
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
 
   </div>
@@ -6141,40 +6429,38 @@ imports:
 imported by:
     <a href="#app.py">app.py</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
+ &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#email._encoded_words">email._encoded_words</a>
  &#8226;   <a href="#email.charset">email.charset</a>
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#fractions">fractions</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._adapters">importlib.metadata._adapters</a>
  &#8226;   <a href="#importlib.metadata._functools">importlib.metadata._functools</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#ipaddress">ipaddress</a>
- &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._abc">pathlib._abc</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#tempfile">tempfile</a>
- &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib3.poolmanager">urllib3.poolmanager</a>
  &#8226;   <a href="#urllib3.util.wait">urllib3.util.wait</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
 
@@ -6230,7 +6516,6 @@ imported by:
     <a href="#base64">base64</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#quopri">quopri</a>
- &#8226;   <a href="#webbrowser">webbrowser</a>
 
   </div>
 
@@ -6286,11 +6571,37 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="glob"></a>
+  <a target="code" href="///C:/Python/Lib/glob.py" type="text/plain"><tt>glob</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#fnmatch">fnmatch</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#operator">operator</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pathlib._abc">pathlib._abc</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="grp"></a>
   <a target="code" href="" type="text/plain"><tt>grp</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pathlib">pathlib</a>
+    <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tarfile">tarfile</a>
@@ -6446,6 +6757,7 @@ imports:
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#warnings">warnings</a>
+ &#8226;   <a href="#weakref">weakref</a>
  &#8226;   <a href="#zlib">zlib</a>
 
   </div>
@@ -6558,7 +6870,7 @@ imported by:
   <a target="code" href="///C:/Python/Lib/http/client.py" type="text/plain"><tt>http.client</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#collections.abc">collections.abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
  &#8226;   <a href="#email.message">email.message</a>
  &#8226;   <a href="#email.parser">email.parser</a>
  &#8226;   <a href="#errno">errno</a>
@@ -6640,7 +6952,7 @@ imported by:
 
 <div class="node">
   <a name="idna"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/__init__.py" type="text/plain"><tt>idna</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/__init__.py" type="text/plain"><tt>idna</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#idna">idna</a>
@@ -6668,7 +6980,7 @@ imported by:
 
 <div class="node">
   <a name="idna.core"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/core.py" type="text/plain"><tt>idna.core</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/core.py" type="text/plain"><tt>idna.core</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#bisect">bisect</a>
@@ -6691,7 +7003,7 @@ imported by:
 
 <div class="node">
   <a name="idna.idnadata"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/idnadata.py" type="text/plain"><tt>idna.idnadata</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/idnadata.py" type="text/plain"><tt>idna.idnadata</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#idna">idna</a>
@@ -6708,7 +7020,7 @@ imported by:
 
 <div class="node">
   <a name="idna.intranges"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/intranges.py" type="text/plain"><tt>idna.intranges</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/intranges.py" type="text/plain"><tt>idna.intranges</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#bisect">bisect</a>
@@ -6727,7 +7039,7 @@ imported by:
 
 <div class="node">
   <a name="idna.package_data"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/package_data.py" type="text/plain"><tt>idna.package_data</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/package_data.py" type="text/plain"><tt>idna.package_data</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#idna">idna</a>
@@ -6743,7 +7055,7 @@ imported by:
 
 <div class="node">
   <a name="idna.uts46data"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/idna/uts46data.py" type="text/plain"><tt>idna.uts46data</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/idna/uts46data.py" type="text/plain"><tt>idna.uts46data</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#idna">idna</a>
@@ -6769,9 +7081,7 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#warnings">warnings</a>
 
   </div>
   <div class="import">
@@ -6905,11 +7215,12 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib">importlib</a>
+    <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
 
   </div>
 
@@ -6920,7 +7231,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/importlib/metadata/__init__.py" type="text/plain"><tt>importlib.metadata</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#abc">abc</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#csv">csv</a>
@@ -6936,6 +7248,7 @@ imports:
  &#8226;   <a href="#importlib.metadata._meta">importlib.metadata._meta</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pathlib">pathlib</a>
@@ -6943,6 +7256,7 @@ imports:
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#textwrap">textwrap</a>
+ &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -7044,7 +7358,9 @@ imported by:
   <a target="code" href="///C:/Python/Lib/importlib/metadata/_meta.py" type="text/plain"><tt>importlib.metadata._meta</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#importlib.metadata">importlib.metadata</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
+ &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#typing">typing</a>
 
   </div>
@@ -7100,7 +7416,7 @@ imports:
     <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib.resources">importlib.resources</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
+ &#8226;   <a href="#importlib.resources._functional">importlib.resources._functional</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
 
   </div>
@@ -7111,8 +7427,8 @@ imported by:
  &#8226;   <a href="#importlib.resources">importlib.resources</a>
  &#8226;   <a href="#importlib.resources._adapters">importlib.resources._adapters</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
+ &#8226;   <a href="#importlib.resources._functional">importlib.resources._functional</a>
  &#8226;   <a href="#importlib.resources._itertools">importlib.resources._itertools</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.fetch">urllib3.contrib.emscripten.fetch</a>
@@ -7164,7 +7480,25 @@ imports:
   <div class="import">
 imported by:
     <a href="#importlib.resources">importlib.resources</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
+ &#8226;   <a href="#importlib.resources._functional">importlib.resources._functional</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="importlib.resources._functional"></a>
+  <a target="code" href="///C:/Python/Lib/importlib/resources/_functional.py" type="text/plain"><tt>importlib.resources._functional</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#importlib.resources">importlib.resources</a>
+ &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#importlib.resources">importlib.resources</a>
 
   </div>
 
@@ -7181,29 +7515,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#importlib.resources.readers">importlib.resources.readers</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="importlib.resources._legacy"></a>
-  <a target="code" href="///C:/Python/Lib/importlib/resources/_legacy.py" type="text/plain"><tt>importlib.resources._legacy</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#functools">functools</a>
- &#8226;   <a href="#importlib.resources">importlib.resources</a>
- &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#importlib.resources">importlib.resources</a>
 
   </div>
 
@@ -7240,13 +7551,18 @@ imported by:
   <a target="code" href="///C:/Python/Lib/importlib/resources/readers.py" type="text/plain"><tt>importlib.resources.readers</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#collections">collections</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#__future__">__future__</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#importlib.resources">importlib.resources</a>
  &#8226;   <a href="#importlib.resources._itertools">importlib.resources._itertools</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -7277,6 +7593,7 @@ imports:
 imported by:
     <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -7288,12 +7605,12 @@ imported by:
   <a target="code" href="///C:/Python/Lib/inspect.py" type="text/plain"><tt>inspect</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#abc">abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#builtins">builtins</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
@@ -7321,7 +7638,7 @@ imported by:
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
 
@@ -7341,6 +7658,7 @@ imported by:
     <a href="#PyQt5.uic.port_v3.string_io">PyQt5.uic.port_v3.string_io</a>
  &#8226;   <a href="#_compression">_compression</a>
  &#8226;   <a href="#app.py">app.py</a>
+ &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#csv">csv</a>
  &#8226;   <a href="#dis">dis</a>
@@ -7360,7 +7678,7 @@ imported by:
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#lzma">lzma</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#quopri">quopri</a>
@@ -7418,13 +7736,16 @@ imported by:
     <a href="#_pydecimal">_pydecimal</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._itertools">importlib.metadata._itertools</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#reprlib">reprlib</a>
@@ -7465,6 +7786,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#charset_normalizer.models">charset_normalizer.models</a>
+ &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
@@ -7554,8 +7876,7 @@ imported by:
   <a target="code" href="///C:/Python/Lib/linecache.py" type="text/plain"><tt>linecache</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#functools">functools</a>
- &#8226;   <a href="#os">os</a>
+    <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#tokenize">tokenize</a>
 
@@ -7608,8 +7929,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/logging/__init__.py" type="text/plain"><tt>logging</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#atexit">atexit</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#atexit">atexit</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pickle">pickle</a>
@@ -7631,6 +7952,7 @@ imported by:
  &#8226;   <a href="#PyQt5.uic.uiparser">PyQt5.uic.uiparser</a>
  &#8226;   <a href="#charset_normalizer">charset_normalizer</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
+ &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
@@ -7691,6 +8013,7 @@ imported by:
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
  &#8226;   <a href="#fractions">fractions</a>
  &#8226;   <a href="#random">random</a>
+ &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
@@ -7801,7 +8124,9 @@ imported by:
   <a name="nt"></a>
   <tt>nt</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
+    <a href="#_colorize">_colorize</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#shutil">shutil</a>
@@ -7819,8 +8144,7 @@ imports:
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#nt">nt</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#string">string</a>
+ &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#sys">sys</a>
 
   </div>
@@ -7829,7 +8153,7 @@ imported by:
     <a href="#app.py">app.py</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#os.path">os.path</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
 
   </div>
 
@@ -7877,6 +8201,7 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#_opcode">_opcode</a>
+ &#8226;   <a href="#_opcode_metadata">_opcode_metadata</a>
 
   </div>
   <div class="import">
@@ -7904,16 +8229,16 @@ imported by:
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
- &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#fractions">fractions</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
 
   </div>
 
@@ -7943,26 +8268,34 @@ imported by:
     <a href="#PyQt5">PyQt5</a>
  &#8226;   <a href="#PyQt5.uic">PyQt5.uic</a>
  &#8226;   <a href="#PyQt5.uic.uiparser">PyQt5.uic.uiparser</a>
+ &#8226;   <a href="#_aix_support">_aix_support</a>
+ &#8226;   <a href="#_colorize">_colorize</a>
  &#8226;   <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
  &#8226;   <a href="#_pyi_rth_utils.qt">_pyi_rth_utils.qt</a>
+ &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gui.main">gui.main</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
+ &#8226;   <a href="#importlib.metadata._meta">importlib.metadata._meta</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#linecache">linecache</a>
@@ -7973,7 +8306,7 @@ imported by:
  &#8226;   <a href="#netrc">netrc</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os.path">os.path</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -7988,6 +8321,7 @@ imported by:
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
@@ -8001,6 +8335,7 @@ imported by:
  &#8226;   <a href="#xml.sax">xml.sax</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
  &#8226;   <a href="#zipfile">zipfile</a>
+ &#8226;   <a href="#zipfile._path.glob">zipfile._path.glob</a>
 
   </div>
 
@@ -8024,6 +8359,7 @@ imported by:
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#requests.adapters">requests.adapters</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
 
   </div>
@@ -8032,21 +8368,65 @@ imported by:
 
 <div class="node">
   <a name="pathlib"></a>
-  <a target="code" href="///C:/Python/Lib/pathlib.py" type="text/plain"><tt>pathlib</tt></a>
+  <a target="code" href="///C:/Python/Lib/pathlib/__init__.py" type="text/plain"><tt>pathlib</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#pathlib._abc">pathlib._abc</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#importlib.metadata">importlib.metadata</a>
+ &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
+ &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
+ &#8226;   <a href="#pathlib._abc">pathlib._abc</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
+ &#8226;   <a href="#zipfile._path">zipfile._path</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pathlib._abc"></a>
+  <a target="code" href="///C:/Python/Lib/pathlib/_abc.py" type="text/plain"><tt>pathlib._abc</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#errno">errno</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#stat">stat</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pathlib._local"></a>
+  <a target="code" href="///C:/Python/Lib/pathlib/_local.py" type="text/plain"><tt>pathlib._local</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#_collections_abc">_collections_abc</a>
- &#8226;   <a href="#errno">errno</a>
- &#8226;   <a href="#fnmatch">fnmatch</a>
- &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#grp">grp</a>
  &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#ntpath">ntpath</a>
+ &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._abc">pathlib._abc</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pwd">pwd</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#stat">stat</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#warnings">warnings</a>
@@ -8054,12 +8434,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib.metadata">importlib.metadata</a>
- &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
- &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
- &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
- &#8226;   <a href="#zipfile._path">zipfile._path</a>
+    <a href="#pathlib">pathlib</a>
 
   </div>
 
@@ -8147,7 +8522,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/posixpath.py" type="text/plain"><tt>posixpath</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#genericpath">genericpath</a>
+    <a href="#errno">errno</a>
+ &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#posix">posix</a>
  &#8226;   <a href="#pwd">pwd</a>
@@ -8163,7 +8539,7 @@ imported by:
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#zipfile._path">zipfile._path</a>
 
   </div>
@@ -8198,7 +8574,7 @@ imported by:
 imported by:
     <a href="#getpass">getpass</a>
  &#8226;   <a href="#netrc">netrc</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
@@ -8257,9 +8633,10 @@ imported by:
 
 <div class="node">
   <a name="pyodbc"></a>
-  <tt>pyodbc</tt> <span class="moduletype"><tt>C:\Python\Lib\site-packages\pyodbc.cp312-win_amd64.pyd</tt></span>  <div class="import">
+  <tt>pyodbc</tt> <span class="moduletype"><tt>C:\Cine\CineEnv\Lib\site-packages\pyodbc.cp313-win_amd64.pyd</tt></span>  <div class="import">
 imports:
-    <a href="#_blake2">_blake2</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#_blake2">_blake2</a>
  &#8226;   <a href="#_datetime">_datetime</a>
  &#8226;   <a href="#_decimal">_decimal</a>
  &#8226;   <a href="#_hashlib">_hashlib</a>
@@ -8269,6 +8646,7 @@ imports:
  &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#numbers">numbers</a>
+ &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
@@ -8340,6 +8718,7 @@ imports:
     <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_random">_random</a>
  &#8226;   <a href="#_sha2">_sha2</a>
+ &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#bisect">bisect</a>
  &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#itertools">itertools</a>
@@ -8395,6 +8774,10 @@ imported by:
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#csv">csv</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes.macholib.dylib">ctypes.macholib.dylib</a>
+ &#8226;   <a href="#ctypes.macholib.framework">ctypes.macholib.framework</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#email._encoded_words">email._encoded_words</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
@@ -8410,6 +8793,7 @@ imported by:
  &#8226;   <a href="#fractions">fractions</a>
  &#8226;   <a href="#ftplib">ftplib</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
@@ -8417,6 +8801,7 @@ imported by:
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._adapters">importlib.metadata._adapters</a>
  &#8226;   <a href="#importlib.metadata._text">importlib.metadata._text</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#ipaddress">ipaddress</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
@@ -8424,7 +8809,7 @@ imported by:
  &#8226;   <a href="#json.scanner">json.scanner</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#posixpath">posixpath</a>
@@ -8442,6 +8827,7 @@ imported by:
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#string">string</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#textwrap">textwrap</a>
  &#8226;   <a href="#tokenize">tokenize</a>
@@ -8555,12 +8941,15 @@ imports:
     <a href="#_thread">_thread</a>
  &#8226;   <a href="#builtins">builtins</a>
  &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#math">math</a>
+ &#8226;   <a href="#sys">sys</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#app.py">app.py</a>
  &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#functools">functools</a>
 
   </div>
@@ -8569,7 +8958,7 @@ imported by:
 
 <div class="node">
   <a name="requests"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/__init__.py" type="text/plain"><tt>requests</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/__init__.py" type="text/plain"><tt>requests</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#chardet">chardet</a>
@@ -8622,7 +9011,7 @@ imported by:
 
 <div class="node">
   <a name="requests.__version__"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/__version__.py" type="text/plain"><tt>requests.__version__</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/__version__.py" type="text/plain"><tt>requests.__version__</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8639,7 +9028,7 @@ imported by:
 
 <div class="node">
   <a name="requests._internal_utils"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/_internal_utils.py" type="text/plain"><tt>requests._internal_utils</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/_internal_utils.py" type="text/plain"><tt>requests._internal_utils</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#re">re</a>
@@ -8661,7 +9050,7 @@ imported by:
 
 <div class="node">
   <a name="requests.adapters"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/adapters.py" type="text/plain"><tt>requests.adapters</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/adapters.py" type="text/plain"><tt>requests.adapters</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#os.path">os.path</a>
@@ -8695,7 +9084,7 @@ imported by:
 
 <div class="node">
   <a name="requests.api"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/api.py" type="text/plain"><tt>requests.api</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/api.py" type="text/plain"><tt>requests.api</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8712,7 +9101,7 @@ imported by:
 
 <div class="node">
   <a name="requests.auth"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/auth.py" type="text/plain"><tt>requests.auth</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/auth.py" type="text/plain"><tt>requests.auth</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#base64">base64</a>
@@ -8741,7 +9130,7 @@ imported by:
 
 <div class="node">
   <a name="requests.certs"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/certs.py" type="text/plain"><tt>requests.certs</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/certs.py" type="text/plain"><tt>requests.certs</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#certifi">certifi</a>
@@ -8759,11 +9148,11 @@ imported by:
 
 <div class="node">
   <a name="requests.compat"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/compat.py" type="text/plain"><tt>requests.compat</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/compat.py" type="text/plain"><tt>requests.compat</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#http">http</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
@@ -8796,7 +9185,7 @@ imported by:
 
 <div class="node">
   <a name="requests.cookies"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/cookies.py" type="text/plain"><tt>requests.cookies</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/cookies.py" type="text/plain"><tt>requests.cookies</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#calendar">calendar</a>
@@ -8823,7 +9212,7 @@ imported by:
 
 <div class="node">
   <a name="requests.exceptions"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/exceptions.py" type="text/plain"><tt>requests.exceptions</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/exceptions.py" type="text/plain"><tt>requests.exceptions</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8845,7 +9234,7 @@ imported by:
 
 <div class="node">
   <a name="requests.hooks"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/hooks.py" type="text/plain"><tt>requests.hooks</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/hooks.py" type="text/plain"><tt>requests.hooks</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8862,7 +9251,7 @@ imported by:
 
 <div class="node">
   <a name="requests.models"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/models.py" type="text/plain"><tt>requests.models</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/models.py" type="text/plain"><tt>requests.models</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#datetime">datetime</a>
@@ -8897,7 +9286,7 @@ imported by:
 
 <div class="node">
   <a name="requests.packages"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/packages.py" type="text/plain"><tt>requests.packages</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/packages.py" type="text/plain"><tt>requests.packages</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8915,7 +9304,7 @@ imported by:
 
 <div class="node">
   <a name="requests.sessions"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/sessions.py" type="text/plain"><tt>requests.sessions</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/sessions.py" type="text/plain"><tt>requests.sessions</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#collections">collections</a>
@@ -8948,7 +9337,7 @@ imported by:
 
 <div class="node">
   <a name="requests.status_codes"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/status_codes.py" type="text/plain"><tt>requests.status_codes</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/status_codes.py" type="text/plain"><tt>requests.status_codes</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#requests">requests</a>
@@ -8967,7 +9356,7 @@ imported by:
 
 <div class="node">
   <a name="requests.structures"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/structures.py" type="text/plain"><tt>requests.structures</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/structures.py" type="text/plain"><tt>requests.structures</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#collections">collections</a>
@@ -8989,7 +9378,7 @@ imported by:
 
 <div class="node">
   <a name="requests.utils"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/requests/utils.py" type="text/plain"><tt>requests.utils</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/requests/utils.py" type="text/plain"><tt>requests.utils</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#codecs">codecs</a>
@@ -9057,9 +9446,9 @@ imported by:
   <a target="code" href="///C:/Python/Lib/selectors.py" type="text/plain"><tt>selectors</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#abc">abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#math">math</a>
  &#8226;   <a href="#select">select</a>
  &#8226;   <a href="#sys">sys</a>
@@ -9113,7 +9502,6 @@ imports:
  &#8226;   <a href="#stat">stat</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#tarfile">tarfile</a>
- &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#zipfile">zipfile</a>
  &#8226;   <a href="#zlib">zlib</a>
 
@@ -9121,6 +9509,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#argparse">argparse</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
@@ -9316,14 +9705,15 @@ imports:
 imported by:
     <a href="#app.py">app.py</a>
  &#8226;   <a href="#genericpath">genericpath</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#netrc">netrc</a>
- &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._abc">pathlib._abc</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
+ &#8226;   <a href="#zipfile._path">zipfile._path</a>
 
   </div>
 
@@ -9373,7 +9763,6 @@ imported by:
  &#8226;   <a href="#email.quoprimime">email.quoprimime</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
  &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
 
@@ -9408,12 +9797,15 @@ imports:
   <div class="import">
 imported by:
     <a href="#base64">base64</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
+ &#8226;   <a href="#zipimport">zipimport</a>
 
   </div>
 
@@ -9448,7 +9840,10 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#os">os</a>
+    <a href="#_aix_support">_aix_support</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
 
   </div>
@@ -9467,8 +9862,11 @@ imported by:
  &#8226;   <a href="#PyQt5.uic.Loader.qobjectcreator">PyQt5.uic.Loader.qobjectcreator</a>
  &#8226;   <a href="#PyQt5.uic.properties">PyQt5.uic.properties</a>
  &#8226;   <a href="#PyQt5.uic.uiparser">PyQt5.uic.uiparser</a>
+ &#8226;   <a href="#_aix_support">_aix_support</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
+ &#8226;   <a href="#_colorize">_colorize</a>
  &#8226;   <a href="#_compression">_compression</a>
+ &#8226;   <a href="#_ios_support">_ios_support</a>
  &#8226;   <a href="#_pydatetime">_pydatetime</a>
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
  &#8226;   <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
@@ -9482,9 +9880,15 @@ imported by:
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
+ &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+ &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
+ &#8226;   <a href="#decimal">decimal</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
+ &#8226;   <a href="#email.contentmanager">email.contentmanager</a>
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.iterators">email.iterators</a>
  &#8226;   <a href="#email.policy">email.policy</a>
@@ -9498,6 +9902,7 @@ imported by:
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#importlib">importlib</a>
@@ -9511,7 +9916,7 @@ imported by:
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#posixpath">posixpath</a>
@@ -9521,6 +9926,7 @@ imported by:
  &#8226;   <a href="#pyi_rth_pyqt5.py">pyi_rth_pyqt5.py</a>
  &#8226;   <a href="#quopri">quopri</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
+ &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
  &#8226;   <a href="#requests.packages">requests.packages</a>
  &#8226;   <a href="#requests.sessions">requests.sessions</a>
@@ -9532,6 +9938,7 @@ imported by:
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
@@ -9539,7 +9946,6 @@ imported by:
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
@@ -9555,7 +9961,35 @@ imported by:
  &#8226;   <a href="#xml.sax">xml.sax</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
  &#8226;   <a href="#zipfile">zipfile</a>
+ &#8226;   <a href="#zipfile._path">zipfile._path</a>
  &#8226;   <a href="#zipimport">zipimport</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="sysconfig"></a>
+  <a target="code" href="///C:/Python/Lib/sysconfig/__init__.py" type="text/plain"><tt>sysconfig</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#_aix_support">_aix_support</a>
+ &#8226;   <a href="#_sysconfig">_sysconfig</a>
+ &#8226;   <a href="#_winapi">_winapi</a>
+ &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
+ &#8226;   <a href="#importlib.util">importlib.util</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#os.path">os.path</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#_aix_support">_aix_support</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
 
   </div>
 
@@ -9614,7 +10048,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib.resources._common">importlib.resources._common</a>
+    <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib.response">urllib.response</a>
@@ -9663,7 +10098,6 @@ imports:
  &#8226;   <a href="#_threading_local">_threading_local</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
@@ -9682,6 +10116,7 @@ imported by:
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.cookies">requests.cookies</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
  &#8226;   <a href="#urllib3.http2.connection">urllib3.http2.connection</a>
@@ -9778,14 +10213,17 @@ imported by:
   <a target="code" href="///C:/Python/Lib/traceback.py" type="text/plain"><tt>traceback</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#ast">ast</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#_colorize">_colorize</a>
+ &#8226;   <a href="#_suggestions">_suggestions</a>
+ &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#textwrap">textwrap</a>
  &#8226;   <a href="#unicodedata">unicodedata</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
   <div class="import">
@@ -9806,8 +10244,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/tracemalloc.py" type="text/plain"><tt>tracemalloc</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_tracemalloc">_tracemalloc</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#_tracemalloc">_tracemalloc</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#linecache">linecache</a>
@@ -9829,6 +10267,7 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#_collections_abc">_collections_abc</a>
+ &#8226;   <a href="#_socket">_socket</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#sys">sys</a>
 
@@ -9841,15 +10280,16 @@ imported by:
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#copy">copy</a>
  &#8226;   <a href="#csv">csv</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email.headerregistry">email.headerregistry</a>
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
+ &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._functools">importlib.metadata._functools</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.util">importlib.util</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#logging">logging</a>
@@ -9860,13 +10300,13 @@ imported by:
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib3.connectionpool">urllib3.connectionpool</a>
  &#8226;   <a href="#urllib3.http2.connection">urllib3.http2.connection</a>
  &#8226;   <a href="#urllib3.poolmanager">urllib3.poolmanager</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
  &#8226;   <a href="#urllib3.util.util">urllib3.util.util</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
 
@@ -9877,10 +10317,10 @@ imported by:
   <a target="code" href="///C:/Python/Lib/typing.py" type="text/plain"><tt>typing</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_typing">_typing</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#_typing">_typing</a>
  &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#functools">functools</a>
@@ -9894,7 +10334,12 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#certifi.core">certifi.core</a>
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#PyQt5.sip">PyQt5.sip</a>
+ &#8226;   <a href="#_colorize">_colorize</a>
+ &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
@@ -9907,10 +10352,9 @@ imported by:
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._meta">importlib.metadata._meta</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
+ &#8226;   <a href="#pyodbc">pyodbc</a>
  &#8226;   <a href="#requests.adapters">requests.adapters</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
@@ -9947,24 +10391,8 @@ imported by:
 
 <div class="node">
   <a name="typing_extensions"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/setuptools/_vendor/typing_extensions.py" type="text/plain"><tt>typing_extensions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#_socket">_socket</a>
- &#8226;   <a href="#abc">abc</a>
- &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#contextlib">contextlib</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#inspect">inspect</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
+  <a target="code" href="" type="text/plain"><tt>typing_extensions</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
     <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
@@ -10050,7 +10478,7 @@ imported by:
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3._request_methods">urllib3._request_methods</a>
@@ -10129,7 +10557,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/__init__.py" type="text/plain"><tt>urllib3</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/__init__.py" type="text/plain"><tt>urllib3</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10179,7 +10607,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3._base_connection"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/_base_connection.py" type="text/plain"><tt>urllib3._base_connection</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/_base_connection.py" type="text/plain"><tt>urllib3._base_connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10211,7 +10639,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3._collections"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/_collections.py" type="text/plain"><tt>urllib3._collections</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/_collections.py" type="text/plain"><tt>urllib3._collections</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10239,7 +10667,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3._request_methods"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/_request_methods.py" type="text/plain"><tt>urllib3._request_methods</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/_request_methods.py" type="text/plain"><tt>urllib3._request_methods</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10264,7 +10692,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3._version"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/_version.py" type="text/plain"><tt>urllib3._version</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/_version.py" type="text/plain"><tt>urllib3._version</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#typing">typing</a>
@@ -10282,7 +10710,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.connection"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/connection.py" type="text/plain"><tt>urllib3.connection</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/connection.py" type="text/plain"><tt>urllib3.connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10337,7 +10765,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.connectionpool"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/connectionpool.py" type="text/plain"><tt>urllib3.connectionpool</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/connectionpool.py" type="text/plain"><tt>urllib3.connectionpool</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10386,7 +10814,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/__init__.py" type="text/plain"><tt>urllib3.contrib</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/__init__.py" type="text/plain"><tt>urllib3.contrib</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#urllib3">urllib3</a>
@@ -10406,7 +10834,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.emscripten"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/emscripten/__init__.py" type="text/plain"><tt>urllib3.contrib.emscripten</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/emscripten/__init__.py" type="text/plain"><tt>urllib3.contrib.emscripten</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10430,7 +10858,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.emscripten.connection"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/emscripten/connection.py" type="text/plain"><tt>urllib3.contrib.emscripten.connection</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/emscripten/connection.py" type="text/plain"><tt>urllib3.contrib.emscripten.connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10460,7 +10888,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.emscripten.fetch"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/emscripten/fetch.py" type="text/plain"><tt>urllib3.contrib.emscripten.fetch</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/emscripten/fetch.py" type="text/plain"><tt>urllib3.contrib.emscripten.fetch</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#'pyodide.ffi'">'pyodide.ffi'</a>
@@ -10489,7 +10917,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.emscripten.request"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/emscripten/request.py" type="text/plain"><tt>urllib3.contrib.emscripten.request</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/emscripten/request.py" type="text/plain"><tt>urllib3.contrib.emscripten.request</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10510,7 +10938,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.emscripten.response"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/emscripten/response.py" type="text/plain"><tt>urllib3.contrib.emscripten.response</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/emscripten/response.py" type="text/plain"><tt>urllib3.contrib.emscripten.response</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10541,7 +10969,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.pyopenssl"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/pyopenssl.py" type="text/plain"><tt>urllib3.contrib.pyopenssl</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/pyopenssl.py" type="text/plain"><tt>urllib3.contrib.pyopenssl</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#'OpenSSL.crypto'">'OpenSSL.crypto'</a>
@@ -10571,7 +10999,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.contrib.socks"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/contrib/socks.py" type="text/plain"><tt>urllib3.contrib.socks</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/contrib/socks.py" type="text/plain"><tt>urllib3.contrib.socks</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10598,7 +11026,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.exceptions"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/exceptions.py" type="text/plain"><tt>urllib3.exceptions</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/exceptions.py" type="text/plain"><tt>urllib3.exceptions</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10644,7 +11072,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.fields"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/fields.py" type="text/plain"><tt>urllib3.fields</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/fields.py" type="text/plain"><tt>urllib3.fields</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10666,7 +11094,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.filepost"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/filepost.py" type="text/plain"><tt>urllib3.filepost</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/filepost.py" type="text/plain"><tt>urllib3.filepost</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10691,7 +11119,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.http2"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/http2/__init__.py" type="text/plain"><tt>urllib3.http2</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/http2/__init__.py" type="text/plain"><tt>urllib3.http2</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10718,7 +11146,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.http2.connection"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/http2/connection.py" type="text/plain"><tt>urllib3.http2.connection</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/http2/connection.py" type="text/plain"><tt>urllib3.http2.connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#'h2.connection'">'h2.connection'</a>
@@ -10748,7 +11176,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.http2.probe"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/http2/probe.py" type="text/plain"><tt>urllib3.http2.probe</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/http2/probe.py" type="text/plain"><tt>urllib3.http2.probe</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10767,7 +11195,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.poolmanager"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/poolmanager.py" type="text/plain"><tt>urllib3.poolmanager</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/poolmanager.py" type="text/plain"><tt>urllib3.poolmanager</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10805,7 +11233,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.response"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/response.py" type="text/plain"><tt>urllib3.response</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/response.py" type="text/plain"><tt>urllib3.response</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10855,7 +11283,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/__init__.py" type="text/plain"><tt>urllib3.util</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/__init__.py" type="text/plain"><tt>urllib3.util</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10898,7 +11326,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.connection"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/connection.py" type="text/plain"><tt>urllib3.util.connection</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/connection.py" type="text/plain"><tt>urllib3.util.connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10925,7 +11353,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.proxy"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/proxy.py" type="text/plain"><tt>urllib3.util.proxy</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/proxy.py" type="text/plain"><tt>urllib3.util.proxy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10946,7 +11374,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.request"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/request.py" type="text/plain"><tt>urllib3.util.request</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/request.py" type="text/plain"><tt>urllib3.util.request</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10975,7 +11403,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.response"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/response.py" type="text/plain"><tt>urllib3.util.response</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/response.py" type="text/plain"><tt>urllib3.util.response</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -10997,7 +11425,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.retry"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/retry.py" type="text/plain"><tt>urllib3.util.retry</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/retry.py" type="text/plain"><tt>urllib3.util.retry</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11034,7 +11462,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.ssl_"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/ssl_.py" type="text/plain"><tt>urllib3.util.ssl_</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/ssl_.py" type="text/plain"><tt>urllib3.util.ssl_</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11068,7 +11496,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.ssl_match_hostname"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/ssl_match_hostname.py" type="text/plain"><tt>urllib3.util.ssl_match_hostname</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/ssl_match_hostname.py" type="text/plain"><tt>urllib3.util.ssl_match_hostname</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11090,7 +11518,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.ssltransport"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/ssltransport.py" type="text/plain"><tt>urllib3.util.ssltransport</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/ssltransport.py" type="text/plain"><tt>urllib3.util.ssltransport</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11115,7 +11543,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.timeout"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/timeout.py" type="text/plain"><tt>urllib3.util.timeout</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/timeout.py" type="text/plain"><tt>urllib3.util.timeout</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11144,7 +11572,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.url"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/url.py" type="text/plain"><tt>urllib3.util.url</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/url.py" type="text/plain"><tt>urllib3.util.url</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11174,7 +11602,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.util"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/util.py" type="text/plain"><tt>urllib3.util.util</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/util.py" type="text/plain"><tt>urllib3.util.util</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11197,7 +11625,7 @@ imported by:
 
 <div class="node">
   <a name="urllib3.util.wait"></a>
-  <a target="code" href="///C:/Python/Lib/site-packages/urllib3/util/wait.py" type="text/plain"><tt>urllib3.util.wait</tt></a>
+  <a target="code" href="///C:/Cine/CineEnv/Lib/site-packages/urllib3/util/wait.py" type="text/plain"><tt>urllib3.util.wait</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -11243,39 +11671,46 @@ imported by:
 imports:
     <a href="#_warnings">_warnings</a>
  &#8226;   <a href="#builtins">builtins</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
+ &#8226;   <a href="#types">types</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_pydatetime">_pydatetime</a>
+ &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#enum">enum</a>
+ &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#hmac">hmac</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._adapters">importlib.metadata._adapters</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
- &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
+ &#8226;   <a href="#importlib.resources._functional">importlib.resources._functional</a>
+ &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#pathlib._local">pathlib._local</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#re">re</a>
@@ -11284,17 +11719,17 @@ imported by:
  &#8226;   <a href="#requests.adapters">requests.adapters</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
- &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3">urllib3</a>
@@ -11306,7 +11741,6 @@ imported by:
  &#8226;   <a href="#urllib3.poolmanager">urllib3.poolmanager</a>
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
  &#8226;   <a href="#urllib3.util.ssl_">urllib3.util.ssl_</a>
- &#8226;   <a href="#webbrowser">webbrowser</a>
  &#8226;   <a href="#xml.etree.ElementTree">xml.etree.ElementTree</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
@@ -11335,6 +11769,7 @@ imported by:
  &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#copy">copy</a>
  &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -11351,15 +11786,16 @@ imported by:
   <a target="code" href="///C:/Python/Lib/webbrowser.py" type="text/plain"><tt>webbrowser</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#copy">copy</a>
- &#8226;   <a href="#getopt">getopt</a>
+    <a href="#_ios_support">_ios_support</a>
+ &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#copy">copy</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>
- &#8226;   <a href="#warnings">warnings</a>
 
   </div>
   <div class="import">
@@ -11469,9 +11905,9 @@ imported by:
   <a target="code" href="///C:/Python/Lib/xml/etree/ElementTree.py" type="text/plain"><tt>xml.etree.ElementTree</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_elementtree">_elementtree</a>
+    <a href="#'collections.abc'">'collections.abc'</a>
+ &#8226;   <a href="#_elementtree">_elementtree</a>
  &#8226;   <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#pyexpat">pyexpat</a>
@@ -11721,6 +12157,7 @@ imports:
 imported by:
     <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.resources.readers">importlib.resources.readers</a>
+ &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#zipfile._path">zipfile._path</a>
@@ -11740,6 +12177,8 @@ imports:
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#zipfile">zipfile</a>
  &#8226;   <a href="#zipfile._path.glob">zipfile._path.glob</a>
 
@@ -11758,7 +12197,8 @@ imported by:
   <a target="code" href="///C:/Python/Lib/zipfile/_path/glob.py" type="text/plain"><tt>zipfile._path.glob</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#re">re</a>
+    <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#zipfile._path">zipfile._path</a>
 
   </div>
@@ -11782,6 +12222,7 @@ imports:
  &#8226;   <a href="#_warnings">_warnings</a>
  &#8226;   <a href="#importlib.readers">importlib.readers</a>
  &#8226;   <a href="#marshal">marshal</a>
+ &#8226;   <a href="#struct">struct</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#zlib">zlib</a>
