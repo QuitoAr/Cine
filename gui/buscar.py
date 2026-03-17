@@ -18,6 +18,7 @@ class BuscarWindow(QDialog):
             print("Error: El widget tblResultados no se encuentra en el archivo .ui")
             return       
         self.tblResultados.verticalHeader().setVisible(True)
+        self.tblResultados.setSortingEnabled(True)
 
         self.id_film = None
         self.id_director = None
