@@ -41,13 +41,14 @@ class BuscarWindow(QDialog):
 
     def cargarTabla(self, lista):
         # Establecer el número de columnas: id_film, id_director y nombre_film
-        self.tblResultados.setColumnCount(5)
-        self.tblResultados.setHorizontalHeaderLabels(["","","Nombre del Film", "Director", "Visto"]) # Cambié el encabezado a español
-        self.tblResultados.setColumnWidth(0, 0)   # id_film
-        self.tblResultados.setColumnWidth(1, 0)   # id_director
-        self.tblResultados.setColumnWidth(2, 350)  # nombre_film
-        self.tblResultados.setColumnWidth(3, 200)  # nombre_director
-        self.tblResultados.setColumnWidth(4, 50) # film_visto
+        self.tblResultados.setColumnCount(6)
+        self.tblResultados.setHorizontalHeaderLabels(["","","Año","Nombre del Film", "Director", "Visto"]) # Cambié el encabezado a español
+        self.tblResultados.setColumnWidth(0, 0)     # id_film
+        self.tblResultados.setColumnWidth(1, 0)     # id_director
+        self.tblResultados.setColumnWidth(2, 50)    # anio_film
+        self.tblResultados.setColumnWidth(3, 350)   # nombre_film
+        self.tblResultados.setColumnWidth(4, 200)   # nombre_director
+        self.tblResultados.setColumnWidth(5, 50)    # film_visto
 
         # Establecer el número de filas según el tamaño de la lista
         self.tblResultados.setRowCount(len(lista))
@@ -56,10 +57,14 @@ class BuscarWindow(QDialog):
         for i, fila in enumerate(lista):
             self.tblResultados.setItem(i, 0, QTableWidgetItem(str(fila[0])))  # id_film
             self.tblResultados.setItem(i, 1, QTableWidgetItem(str(fila[1])))  # id_director
-            self.tblResultados.setItem(i, 2, QTableWidgetItem(str(fila[3])))  # nombre_film
-            self.tblResultados.setItem(i, 3, QTableWidgetItem(str(fila[4]))) # nombre_director  
-            self.tblResultados.setItem(i, 4, QTableWidgetItem(str(fila[5]))) # film_visto
-            # Ocultar las columnas de id_film y id_director
+            self.tblResultados.setItem(i, 2, QTableWidgetItem(str(fila[2])))  # anio_film
+            self.tblResultados.setItem(i, 3, QTableWidgetItem(str(fila[3])))  # nombre_film
+            self.tblResultados.setItem(i, 4, QTableWidgetItem(str(fila[4]))) # nombre_director  
+            self.tblResultados.setItem(i, 5, QTableWidgetItem(str(fila[5]))) # film_visto
+        
+        # Ocultar las columnas de id_film y id_director
+        self.tblResultados.hideColumn(0)
+        self.tblResultados.hideColumn(1)
 
     def filtrar(self):
         texto = self.txtBuscar.text().lower()
@@ -78,6 +83,7 @@ class BuscarWindow(QDialog):
     def seleccionar(self):
         fila = self.tblResultados.currentRow()
         if fila >= 0:
+            # Retrieve IDs from the hidden columns regardless of sort order
             self.id_film = int(self.tblResultados.item(fila, 0).text())
             self.id_director = int(self.tblResultados.item(fila, 1).text())
             self.accept()  # <-- ESTA LÍNEA ES CLAVE
