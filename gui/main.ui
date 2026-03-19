@@ -357,11 +357,17 @@ border-color: rgb(218, 247, 166);
         </size>
        </property>
        <property name="font">
-        <font/>
+        <font>
+         <strikeout>false</strikeout>
+         <stylestrategy>NoAntialias</stylestrategy>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(218, 247, 166);
-text-transform: uppercase;</string>
+text-transform: capitalize;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
        </property>
        <property name="text">
         <string>TextLabel</string>
