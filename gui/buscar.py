@@ -18,7 +18,7 @@ class BuscarWindow(QDialog):
             print("Error: El widget tblResultados no se encuentra en el archivo .ui")
             return       
         self.tblResultados.verticalHeader().setVisible(True)
-        self.tblResultados.setSortingEnabled(True)
+        #self.tblResultados.setSortingEnabled(True)
 
         self.id_film = None
         self.id_director = None
@@ -41,6 +41,7 @@ class BuscarWindow(QDialog):
 
     def cargarTabla(self, lista):
         # Establecer el número de columnas: id_film, id_director y nombre_film
+        self.tblResultados.setSortingEnabled(False)
         self.tblResultados.setColumnCount(6)
         self.tblResultados.setHorizontalHeaderLabels(["","","Año","Nombre del Film", "Director", "Visto"]) # Cambié el encabezado a español
         self.tblResultados.setColumnWidth(0, 0)     # id_film
@@ -65,6 +66,7 @@ class BuscarWindow(QDialog):
         # Ocultar las columnas de id_film y id_director
         self.tblResultados.hideColumn(0)
         self.tblResultados.hideColumn(1)
+        self.tblResultados.setSortingEnabled(True)
 
     def filtrar(self):
         texto = self.txtBuscar.text().lower()

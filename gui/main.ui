@@ -206,7 +206,7 @@ border-color: yellow;</string>
      <number>-1</number>
     </property>
     <property name="maxVisibleItems">
-     <number>20</number>
+     <number>25</number>
     </property>
     <property name="insertPolicy">
      <enum>QComboBox::InsertAlphabetically</enum>
@@ -358,6 +358,8 @@ border-color: rgb(218, 247, 166);
        </property>
        <property name="font">
         <font>
+         <family>Arial</family>
+         <pointsize>12</pointsize>
          <strikeout>false</strikeout>
          <stylestrategy>NoAntialias</stylestrategy>
         </font>
