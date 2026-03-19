@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>669</width>
-    <height>495</height>
+    <width>727</width>
+    <height>571</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -45,8 +45,8 @@ background-color:rgb(199, 0, 57);</string>
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>651</width>
-     <height>439</height>
+     <width>709</width>
+     <height>519</height>
     </rect>
    </property>
    <property name="font">
@@ -58,8 +58,14 @@ background-color:rgb(199, 0, 57);</string>
    <property name="cursor" stdset="0">
     <cursorShape>ArrowCursor</cursorShape>
    </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::SingleSelection</enum>
@@ -73,7 +79,7 @@ background-color:rgb(199, 0, 57);</string>
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>631</width>
+     <width>669</width>
      <height>37</height>
     </rect>
    </property>

@@ -54,7 +54,7 @@ class MainWindow():
         try:
             servidor = getattr(conexion, 'servidor_conectado', None)
             if servidor:
-                self.main.labelServidor.setText(servidor)
+                self.main.labelServidor.setText("Servidor: " + servidor)
         except Exception:
             pass
         self.main.cbcDirectores.setCurrentIndex(0)  # Selecciona el primer elemento
@@ -199,6 +199,7 @@ class MainWindow():
                         carpeta_local = f"{unidad}:\\{subruta}"
 
                 self.main.txtCarpeta.setText(carpeta_local)
+                self.main.txtCarpeta.home(False) 
 
 
 
@@ -383,6 +384,7 @@ class MainWindow():
             self.main.txtAnio.setText(self.main.tblPeliculas.item(fila, 2).text())
             self.main.txtNombre.setText(self.main.tblPeliculas.item(fila, 3).text())
             self.main.txtCarpeta.setText(self.main.tblPeliculas.item(fila, 4).text())
+            self.main.txtCarpeta.home(False)
             self.main.txtInternet.setText(self.main.tblPeliculas.item(fila, 5).text())
         self.actualizando_campos = False
 
@@ -401,6 +403,7 @@ class MainWindow():
         self.main.txtNombre.setText("")
         self.main.txtAnio.setText("")
         self.main.txtCarpeta.setText("")
+        self.main.txtCarpeta.home(False)
         self.main.txtInternet.setText("")
         self.main.ckbVisto.setChecked(False)
         self.main.labelId_film.setText("") # Limpia el label de ID_film

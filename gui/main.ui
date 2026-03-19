@@ -357,9 +357,7 @@ border-color: rgb(218, 247, 166);
         </size>
        </property>
        <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
+        <font/>
        </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(218, 247, 166);
