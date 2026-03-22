@@ -415,6 +415,7 @@ class MainWindow():
         self.main.tblPeliculas.setEnabled(True)
         self.main.btnEliminar.setEnabled(True)
         self.main.cbcDirectores.setEnabled(True)
+        self.main.btnBuscar.setEnabled(True)
         
     def insertando_editando(self):
         self.main.btnGrabar.setEnabled(True)
@@ -423,6 +424,8 @@ class MainWindow():
         self.main.btnEliminar.setEnabled(False)
         self.main.tblPeliculas.setEnabled(False)
         self.main.cbcDirectores.setEnabled(False)
+        self.main.btnBuscar.setEnabled(False)
+
 
     def actualizarComboDirectores(self):
         """Rellena el ComboBox de directores desde la base de datos."""
