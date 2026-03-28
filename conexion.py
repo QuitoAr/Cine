@@ -25,7 +25,7 @@ class Conexion():
         
         # Cambiar orden de servidores: intentar primero TITULAR (remoto), luego QUITO (local)
         servers_to_try = [
-            {'name': 'titular', 'trusted': False, 'uid': 'sa', 'pwd': '123'},
+            #{'name': 'titular', 'trusted': False, 'uid': 'sa', 'pwd': '123'},
             {'name': 'QUITO\\SQLEXPRESS', 'trusted': True, 'uid': 'sa', 'pwd': '123'},
             {'name': 'QUITO\\SQLEXPRESS', 'trusted': False, 'uid': 'sa', 'pwd': '123'},
         ]
