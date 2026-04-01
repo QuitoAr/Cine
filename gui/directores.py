@@ -129,26 +129,39 @@ class DirectorsWindow(QDialog):
                 return
 
             # Usamos la API de Wikipedia para buscar
-            search_url = "https://en.wikipedia.org/w/api.php"
+            search_url = "https://es.wikipedia.org/w/api.php"
             params = {
                 "action": "query",
                 "list": "search",
                 "srsearch": nombre,
                 "format": "json"
             }
+            
+            # User-Agent requerido por Wikipedia
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            }
 
             try:
-                response = requests.get(search_url, params=params)
+                response = requests.get(search_url, params=params, headers=headers, timeout=5)
+                response.raise_for_status()  # Revisar si hay errores HTTP
+                
                 data = response.json()
                 resultados = data.get("query", {}).get("search", [])
                 if resultados:
                     # Tomamos la primera página encontrada
                     titulo = resultados[0]["title"]
-                    wiki_url = f"https://en.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
+                    wiki_url = f"https://es.wikipedia.org/wiki/{titulo.replace(' ', '_')}"
                     self.wikiDirector.setText(wiki_url)
                     webbrowser.open(wiki_url)
+                else:
+                    QMessageBox.information(self, "Sin resultados", f"No se encontraron resultados para '{nombre}'")
+            except requests.exceptions.RequestException as e:
+                QMessageBox.warning(self, "Error de conexión", f"No se pudo conectar con Wikipedia: {str(e)}")
+            except ValueError as e:
+                QMessageBox.warning(self, "Error", f"Error al procesar la respuesta de Wikipedia: {str(e)}")
             except Exception as e:
-                print("Error al buscar en Wikipedia:", e)
+                QMessageBox.warning(self, "Error", f"Error al buscar en Wikipedia: {str(e)}")
 
             
     def nuevo_director(self):
