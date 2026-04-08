@@ -63,14 +63,20 @@ class Director(BaseDirectoresDB):
     def crear_director(self, nombre, wiki):
         try:
             self.cursor.execute("""
-                INSERT INTO directores (nombre_director, wikipedia_director)
-                OUTPUT INSERTED.id_director
-                VALUES (?, ?)
+                INSERT INTO directores (nombre_director, wikipedia_director) VALUES (?, ?);
+                SELECT CAST(SCOPE_IDENTITY() as int)
             """, (nombre, wiki))
             
-            nuevo_id = self.cursor.fetchone()[0]
-            self.db.commit()
-            return int(nuevo_id)
+            # nextset() avanza al siguiente conjunto de resultados (el SELECT)
+            if self.cursor.nextset():
+                resultado = self.cursor.fetchone()
+                self.db.commit()
+                
+                if resultado and resultado[0] is not None:
+                    return int(resultado[0])
+            
+            print("❌ Error: No se pudo obtener el ID del director creado")
+            return 0
 
         except Exception as e:
             print("❌ Error al crear:", e)
